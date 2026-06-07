@@ -1,0 +1,143 @@
+{
+  "generated_at": "2026-06-07T02:18:20.783Z",
+  "root": "/workspace/nocobase",
+  "target_version": "2.0.61",
+  "expected_version": "2.0.61",
+  "package_manager": "yarn",
+  "expected_package_manager": "pnpm",
+  "database_target": "PostgreSQL",
+  "is_nocobase_host": true,
+  "has_app": true,
+  "has_db": true,
+  "has_logger": true,
+  "has_storage": true,
+  "has_plugin_manager": true,
+  "has_acl": true,
+  "has_ui_schema": true,
+  "has_scheduler": true,
+  "has_workflow": true,
+  "has_i18n": true,
+  "has_collection_manager": true,
+  "has_file_storage": true,
+  "has_template_printing": true,
+  "car_rental_plugins_present": {
+    "plugin_rental_core": false,
+    "plugin_contract_documents": false,
+    "plugin_iopgps": false
+  },
+  "shared_automation_present": false,
+  "capability_matrix": {
+    "is_nocobase_host": "present",
+    "target_version_v2_0_61": "present",
+    "package_manager_pnpm": "missing",
+    "database_target_postgresql": "present",
+    "app": "present",
+    "db": "present",
+    "logger": "present",
+    "storage": "present",
+    "plugin_manager": "present",
+    "acl": "present",
+    "ui_schema": "present",
+    "scheduler": "present",
+    "workflow": "present",
+    "i18n": "present",
+    "collection_manager": "present",
+    "file_storage": "present",
+    "template_printing": "present",
+    "car_rental_plugin_rental_core": "missing",
+    "car_rental_plugin_contract_documents": "missing",
+    "car_rental_plugin_iopgps": "missing",
+    "shared_automation": "missing"
+  },
+  "evidence": {
+    "host_base": [
+      "package.json",
+      "packages/core/app/package.json",
+      "packages/core/server/package.json",
+      "packages/presets/nocobase/package.json"
+    ],
+    "app": [
+      "packages/core/app/src/index.ts",
+      "packages/core/server/src/application.ts",
+      "packages/core/server/src/plugin.ts"
+    ],
+    "db": [
+      "packages/core/database/src/database.ts",
+      "packages/core/database/src/repository.ts",
+      "packages/core/app/src/config/database.ts"
+    ],
+    "logger": [
+      "packages/core/logger/src/index.ts",
+      "packages/core/app/src/config/logger.ts"
+    ],
+    "storage": [
+      "storage",
+      "packages/plugins/@nocobase/plugin-file-manager/src/server/storages",
+      "packages/plugins/@nocobase/plugin-file-manager/src/server/collections/storages.ts"
+    ],
+    "plugin_manager": [
+      "packages/core/app/src/config/plugins.ts"
+    ],
+    "acl": [
+      "packages/core/acl/src/acl.ts",
+      "packages/plugins/@nocobase/plugin-acl/src/server/index.ts",
+      "examples/app/acl.ts"
+    ],
+    "ui_schema": [
+      "packages/plugins/@nocobase/plugin-ui-schema-storage/src/server/index.ts",
+      "packages/core/client/src/schema-component",
+      "packages/core/client-v2/src"
+    ],
+    "scheduler": [
+      "packages/plugins/@nocobase/plugin-workflow-delay/src/server",
+      "packages/core/database/src/sync-runner.ts",
+      "packages/core/database/package.json"
+    ],
+    "workflow": [
+      "packages/plugins/@nocobase/plugin-workflow/src/server/index.ts",
+      "packages/plugins/@nocobase/plugin-workflow/src/common/collections/workflows.ts"
+    ],
+    "i18n": [
+      "packages/plugins/@nocobase/plugin-localization/src/index.ts",
+      "examples/app/i18n.ts"
+    ],
+    "collection_manager": [
+      "packages/plugins/@nocobase/plugin-data-source-main/src/index.ts",
+      "packages/core/database/src/collection.ts"
+    ],
+    "file_storage": [
+      "packages/plugins/@nocobase/plugin-file-manager/src/server/index.ts",
+      "packages/plugins/@nocobase/plugin-file-manager/src/server/storages"
+    ],
+    "template_printing": [
+      "packages/plugins/@nocobase/plugin-action-print/src/index.ts",
+      "packages/plugins/@nocobase/plugin-block-template/src/index.ts"
+    ],
+    "postgres": [
+      "packages/core/database/src/dialects/postgres-dialect.ts",
+      "packages/core/database/src/__tests__/postgres/schema.test.ts"
+    ]
+  },
+  "warnings": [
+    "未检测到 packages/shared/nocobase-automation；本轮仅创建宿主检测脚本，后续应复制 shared automation。",
+    "未检测到完整 car-rental 三个插件；后续真实业务 Adapter 前需要复制插件目录。"
+  ],
+  "errors": [],
+  "blockers": [
+    "包管理器不是 pnpm，当前检测为 yarn。"
+  ],
+  "next_actions": [
+    "从 car-rental-nocobase 复制 packages/shared/nocobase-automation 到宿主工程对应路径。",
+    "复制 packages/plugins/plugin-rental-core。",
+    "复制 packages/plugins/plugin-contract-documents。",
+    "复制 packages/plugins/plugin-iopgps。",
+    "确认 v2.0.61 宿主工程实际包管理器；当前仓库声明不是 pnpm，真实 Collection Adapter 前需明确执行命令策略。",
+    "保持只读检测策略：不读取 .env 密钥、不连接真实数据库、不调用真实 IOPGPS、不写入业务数据。"
+  ],
+  "safety": {
+    "reads_env_file": false,
+    "connects_database": false,
+    "calls_iopgps": false,
+    "writes_business_data": false
+  }
+}
