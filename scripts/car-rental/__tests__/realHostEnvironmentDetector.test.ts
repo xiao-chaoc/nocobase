@@ -12,7 +12,7 @@ function makeTempHost(): string {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'nocobase-host-detector-'));
   fs.writeFileSync(
     path.join(root, 'package.json'),
-    JSON.stringify({ name: 'nocobase', packageManager: 'pnpm@9.0.0' }, null, 2),
+    JSON.stringify({ name: 'nocobase', packageManager: 'yarn@1.22.22' }, null, 2),
   );
   const files = [
     'packages/core/app/package.json',
@@ -69,7 +69,7 @@ describe('realHostEnvironmentDetector', () => {
 
     expect(result).toMatchObject({
       target_version: '2.0.61',
-      package_manager: 'pnpm',
+      package_manager: 'yarn',
       is_nocobase_host: true,
       has_app: true,
       has_db: true,
