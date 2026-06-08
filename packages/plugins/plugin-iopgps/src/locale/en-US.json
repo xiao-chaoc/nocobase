@@ -1,0 +1,108 @@
+{
+  "menu": {
+    "rentalCore": "Rental core",
+    "iopgps": "GPS monitoring",
+    "contractDocuments": "Contract documents"
+  },
+  "collections": {
+    "drivers": "Drivers",
+    "vehicles": "Vehicles",
+    "leaseContracts": "Contracts",
+    "rentDailyLedgers": "Daily rent ledgers",
+    "rentPayments": "Payments",
+    "depositRecords": "Deposits",
+    "gpsDevices": "GPS devices",
+    "contractDocuments": "Contract documents"
+  },
+  "contractStatus": {
+    "draft": "Draft",
+    "active": "Active",
+    "completed": "Completed",
+    "cancelled": "Cancelled"
+  },
+  "ledgerStatus": {
+    "nonPayable": "Free day",
+    "futureReceivable": "Future receivable",
+    "paid": "Paid",
+    "unpaidDebt": "Unpaid debt",
+    "partialDebt": "Partial debt",
+    "waived": "Waived",
+    "dispute": "Dispute",
+    "cancelled": "Cancelled"
+  },
+  "paymentStatus": {
+    "draft": "Draft",
+    "confirmed": "Confirmed",
+    "reversed": "Reversed",
+    "cancelled": "Cancelled"
+  },
+  "debtWaiverDisputeStatus": {
+    "debt": "Debt",
+    "waived": "Waived",
+    "pendingWaiverApproval": "Pending waiver approval",
+    "dispute": "Dispute"
+  },
+  "gpsStatus": {
+    "normal": "Normal",
+    "offline": "Offline",
+    "fault": "Fault",
+    "noDevice": "No device",
+    "apiError": "API error",
+    "unknown": "Unknown"
+  },
+  "contractDocumentStatus": {
+    "generated": "Generated",
+    "printed": "Printed",
+    "signed": "Signed",
+    "scanned": "Scan uploaded",
+    "voided": "Voided"
+  },
+  "errors": {
+    "overpayment": "Single rent date cannot be overpaid",
+    "unpaidReasonRequired": "Unpaid dates require a reason",
+    "permissionDenied": "Permission denied",
+    "gpsSyncFailed": "GPS sync failed but billing is not affected"
+  },
+  "gps": {
+    "status": {
+      "normal": "Normal",
+      "moving": "Moving",
+      "static": "Static",
+      "offline": "Offline",
+      "fault": "Fault",
+      "low_power": "Low power",
+      "power_cut": "Power cut",
+      "unknown": "Unknown"
+    }
+  },
+  "vehicle": {
+    "gps_status": {
+      "normal": "Normal",
+      "offline": "Offline",
+      "fault": "Fault",
+      "no_device": "No device",
+      "api_error": "API error",
+      "unknown": "Unknown"
+    }
+  },
+  "iopgps": {
+    "action": {
+      "get_access_token": "Get access token",
+      "sync_device_status": "Sync device status",
+      "sync_location": "Sync location",
+      "sync_daily_mileage": "Sync daily mileage",
+      "backfill_mileage": "Backfill mileage"
+    }
+  },
+  "error": {
+    "iopgps_settings_invalid": "IOPGPS settings are invalid.",
+    "iopgps_token_missing": "IOPGPS token is missing.",
+    "iopgps_token_expired": "IOPGPS token is expired.",
+    "iopgps_imei_required": "IMEI is required.",
+    "iopgps_location_invalid": "Location data is invalid.",
+    "iopgps_mileage_date_required": "Mileage date is required.",
+    "iopgps_mileage_invalid": "Mileage data is invalid.",
+    "iopgps_action_invalid": "IOPGPS action is invalid.",
+    "iopgps_error_message_required": "Error message is required."
+  }
+}

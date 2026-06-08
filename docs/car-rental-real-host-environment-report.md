@@ -2,10 +2,11 @@
 
 ## 1. 检测元信息
 
-- 当前检测时间：2026-06-07T16:11:30.113Z（UTC，来自 `test-data/generated/real-host-environment-report.generated.json`）。
+- 当前检测时间：2026-06-08T18:56:48.366Z（UTC，来自 `test-data/generated/real-host-environment-report.generated.json`）。
 - 当前宿主工程路径：`/workspace/nocobase`。
 - 检测范围：仅做文件系统与 package 元数据级别的只读环境检测；不读取 `.env` 真实密钥、不连接真实数据库、不调用真实 IOPGPS、不创建业务数据。
 - 仓库扫描：已执行 `find . -maxdepth 6 -type f` 等效扫描，并排除了 `node_modules`、`.git`、`.test-dist`、`storage`、`storage-test`、`backups-test`、`logs-test`、`test-runtime`。
+- 源码来源：从仓库根目录 `car-rental-nocobase-main.zip` 扫描确认后，解压到 `/tmp/car-rental-nocobase-extract`，仅复制三个 car-rental 插件与 `packages/shared/nocobase-automation`；未提交 ZIP 解压副本或 `/tmp` 内容。
 
 ## 2. 宿主工程与包管理器
 
@@ -18,16 +19,23 @@
 
 ## 3. car-rental 源码路径与复制结果
 
-- 已搜索候选路径：`/workspace/car-rental-nocobase`、`../car-rental-nocobase`，并在 `/workspace` 及受限系统路径范围内搜索 `car-rental-nocobase`、`plugin-rental-core`、`nocobase-automation`。
-- 结论：当前环境未发现 car-rental-nocobase 源码目录；因此未编造路径、未伪造插件源码、未执行目录复制。
-- 已确认未复制 `.env`、`.env.test`、`filled.json`、`node_modules`、真实文件目录或测试运行目录。
+- ZIP 文件：`car-rental-nocobase-main.zip`。
+- ZIP 内根目录：`car-rental-nocobase-main/`。
+- 临时解压目录：`/tmp/car-rental-nocobase-extract/car-rental-nocobase-main`。
+- ZIP 内已确认存在：
+  - `car-rental-nocobase-main/packages/plugins/plugin-rental-core/`
+  - `car-rental-nocobase-main/packages/plugins/plugin-contract-documents/`
+  - `car-rental-nocobase-main/packages/plugins/plugin-iopgps/`
+  - `car-rental-nocobase-main/packages/shared/nocobase-automation/`
+- ZIP 禁止项扫描结论：未发现 `.env`、`.env.test`、`node_modules/`、`.git/`、`.test-dist/`、测试运行目录、付款截图目录、合同扫描目录、司机证件目录或 `*confirmed*.json` 等禁止项；`.env.example` 与 `.env.test.example` 仅存在于 ZIP 根目录，未复制到目标插件目录。
+- 复制时已排除 `.env`、`.env.test`、`filled.json`、`node_modules`、`.git`、`.test-dist`、`storage-test`、`backups-test`、`logs-test`、`test-runtime`、`payment-screenshots`、`signed-contracts`、`driver-documents`、`driver-licenses`、`contract-scans`。
 
 | 目标目录 | 检测结果 |
 | --- | --- |
-| `packages/plugins/plugin-rental-core` | 缺失 |
-| `packages/plugins/plugin-contract-documents` | 缺失 |
-| `packages/plugins/plugin-iopgps` | 缺失 |
-| `packages/shared/nocobase-automation` | 缺失 |
+| `packages/plugins/plugin-rental-core` | 存在 |
+| `packages/plugins/plugin-contract-documents` | 存在 |
+| `packages/plugins/plugin-iopgps` | 存在 |
+| `packages/shared/nocobase-automation` | 存在 |
 
 ## 4. 能力矩阵
 
@@ -50,29 +58,24 @@
 | `collection_manager` | 存在 |
 | `file_storage` | 存在 |
 | `template_printing` | 存在 |
-| `car_rental_plugin_rental_core` | 缺失 |
-| `car_rental_plugin_contract_documents` | 缺失 |
-| `car_rental_plugin_iopgps` | 缺失 |
-| `shared_automation` | 缺失 |
+| `car_rental_plugin_rental_core` | 存在 |
+| `car_rental_plugin_contract_documents` | 存在 |
+| `car_rental_plugin_iopgps` | 存在 |
+| `shared_automation` | 存在 |
 
 ## 5. 是否缺少 NocoBase 基础能力
 
-- 未检测到 app / db / collection manager / acl / ui schema 等基础能力缺失。
+- 未检测到 app / db / collection manager / ACL / UI Schema / scheduler / workflow / storage / logger 等基础能力缺失。
 
 ## 6. 是否可以进入真实 Collection Adapter 实现
 
-- 结论：暂不能进入真实 Collection Adapter 实现。
-- 当前阻塞项：
-  - 未检测到 packages/shared/nocobase-automation；需要先复制 shared automation。
-  - 未检测到完整 car-rental 三个插件；需要先复制插件目录。
+- 结论：可以进入真实 Collection Adapter 实现。
+- 当前阻塞项：无。
 - 安全状态：未读取 `.env`、未连接数据库、未调用 IOPGPS、未写业务数据。
-- 当前阶段不得标记为 `production_ready`。
+- 当前阶段仍不得标记为 `production_ready`；本报告仅说明可进入下一阶段的真实 Collection Adapter 最小范围实现。
 
 ## 7. 下一步
 
-- 需要先提供或放置 car-rental-nocobase 源码目录，然后复制三个插件和 shared automation。
-- 从 car-rental-nocobase 复制 packages/shared/nocobase-automation 到宿主工程对应路径。
-- 复制 packages/plugins/plugin-rental-core。
-- 复制 packages/plugins/plugin-contract-documents。
-- 复制 packages/plugins/plugin-iopgps。
-- 保持只读检测策略：不读取 .env 密钥、不连接真实数据库、不调用真实 IOPGPS、不写入业务数据。
+- 下一步是实现真实 Collection Adapter 最小范围。
+- 最小范围建议仅验证 NocoBase v2.0.61 中可确认的 collection 注册入口，并继续保持只读/受控策略：不真实创建业务数据、不执行 migration、不注册权限、不创建页面、不导入测试数据、不调用真实 IOPGPS。
+- 在进入实现前，应基于宿主工程源码确认可用 API，不使用不确定 API 写成已验证。
