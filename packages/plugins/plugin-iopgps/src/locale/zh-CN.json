@@ -1,0 +1,108 @@
+{
+  "menu": {
+    "rentalCore": "租赁核心",
+    "iopgps": "GPS 监控",
+    "contractDocuments": "合同文件"
+  },
+  "collections": {
+    "drivers": "司机",
+    "vehicles": "车辆",
+    "leaseContracts": "合同",
+    "rentDailyLedgers": "每日租金台账",
+    "rentPayments": "付款",
+    "depositRecords": "押金",
+    "gpsDevices": "GPS 设备",
+    "contractDocuments": "合同文件"
+  },
+  "contractStatus": {
+    "draft": "草稿",
+    "active": "生效",
+    "completed": "已完成",
+    "cancelled": "已取消"
+  },
+  "ledgerStatus": {
+    "nonPayable": "免租日",
+    "futureReceivable": "未来应收",
+    "paid": "已付",
+    "unpaidDebt": "未付欠款",
+    "partialDebt": "部分付款欠款",
+    "waived": "已免除",
+    "dispute": "争议中",
+    "cancelled": "已取消"
+  },
+  "paymentStatus": {
+    "draft": "草稿",
+    "confirmed": "已确认",
+    "reversed": "已冲正",
+    "cancelled": "已取消"
+  },
+  "debtWaiverDisputeStatus": {
+    "debt": "欠款",
+    "waived": "免除",
+    "pendingWaiverApproval": "待审批免除",
+    "dispute": "争议"
+  },
+  "gpsStatus": {
+    "normal": "正常",
+    "offline": "离线",
+    "fault": "故障",
+    "noDevice": "无设备",
+    "apiError": "接口异常",
+    "unknown": "未知"
+  },
+  "contractDocumentStatus": {
+    "generated": "已生成",
+    "printed": "已打印",
+    "signed": "已签署",
+    "scanned": "已上传扫描件",
+    "voided": "已作废"
+  },
+  "errors": {
+    "overpayment": "单日不可超付",
+    "unpaidReasonRequired": "未付日期必须填写未付原因",
+    "permissionDenied": "权限不足",
+    "gpsSyncFailed": "GPS 同步失败但不影响租金逻辑"
+  },
+  "gps": {
+    "status": {
+      "normal": "正常",
+      "moving": "行驶中",
+      "static": "静止",
+      "offline": "离线",
+      "fault": "故障",
+      "low_power": "低电",
+      "power_cut": "断电",
+      "unknown": "未知"
+    }
+  },
+  "vehicle": {
+    "gps_status": {
+      "normal": "正常",
+      "offline": "离线",
+      "fault": "故障",
+      "no_device": "无设备",
+      "api_error": "接口异常",
+      "unknown": "未知"
+    }
+  },
+  "iopgps": {
+    "action": {
+      "get_access_token": "获取访问令牌",
+      "sync_device_status": "同步设备状态",
+      "sync_location": "同步定位",
+      "sync_daily_mileage": "同步每日里程",
+      "backfill_mileage": "补采里程"
+    }
+  },
+  "error": {
+    "iopgps_settings_invalid": "IOPGPS 配置无效。",
+    "iopgps_token_missing": "IOPGPS token 缺失。",
+    "iopgps_token_expired": "IOPGPS token 已过期。",
+    "iopgps_imei_required": "IMEI 必填。",
+    "iopgps_location_invalid": "定位数据无效。",
+    "iopgps_mileage_date_required": "每日里程日期必填。",
+    "iopgps_mileage_invalid": "每日里程无效。",
+    "iopgps_action_invalid": "IOPGPS 动作无效。",
+    "iopgps_error_message_required": "错误信息必填。"
+  }
+}

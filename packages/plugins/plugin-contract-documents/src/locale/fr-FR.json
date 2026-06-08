@@ -1,0 +1,112 @@
+{
+  "menu": {
+    "rentalCore": "Cœur location",
+    "iopgps": "Suivi GPS",
+    "contractDocuments": "Documents de contrat"
+  },
+  "collections": {
+    "drivers": "Chauffeurs",
+    "vehicles": "Véhicules",
+    "leaseContracts": "Contrats",
+    "rentDailyLedgers": "Grand livre quotidien",
+    "rentPayments": "Paiements",
+    "depositRecords": "Dépôts",
+    "gpsDevices": "Appareils GPS",
+    "contractDocuments": "Documents de contrat"
+  },
+  "contractStatus": {
+    "draft": "Brouillon",
+    "active": "Actif",
+    "completed": "Terminé",
+    "cancelled": "Annulé"
+  },
+  "ledgerStatus": {
+    "nonPayable": "Jour gratuit",
+    "futureReceivable": "Créance future",
+    "paid": "Payé",
+    "unpaidDebt": "Dette impayée",
+    "partialDebt": "Dette partielle",
+    "waived": "Exonéré",
+    "dispute": "Litige",
+    "cancelled": "Annulé"
+  },
+  "paymentStatus": {
+    "draft": "Brouillon",
+    "confirmed": "Confirmé",
+    "reversed": "Extourné",
+    "cancelled": "Annulé"
+  },
+  "debtWaiverDisputeStatus": {
+    "debt": "Dette",
+    "waived": "Exonéré",
+    "pendingWaiverApproval": "Exonération en attente",
+    "dispute": "Litige"
+  },
+  "gpsStatus": {
+    "normal": "Normal",
+    "offline": "Hors ligne",
+    "fault": "Panne",
+    "noDevice": "Aucun appareil",
+    "apiError": "Erreur API",
+    "unknown": "Inconnu"
+  },
+  "contractDocumentStatus": {
+    "generated": "Généré",
+    "printed": "Imprimé",
+    "signed": "Signé",
+    "scanned": "Scan téléversé",
+    "voided": "Annulé"
+  },
+  "errors": {
+    "overpayment": "Une date de loyer ne peut pas être surpayée",
+    "unpaidReasonRequired": "Les dates impayées exigent une raison",
+    "permissionDenied": "Permission refusée",
+    "gpsSyncFailed": "Échec GPS sans effet sur la facturation"
+  },
+  "contract": {
+    "language": {
+      "zh-CN": "Chinois",
+      "en-US": "Anglais",
+      "fr-FR": "Français"
+    }
+  },
+  "contract_document": {
+    "status": {
+      "draft": "Brouillon",
+      "generated": "Généré",
+      "printed": "Imprimé",
+      "signed": "Signé",
+      "scanned": "Numérisé",
+      "voided": "Annulé"
+    }
+  },
+  "contract_signature": {
+    "status": {
+      "not_generated": "Non généré",
+      "generated": "Généré",
+      "printed": "Imprimé",
+      "signed": "Signé",
+      "scanned": "Numérisé",
+      "voided": "Annulé"
+    }
+  },
+  "contract_template": {
+    "status": {
+      "active": "Actif",
+      "inactive": "Inactif",
+      "archived": "Archivé"
+    }
+  },
+  "error": {
+    "contract_language_invalid": "La langue du contrat est invalide.",
+    "contract_template_missing": "Le modèle de contrat est manquant.",
+    "contract_template_invalid": "Le modèle de contrat est invalide.",
+    "contract_languages_required": "Les langues du contrat sont requises.",
+    "contract_document_invalid": "Le document de contrat est invalide.",
+    "contract_document_status_invalid": "Le statut du document est invalide.",
+    "contract_document_status_transition_invalid": "La transition de statut est invalide.",
+    "contract_document_not_printable": "Le document n’est pas imprimable.",
+    "contract_signed_scan_required": "Le scan signé est requis.",
+    "contract_void_reason_required": "La raison d’annulation est requise."
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "menu": {
+    "rentalCore": "Rental core",
+    "iopgps": "GPS monitoring",
+    "contractDocuments": "Contract documents"
+  },
+  "collections": {
+    "drivers": "Drivers",
+    "vehicles": "Vehicles",
+    "leaseContracts": "Contracts",
+    "rentDailyLedgers": "Daily rent ledgers",
+    "rentPayments": "Payments",
+    "depositRecords": "Deposits",
+    "gpsDevices": "GPS devices",
+    "contractDocuments": "Contract documents"
+  },
+  "contractStatus": {
+    "draft": "Draft",
+    "active": "Active",
+    "completed": "Completed",
+    "cancelled": "Cancelled"
+  },
+  "ledgerStatus": {
+    "nonPayable": "Free day",
+    "futureReceivable": "Future receivable",
+    "paid": "Paid",
+    "unpaidDebt": "Unpaid debt",
+    "partialDebt": "Partial debt",
+    "waived": "Waived",
+    "dispute": "Dispute",
+    "cancelled": "Cancelled"
+  },
+  "paymentStatus": {
+    "draft": "Draft",
+    "confirmed": "Confirmed",
+    "reversed": "Reversed",
+    "cancelled": "Cancelled"
+  },
+  "debtWaiverDisputeStatus": {
+    "debt": "Debt",
+    "waived": "Waived",
+    "pendingWaiverApproval": "Pending waiver approval",
+    "dispute": "Dispute"
+  },
+  "gpsStatus": {
+    "normal": "Normal",
+    "offline": "Offline",
+    "fault": "Fault",
+    "noDevice": "No device",
+    "apiError": "API error",
+    "unknown": "Unknown"
+  },
+  "contractDocumentStatus": {
+    "generated": "Generated",
+    "printed": "Printed",
+    "signed": "Signed",
+    "scanned": "Scan uploaded",
+    "voided": "Voided"
+  },
+  "errors": {
+    "overpayment": "Single rent date cannot be overpaid",
+    "unpaidReasonRequired": "Unpaid dates require a reason",
+    "permissionDenied": "Permission denied",
+    "gpsSyncFailed": "GPS sync failed but billing is not affected"
+  },
+  "ledger": {
+    "non_payable": "Non-payable",
+    "future_receivable": "Future receivable",
+    "paid": "Paid",
+    "unpaid_debt": "Unpaid debt",
+    "partial_debt": "Partial debt",
+    "waived": "Waived",
+    "partial_waived": "Partially waived",
+    "dispute": "Dispute",
+    "cancelled": "Cancelled"
+  },
+  "error": {
+    "weekly_payable_days_invalid": "Weekly payable days must be 3, 4, 5, 6, or 7.",
+    "default_free_weekdays_invalid": "Default free weekdays are invalid.",
+    "fixed_term_months_invalid": "Fixed-term contracts must be at least 6 months.",
+    "ledger_overpaid": "The daily ledger is overpaid.",
+    "ledger_over_waived": "The waived amount exceeds the due amount.",
+    "date_range_invalid": "The date range is invalid.",
+    "contract_type_invalid": "The contract type is invalid.",
+    "daily_rent_amount_invalid": "The daily rent amount is invalid.",
+    "horizon_days_invalid": "The ledger horizon days value is invalid.",
+    "payment_amount_invalid": "Payment amount must be greater than 0.",
+    "payment_allocations_required": "Payment must be allocated to rent dates.",
+    "payment_allocation_amount_mismatch": "Payment amount must equal total allocated amount.",
+    "payment_contract_mismatch": "Payment contract must match ledger contract.",
+    "payment_ledger_not_payable": "Payment cannot be allocated to a free or non-payable date.",
+    "unpaid_reason_required": "Unpaid or unsettled dates require an unpaid reason.",
+    "unpaid_reason_invalid": "Unpaid reason is invalid.",
+    "waiver_amount_invalid": "Waiver amount must be greater than 0.",
+    "waiver_amount_exceeds_balance": "Waiver amount cannot exceed current balance.",
+    "payment_reversal_reason_required": "Payment reversal requires a reason.",
+    "payment_reversal_invalid_status": "Only confirmed payments can be reversed.",
+    "calendar_driver_required": "Driver is required for calendar data.",
+    "calendar_date_range_invalid": "Calendar date range is invalid.",
+    "permission_user_required": "Current internal user is required for permission filtering.",
+    "permission_role_invalid": "Current internal user role is invalid.",
+    "summary_today_required": "Today is required for financial summaries.",
+    "deposit_required_amount_invalid": "Required deposit amount must be greater than or equal to 0.",
+    "deposit_received_amount_invalid": "Received deposit amount must be greater than or equal to 0.",
+    "deposit_received_exceeds_required": "Received deposit amount cannot exceed required amount.",
+    "deposit_amount_invalid": "Deposit operation amount is invalid.",
+    "deposit_deduct_amount_exceeds_available": "Deposit deduction cannot exceed available amount.",
+    "deposit_refund_amount_exceeds_available": "Deposit refund cannot exceed available amount.",
+    "deposit_reason_required": "Deposit operation reason is required.",
+    "operation_action_invalid": "Operation log action is invalid.",
+    "operation_operator_required": "Operation log operator is required.",
+    "operation_target_required": "Operation log target is required.",
+    "operation_reason_required": "Critical operation reason is required.",
+    "deposit_available_amount_invalid": "Available deposit amount is invalid.",
+    "deposit_approved_by_required": "Deposit waiver approver is required.",
+    "operation_log_context_required": "Operation log context is required."
+  },
+  "payment": {
+    "status": {
+      "draft": "Draft",
+      "confirmed": "Confirmed",
+      "reversed": "Reversed",
+      "cancelled": "Cancelled"
+    }
+  },
+  "unpaid_reason": {
+    "none": "None",
+    "waiting_for_payment": "Waiting for payment",
+    "driver_promised_to_pay": "Driver promised to pay",
+    "dispute": "Dispute",
+    "internal_review": "Internal review",
+    "pending_waiver_approval": "Pending waiver approval",
+    "other": "Other"
+  },
+  "shortfall": {
+    "none": "None",
+    "debt": "Debt",
+    "waived": "Waived",
+    "pending_waiver_approval": "Pending waiver approval",
+    "dispute": "Dispute"
+  },
+  "calendar": {
+    "summary": {
+      "current_debt_amount": "Current debt amount",
+      "current_debt_days": "Current debt days",
+      "total_paid_amount": "Total paid amount",
+      "future_receivable_amount": "Future receivable amount",
+      "deposit_required_amount": "Required deposit",
+      "deposit_received_amount": "Received deposit",
+      "dispute_amount": "Dispute amount",
+      "dispute_days": "Dispute days"
+    }
+  },
+  "permission": {
+    "hidden": "Hidden",
+    "visible": "Visible",
+    "field": {
+      "total_paid_amount": "Total paid amount",
+      "current_debt_amount": "Current debt amount",
+      "current_debt_days": "Current debt days",
+      "future_receivable_amount": "Future receivable amount",
+      "deposit_required_amount": "Required deposit",
+      "deposit_received_amount": "Received deposit",
+      "payment_screenshot": "Payment screenshot",
+      "payment_method": "Payment method"
+    }
+  },
+  "role": {
+    "system_admin": "System administrator",
+    "manager": "Manager",
+    "accountant": "Accountant",
+    "operator": "Operator",
+    "gps_maintenance": "GPS maintenance",
+    "readonly_auditor": "Read-only auditor"
+  },
+  "deposit": {
+    "status": {
+      "pending": "Pending",
+      "collected": "Collected",
+      "held": "Held",
+      "deducted": "Deducted",
+      "partially_deducted": "Partially deducted",
+      "refund_pending": "Refund pending",
+      "partially_refunded": "Partially refunded",
+      "refunded": "Refunded",
+      "waived": "Waived",
+      "cancelled": "Cancelled"
+    },
+    "method": {
+      "cash": "Cash",
+      "bank_transfer": "Bank transfer",
+      "mobile_money": "Mobile money",
+      "card": "Card",
+      "other": "Other"
+    }
+  },
+  "operation": {
+    "action": {
+      "deposit_created": "Deposit created",
+      "deposit_collected": "Deposit collected",
+      "deposit_deducted": "Deposit deducted",
+      "deposit_refunded": "Deposit refunded",
+      "deposit_waived": "Deposit waived",
+      "payment_reversed": "Payment reversed",
+      "ledger_manual_adjusted": "Ledger manually adjusted",
+      "waiver_approved": "Waiver approved"
+    }
+  }
+}

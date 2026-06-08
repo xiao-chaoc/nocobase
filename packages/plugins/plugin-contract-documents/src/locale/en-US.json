@@ -1,0 +1,112 @@
+{
+  "menu": {
+    "rentalCore": "Rental core",
+    "iopgps": "GPS monitoring",
+    "contractDocuments": "Contract documents"
+  },
+  "collections": {
+    "drivers": "Drivers",
+    "vehicles": "Vehicles",
+    "leaseContracts": "Contracts",
+    "rentDailyLedgers": "Daily rent ledgers",
+    "rentPayments": "Payments",
+    "depositRecords": "Deposits",
+    "gpsDevices": "GPS devices",
+    "contractDocuments": "Contract documents"
+  },
+  "contractStatus": {
+    "draft": "Draft",
+    "active": "Active",
+    "completed": "Completed",
+    "cancelled": "Cancelled"
+  },
+  "ledgerStatus": {
+    "nonPayable": "Free day",
+    "futureReceivable": "Future receivable",
+    "paid": "Paid",
+    "unpaidDebt": "Unpaid debt",
+    "partialDebt": "Partial debt",
+    "waived": "Waived",
+    "dispute": "Dispute",
+    "cancelled": "Cancelled"
+  },
+  "paymentStatus": {
+    "draft": "Draft",
+    "confirmed": "Confirmed",
+    "reversed": "Reversed",
+    "cancelled": "Cancelled"
+  },
+  "debtWaiverDisputeStatus": {
+    "debt": "Debt",
+    "waived": "Waived",
+    "pendingWaiverApproval": "Pending waiver approval",
+    "dispute": "Dispute"
+  },
+  "gpsStatus": {
+    "normal": "Normal",
+    "offline": "Offline",
+    "fault": "Fault",
+    "noDevice": "No device",
+    "apiError": "API error",
+    "unknown": "Unknown"
+  },
+  "contractDocumentStatus": {
+    "generated": "Generated",
+    "printed": "Printed",
+    "signed": "Signed",
+    "scanned": "Scan uploaded",
+    "voided": "Voided"
+  },
+  "errors": {
+    "overpayment": "Single rent date cannot be overpaid",
+    "unpaidReasonRequired": "Unpaid dates require a reason",
+    "permissionDenied": "Permission denied",
+    "gpsSyncFailed": "GPS sync failed but billing is not affected"
+  },
+  "contract": {
+    "language": {
+      "zh-CN": "Chinese",
+      "en-US": "English",
+      "fr-FR": "French"
+    }
+  },
+  "contract_document": {
+    "status": {
+      "draft": "Draft",
+      "generated": "Generated",
+      "printed": "Printed",
+      "signed": "Signed",
+      "scanned": "Scanned",
+      "voided": "Voided"
+    }
+  },
+  "contract_signature": {
+    "status": {
+      "not_generated": "Not generated",
+      "generated": "Generated",
+      "printed": "Printed",
+      "signed": "Signed",
+      "scanned": "Scanned",
+      "voided": "Voided"
+    }
+  },
+  "contract_template": {
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "archived": "Archived"
+    }
+  },
+  "error": {
+    "contract_language_invalid": "Contract language is invalid.",
+    "contract_template_missing": "Contract template is missing.",
+    "contract_template_invalid": "Contract template is invalid.",
+    "contract_languages_required": "Contract languages are required.",
+    "contract_document_invalid": "Contract document is invalid.",
+    "contract_document_status_invalid": "Contract document status is invalid.",
+    "contract_document_status_transition_invalid": "Contract document status transition is invalid.",
+    "contract_document_not_printable": "Contract document is not printable.",
+    "contract_signed_scan_required": "Signed scan file is required.",
+    "contract_void_reason_required": "Void reason is required."
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "menu": {
+    "rentalCore": "租赁核心",
+    "iopgps": "GPS 监控",
+    "contractDocuments": "合同文件"
+  },
+  "collections": {
+    "drivers": "司机",
+    "vehicles": "车辆",
+    "leaseContracts": "合同",
+    "rentDailyLedgers": "每日租金台账",
+    "rentPayments": "付款",
+    "depositRecords": "押金",
+    "gpsDevices": "GPS 设备",
+    "contractDocuments": "合同文件"
+  },
+  "contractStatus": {
+    "draft": "草稿",
+    "active": "生效",
+    "completed": "已完成",
+    "cancelled": "已取消"
+  },
+  "ledgerStatus": {
+    "nonPayable": "免租日",
+    "futureReceivable": "未来应收",
+    "paid": "已付",
+    "unpaidDebt": "未付欠款",
+    "partialDebt": "部分付款欠款",
+    "waived": "已免除",
+    "dispute": "争议中",
+    "cancelled": "已取消"
+  },
+  "paymentStatus": {
+    "draft": "草稿",
+    "confirmed": "已确认",
+    "reversed": "已冲正",
+    "cancelled": "已取消"
+  },
+  "debtWaiverDisputeStatus": {
+    "debt": "欠款",
+    "waived": "免除",
+    "pendingWaiverApproval": "待审批免除",
+    "dispute": "争议"
+  },
+  "gpsStatus": {
+    "normal": "正常",
+    "offline": "离线",
+    "fault": "故障",
+    "noDevice": "无设备",
+    "apiError": "接口异常",
+    "unknown": "未知"
+  },
+  "contractDocumentStatus": {
+    "generated": "已生成",
+    "printed": "已打印",
+    "signed": "已签署",
+    "scanned": "已上传扫描件",
+    "voided": "已作废"
+  },
+  "errors": {
+    "overpayment": "单日不可超付",
+    "unpaidReasonRequired": "未付日期必须填写未付原因",
+    "permissionDenied": "权限不足",
+    "gpsSyncFailed": "GPS 同步失败但不影响租金逻辑"
+  },
+  "ledger": {
+    "non_payable": "免租日",
+    "future_receivable": "未来应收",
+    "paid": "已付",
+    "unpaid_debt": "未付欠款",
+    "partial_debt": "部分付款欠款",
+    "waived": "已免除",
+    "partial_waived": "部分免除",
+    "dispute": "争议中",
+    "cancelled": "已取消"
+  },
+  "error": {
+    "weekly_payable_days_invalid": "每周应付天数只能是 3、4、5、6、7。",
+    "default_free_weekdays_invalid": "默认免租日配置无效。",
+    "fixed_term_months_invalid": "时限合同租期必须不少于 6 个月。",
+    "ledger_overpaid": "每日租金台账已超付。",
+    "ledger_over_waived": "每日租金台账免除金额超过应收金额。",
+    "date_range_invalid": "日期范围无效。",
+    "contract_type_invalid": "合同类型无效。",
+    "daily_rent_amount_invalid": "每日租金金额无效。",
+    "horizon_days_invalid": "未来台账生成天数无效。",
+    "payment_amount_invalid": "付款金额必须大于 0。",
+    "payment_allocations_required": "付款必须分配到具体租金日期。",
+    "payment_allocation_amount_mismatch": "付款金额必须等于分配金额合计。",
+    "payment_contract_mismatch": "付款合同必须与台账合同一致。",
+    "payment_ledger_not_payable": "付款不能分配到免租日或非应收日期。",
+    "unpaid_reason_required": "未付或未结清日期必须填写未付原因。",
+    "unpaid_reason_invalid": "未付原因无效。",
+    "waiver_amount_invalid": "免除金额必须大于 0。",
+    "waiver_amount_exceeds_balance": "免除金额不能超过当前欠款余额。",
+    "payment_reversal_reason_required": "付款冲正必须填写原因。",
+    "payment_reversal_invalid_status": "只有已确认付款可以冲正。",
+    "calendar_driver_required": "司机日历查询必须提供司机标识。",
+    "calendar_date_range_invalid": "司机日历日期范围无效。",
+    "permission_user_required": "权限过滤必须提供当前内部用户。",
+    "permission_role_invalid": "当前内部用户角色无效。",
+    "summary_today_required": "财务汇总必须提供当前日期。",
+    "deposit_required_amount_invalid": "押金应收金额必须大于或等于 0。",
+    "deposit_received_amount_invalid": "押金实收金额必须大于或等于 0。",
+    "deposit_received_exceeds_required": "押金实收金额不能大于应收金额。",
+    "deposit_amount_invalid": "押金操作金额无效。",
+    "deposit_deduct_amount_exceeds_available": "押金抵扣金额不能超过可用押金。",
+    "deposit_refund_amount_exceeds_available": "押金退款金额不能超过可用押金。",
+    "deposit_reason_required": "押金操作必须填写原因。",
+    "operation_action_invalid": "操作日志动作无效。",
+    "operation_operator_required": "操作日志必须记录操作人。",
+    "operation_target_required": "操作日志必须记录目标。",
+    "operation_reason_required": "关键操作必须填写原因。",
+    "deposit_available_amount_invalid": "押金可用金额无效。",
+    "deposit_approved_by_required": "押金免除必须记录审批人。",
+    "operation_log_context_required": "操作日志必须包含上下文。"
+  },
+  "payment": {
+    "status": {
+      "draft": "草稿",
+      "confirmed": "已确认",
+      "reversed": "已冲正",
+      "cancelled": "已取消"
+    }
+  },
+  "unpaid_reason": {
+    "none": "无",
+    "waiting_for_payment": "等待付款",
+    "driver_promised_to_pay": "司机承诺补付",
+    "dispute": "争议中",
+    "internal_review": "公司内部复核",
+    "pending_waiver_approval": "待免除审批",
+    "other": "其他"
+  },
+  "shortfall": {
+    "none": "无",
+    "debt": "欠款",
+    "waived": "免除",
+    "pending_waiver_approval": "待审批免除",
+    "dispute": "争议"
+  },
+  "calendar": {
+    "summary": {
+      "current_debt_amount": "当前欠款金额",
+      "current_debt_days": "当前欠款天数",
+      "total_paid_amount": "总已付金额",
+      "future_receivable_amount": "未来应收金额",
+      "deposit_required_amount": "应收押金",
+      "deposit_received_amount": "实收押金",
+      "dispute_amount": "争议金额",
+      "dispute_days": "争议天数"
+    }
+  },
+  "permission": {
+    "hidden": "已隐藏",
+    "visible": "可见",
+    "field": {
+      "total_paid_amount": "总已付金额",
+      "current_debt_amount": "当前欠款金额",
+      "current_debt_days": "当前欠款天数",
+      "future_receivable_amount": "未来应收金额",
+      "deposit_required_amount": "应收押金",
+      "deposit_received_amount": "实收押金",
+      "payment_screenshot": "付款截图",
+      "payment_method": "付款方式"
+    }
+  },
+  "role": {
+    "system_admin": "系统管理员",
+    "manager": "经理",
+    "accountant": "财务",
+    "operator": "运营",
+    "gps_maintenance": "GPS 维护人员",
+    "readonly_auditor": "只读审计"
+  },
+  "deposit": {
+    "status": {
+      "pending": "待收取",
+      "collected": "已部分收取",
+      "held": "已持有",
+      "deducted": "已抵扣",
+      "partially_deducted": "部分抵扣",
+      "refund_pending": "待退款",
+      "partially_refunded": "部分退款",
+      "refunded": "已退款",
+      "waived": "已免除",
+      "cancelled": "已取消"
+    },
+    "method": {
+      "cash": "现金",
+      "bank_transfer": "银行转账",
+      "mobile_money": "移动钱包",
+      "card": "银行卡",
+      "other": "其他"
+    }
+  },
+  "operation": {
+    "action": {
+      "deposit_created": "创建押金",
+      "deposit_collected": "收取押金",
+      "deposit_deducted": "抵扣押金",
+      "deposit_refunded": "退还押金",
+      "deposit_waived": "免除押金",
+      "payment_reversed": "付款冲正",
+      "ledger_manual_adjusted": "手动调整台账",
+      "waiver_approved": "免除审批通过"
+    }
+  }
+}

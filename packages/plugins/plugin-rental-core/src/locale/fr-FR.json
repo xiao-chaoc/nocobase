@@ -1,0 +1,209 @@
+{
+  "menu": {
+    "rentalCore": "Cœur location",
+    "iopgps": "Suivi GPS",
+    "contractDocuments": "Documents de contrat"
+  },
+  "collections": {
+    "drivers": "Chauffeurs",
+    "vehicles": "Véhicules",
+    "leaseContracts": "Contrats",
+    "rentDailyLedgers": "Grand livre quotidien",
+    "rentPayments": "Paiements",
+    "depositRecords": "Dépôts",
+    "gpsDevices": "Appareils GPS",
+    "contractDocuments": "Documents de contrat"
+  },
+  "contractStatus": {
+    "draft": "Brouillon",
+    "active": "Actif",
+    "completed": "Terminé",
+    "cancelled": "Annulé"
+  },
+  "ledgerStatus": {
+    "nonPayable": "Jour gratuit",
+    "futureReceivable": "Créance future",
+    "paid": "Payé",
+    "unpaidDebt": "Dette impayée",
+    "partialDebt": "Dette partielle",
+    "waived": "Exonéré",
+    "dispute": "Litige",
+    "cancelled": "Annulé"
+  },
+  "paymentStatus": {
+    "draft": "Brouillon",
+    "confirmed": "Confirmé",
+    "reversed": "Extourné",
+    "cancelled": "Annulé"
+  },
+  "debtWaiverDisputeStatus": {
+    "debt": "Dette",
+    "waived": "Exonéré",
+    "pendingWaiverApproval": "Exonération en attente",
+    "dispute": "Litige"
+  },
+  "gpsStatus": {
+    "normal": "Normal",
+    "offline": "Hors ligne",
+    "fault": "Panne",
+    "noDevice": "Aucun appareil",
+    "apiError": "Erreur API",
+    "unknown": "Inconnu"
+  },
+  "contractDocumentStatus": {
+    "generated": "Généré",
+    "printed": "Imprimé",
+    "signed": "Signé",
+    "scanned": "Scan téléversé",
+    "voided": "Annulé"
+  },
+  "errors": {
+    "overpayment": "Une date de loyer ne peut pas être surpayée",
+    "unpaidReasonRequired": "Les dates impayées exigent une raison",
+    "permissionDenied": "Permission refusée",
+    "gpsSyncFailed": "Échec GPS sans effet sur la facturation"
+  },
+  "ledger": {
+    "non_payable": "Non facturable",
+    "future_receivable": "Créance future",
+    "paid": "Payé",
+    "unpaid_debt": "Dette impayée",
+    "partial_debt": "Dette partielle",
+    "waived": "Exonéré",
+    "partial_waived": "Partiellement exonéré",
+    "dispute": "Litige",
+    "cancelled": "Annulé"
+  },
+  "error": {
+    "weekly_payable_days_invalid": "Les jours payables hebdomadaires doivent être 3, 4, 5, 6 ou 7.",
+    "default_free_weekdays_invalid": "Les jours gratuits par défaut sont invalides.",
+    "fixed_term_months_invalid": "Un contrat à durée déterminée doit durer au moins 6 mois.",
+    "ledger_overpaid": "Le grand livre quotidien est surpayé.",
+    "ledger_over_waived": "Le montant exonéré dépasse le montant dû.",
+    "date_range_invalid": "La plage de dates est invalide.",
+    "contract_type_invalid": "Le type de contrat est invalide.",
+    "daily_rent_amount_invalid": "Le montant du loyer journalier est invalide.",
+    "horizon_days_invalid": "Le nombre de jours futurs est invalide.",
+    "payment_amount_invalid": "Le montant du paiement doit être supérieur à 0.",
+    "payment_allocations_required": "Le paiement doit être affecté à des dates de loyer.",
+    "payment_allocation_amount_mismatch": "Le montant du paiement doit égaler le total affecté.",
+    "payment_contract_mismatch": "Le contrat du paiement doit correspondre au contrat du grand livre.",
+    "payment_ledger_not_payable": "Le paiement ne peut pas être affecté à un jour gratuit ou non facturable.",
+    "unpaid_reason_required": "Les dates impayées ou non soldées exigent une raison.",
+    "unpaid_reason_invalid": "La raison du non-paiement est invalide.",
+    "waiver_amount_invalid": "Le montant exonéré doit être supérieur à 0.",
+    "waiver_amount_exceeds_balance": "Le montant exonéré ne peut pas dépasser le solde courant.",
+    "payment_reversal_reason_required": "Une extourne de paiement exige une raison.",
+    "payment_reversal_invalid_status": "Seuls les paiements confirmés peuvent être extournés.",
+    "calendar_driver_required": "Le conducteur est requis pour le calendrier.",
+    "calendar_date_range_invalid": "La plage de dates du calendrier est invalide.",
+    "permission_user_required": "L’utilisateur interne est requis pour le filtrage des droits.",
+    "permission_role_invalid": "Le rôle de l’utilisateur interne est invalide.",
+    "summary_today_required": "La date du jour est requise pour les synthèses financières.",
+    "deposit_required_amount_invalid": "Le dépôt requis doit être supérieur ou égal à 0.",
+    "deposit_received_amount_invalid": "Le dépôt reçu doit être supérieur ou égal à 0.",
+    "deposit_received_exceeds_required": "Le dépôt reçu ne peut pas dépasser le dépôt requis.",
+    "deposit_amount_invalid": "Le montant de l’opération de dépôt est invalide.",
+    "deposit_deduct_amount_exceeds_available": "La déduction ne peut pas dépasser le dépôt disponible.",
+    "deposit_refund_amount_exceeds_available": "Le remboursement ne peut pas dépasser le dépôt disponible.",
+    "deposit_reason_required": "La raison de l’opération de dépôt est requise.",
+    "operation_action_invalid": "L’action du journal est invalide.",
+    "operation_operator_required": "L’opérateur du journal est requis.",
+    "operation_target_required": "La cible du journal est requise.",
+    "operation_reason_required": "La raison de l’opération critique est requise.",
+    "deposit_available_amount_invalid": "Le montant de dépôt disponible est invalide.",
+    "deposit_approved_by_required": "L’approbateur de l’exonération du dépôt est requis.",
+    "operation_log_context_required": "Le contexte du journal est requis."
+  },
+  "payment": {
+    "status": {
+      "draft": "Brouillon",
+      "confirmed": "Confirmé",
+      "reversed": "Extourné",
+      "cancelled": "Annulé"
+    }
+  },
+  "unpaid_reason": {
+    "none": "Aucun",
+    "waiting_for_payment": "En attente de paiement",
+    "driver_promised_to_pay": "Promesse de paiement du chauffeur",
+    "dispute": "Litige",
+    "internal_review": "Révision interne",
+    "pending_waiver_approval": "Exonération en attente",
+    "other": "Autre"
+  },
+  "shortfall": {
+    "none": "Aucun",
+    "debt": "Dette",
+    "waived": "Exonéré",
+    "pending_waiver_approval": "Exonération en attente",
+    "dispute": "Litige"
+  },
+  "calendar": {
+    "summary": {
+      "current_debt_amount": "Montant de dette actuel",
+      "current_debt_days": "Jours de dette actuels",
+      "total_paid_amount": "Montant total payé",
+      "future_receivable_amount": "Créances futures",
+      "deposit_required_amount": "Dépôt requis",
+      "deposit_received_amount": "Dépôt reçu",
+      "dispute_amount": "Montant en litige",
+      "dispute_days": "Jours en litige"
+    }
+  },
+  "permission": {
+    "hidden": "Masqué",
+    "visible": "Visible",
+    "field": {
+      "total_paid_amount": "Montant total payé",
+      "current_debt_amount": "Montant de dette actuel",
+      "current_debt_days": "Jours de dette actuels",
+      "future_receivable_amount": "Créances futures",
+      "deposit_required_amount": "Dépôt requis",
+      "deposit_received_amount": "Dépôt reçu",
+      "payment_screenshot": "Capture de paiement",
+      "payment_method": "Mode de paiement"
+    }
+  },
+  "role": {
+    "system_admin": "Administrateur système",
+    "manager": "Responsable",
+    "accountant": "Comptable",
+    "operator": "Opérateur",
+    "gps_maintenance": "Maintenance GPS",
+    "readonly_auditor": "Auditeur lecture seule"
+  },
+  "deposit": {
+    "status": {
+      "pending": "En attente",
+      "collected": "Collecté",
+      "held": "Détenu",
+      "deducted": "Déduit",
+      "partially_deducted": "Partiellement déduit",
+      "refund_pending": "Remboursement en attente",
+      "partially_refunded": "Partiellement remboursé",
+      "refunded": "Remboursé",
+      "waived": "Exonéré",
+      "cancelled": "Annulé"
+    },
+    "method": {
+      "cash": "Espèces",
+      "bank_transfer": "Virement bancaire",
+      "mobile_money": "Portefeuille mobile",
+      "card": "Carte",
+      "other": "Autre"
+    }
+  },
+  "operation": {
+    "action": {
+      "deposit_created": "Dépôt créé",
+      "deposit_collected": "Dépôt collecté",
+      "deposit_deducted": "Dépôt déduit",
+      "deposit_refunded": "Dépôt remboursé",
+      "deposit_waived": "Dépôt exonéré",
+      "payment_reversed": "Paiement extourné",
+      "ledger_manual_adjusted": "Grand livre ajusté manuellement",
+      "waiver_approved": "Exonération approuvée"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "@car-rental-nocobase/nocobase-automation",
+  "version": "0.1.0",
+  "private": true,
+  "description": "NocoBase 自动化接入 dry-run 适配层草案，不连接真实 NocoBase。",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo '当前共享包由根目录 npm run test 覆盖。'"
+  }
+}
