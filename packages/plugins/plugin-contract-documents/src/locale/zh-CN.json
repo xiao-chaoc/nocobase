@@ -1,0 +1,112 @@
+{
+  "menu": {
+    "rentalCore": "租赁核心",
+    "iopgps": "GPS 监控",
+    "contractDocuments": "合同文件"
+  },
+  "collections": {
+    "drivers": "司机",
+    "vehicles": "车辆",
+    "leaseContracts": "合同",
+    "rentDailyLedgers": "每日租金台账",
+    "rentPayments": "付款",
+    "depositRecords": "押金",
+    "gpsDevices": "GPS 设备",
+    "contractDocuments": "合同文件"
+  },
+  "contractStatus": {
+    "draft": "草稿",
+    "active": "生效",
+    "completed": "已完成",
+    "cancelled": "已取消"
+  },
+  "ledgerStatus": {
+    "nonPayable": "免租日",
+    "futureReceivable": "未来应收",
+    "paid": "已付",
+    "unpaidDebt": "未付欠款",
+    "partialDebt": "部分付款欠款",
+    "waived": "已免除",
+    "dispute": "争议中",
+    "cancelled": "已取消"
+  },
+  "paymentStatus": {
+    "draft": "草稿",
+    "confirmed": "已确认",
+    "reversed": "已冲正",
+    "cancelled": "已取消"
+  },
+  "debtWaiverDisputeStatus": {
+    "debt": "欠款",
+    "waived": "免除",
+    "pendingWaiverApproval": "待审批免除",
+    "dispute": "争议"
+  },
+  "gpsStatus": {
+    "normal": "正常",
+    "offline": "离线",
+    "fault": "故障",
+    "noDevice": "无设备",
+    "apiError": "接口异常",
+    "unknown": "未知"
+  },
+  "contractDocumentStatus": {
+    "generated": "已生成",
+    "printed": "已打印",
+    "signed": "已签署",
+    "scanned": "已上传扫描件",
+    "voided": "已作废"
+  },
+  "errors": {
+    "overpayment": "单日不可超付",
+    "unpaidReasonRequired": "未付日期必须填写未付原因",
+    "permissionDenied": "权限不足",
+    "gpsSyncFailed": "GPS 同步失败但不影响租金逻辑"
+  },
+  "contract": {
+    "language": {
+      "zh-CN": "中文",
+      "en-US": "英文",
+      "fr-FR": "法文"
+    }
+  },
+  "contract_document": {
+    "status": {
+      "draft": "草稿",
+      "generated": "已生成",
+      "printed": "已打印",
+      "signed": "已签署",
+      "scanned": "已上传扫描件",
+      "voided": "已作废"
+    }
+  },
+  "contract_signature": {
+    "status": {
+      "not_generated": "未生成",
+      "generated": "已生成",
+      "printed": "已打印",
+      "signed": "已签署",
+      "scanned": "已扫描",
+      "voided": "已作废"
+    }
+  },
+  "contract_template": {
+    "status": {
+      "active": "启用",
+      "inactive": "停用",
+      "archived": "已归档"
+    }
+  },
+  "error": {
+    "contract_language_invalid": "合同语言无效。",
+    "contract_template_missing": "缺少合同模板。",
+    "contract_template_invalid": "合同模板无效。",
+    "contract_languages_required": "必须选择合同语言。",
+    "contract_document_invalid": "合同文件无效。",
+    "contract_document_status_invalid": "合同文件状态无效。",
+    "contract_document_status_transition_invalid": "合同文件状态流转无效。",
+    "contract_document_not_printable": "合同文件不可打印。",
+    "contract_signed_scan_required": "签署扫描件必填。",
+    "contract_void_reason_required": "作废原因必填。"
+  }
+}
