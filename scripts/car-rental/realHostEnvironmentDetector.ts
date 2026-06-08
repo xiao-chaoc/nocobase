@@ -13,7 +13,7 @@ export interface NocobaseHostEnvironmentResult {
   target_version: string | null;
   expected_version: '2.0.61';
   package_manager: string | null;
-  expected_package_manager: 'pnpm';
+  expected_package_manager: 'yarn';
   database_target: 'PostgreSQL' | 'unknown';
   is_nocobase_host: boolean;
   has_app: boolean;
@@ -55,7 +55,7 @@ export interface DetectionOptions {
 type JsonObject = Record<string, unknown>;
 
 const TARGET_VERSION = '2.0.61' as const;
-const EXPECTED_PACKAGE_MANAGER = 'pnpm' as const;
+const EXPECTED_PACKAGE_MANAGER = 'yarn' as const;
 
 function fileExists(rootDir: string, relativePath: string): boolean {
   return fs.existsSync(path.join(rootDir, relativePath));
@@ -235,7 +235,7 @@ export function detectNocobaseHostEnvironment(options: DetectionOptions = {}): N
   const capabilityMatrix: Record<string, CapabilityState> = {
     is_nocobase_host: presentWhen(isNocobaseHost),
     target_version_v2_0_61: presentWhen(targetVersion === expectedVersion),
-    package_manager_pnpm: presentWhen(packageManager === expectedPackageManager),
+    package_manager_yarn: presentWhen(packageManager === expectedPackageManager),
     database_target_postgresql: presentWhen(databaseTarget === 'PostgreSQL'),
     app: presentWhen(hasApp),
     db: presentWhen(hasDb),
@@ -268,16 +268,15 @@ export function detectNocobaseHostEnvironment(options: DetectionOptions = {}): N
     blockers.push(`包管理器不是 ${expectedPackageManager}，当前检测为 ${packageManager ?? 'unknown'}。`);
   if (!hasDb) blockers.push('未检测到 db / database 能力。');
   if (!hasCollectionManager) blockers.push('未检测到 collection manager / collection repository 能力。');
-  if (!sharedAutomationPresent)
-    warnings.push(
-      '未检测到 packages/shared/nocobase-automation；本轮仅创建宿主检测脚本，后续应复制 shared automation。',
-    );
+  if (!sharedAutomationPresent) {
+    blockers.push('未检测到 packages/shared/nocobase-automation；需要先复制 shared automation。');
+  }
   if (
     !carRentalPluginsPresent.plugin_rental_core ||
     !carRentalPluginsPresent.plugin_contract_documents ||
     !carRentalPluginsPresent.plugin_iopgps
   ) {
-    warnings.push('未检测到完整 car-rental 三个插件；后续真实业务 Adapter 前需要复制插件目录。');
+    blockers.push('未检测到完整 car-rental 三个插件；需要先复制插件目录。');
   }
   if (databaseTarget !== 'PostgreSQL') warnings.push('未确认 PostgreSQL 目标能力。');
 
@@ -289,7 +288,7 @@ export function detectNocobaseHostEnvironment(options: DetectionOptions = {}): N
   if (!carRentalPluginsPresent.plugin_iopgps) nextActions.push('复制 packages/plugins/plugin-iopgps。');
   if (packageManager !== expectedPackageManager)
     nextActions.push(
-      '确认 v2.0.61 宿主工程实际包管理器；当前仓库声明不是 pnpm，真实 Collection Adapter 前需明确执行命令策略。',
+      '确认 v2.0.61 宿主工程实际包管理器；当前仓库声明不是 yarn，真实 Collection Adapter 前需明确执行命令策略。',
     );
   nextActions.push('保持只读检测策略：不读取 .env 密钥、不连接真实数据库、不调用真实 IOPGPS、不写入业务数据。');
 
@@ -341,7 +340,7 @@ export function summarizeNocobaseHostEnvironment(result: NocobaseHostEnvironment
     line('完整 NocoBase 宿主工程', result.is_nocobase_host),
     line('目标版本 v2.0.61', result.target_version === result.expected_version, result.target_version ?? 'unknown'),
     line(
-      '包管理器 pnpm',
+      '包管理器 yarn',
       result.package_manager === result.expected_package_manager,
       result.package_manager ?? 'unknown',
     ),

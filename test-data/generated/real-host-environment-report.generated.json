@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-07T02:18:20.783Z",
+  "generated_at": "2026-06-07T16:11:30.113Z",
   "root": "/workspace/nocobase",
   "target_version": "2.0.61",
   "expected_version": "2.0.61",
   "package_manager": "yarn",
-  "expected_package_manager": "pnpm",
+  "expected_package_manager": "yarn",
   "database_target": "PostgreSQL",
   "is_nocobase_host": true,
   "has_app": true,
@@ -29,7 +29,7 @@
   "capability_matrix": {
     "is_nocobase_host": "present",
     "target_version_v2_0_61": "present",
-    "package_manager_pnpm": "missing",
+    "package_manager_yarn": "present",
     "database_target_postgresql": "present",
     "app": "present",
     "db": "present",
@@ -118,20 +118,17 @@
       "packages/core/database/src/__tests__/postgres/schema.test.ts"
     ]
   },
-  "warnings": [
-    "未检测到 packages/shared/nocobase-automation；本轮仅创建宿主检测脚本，后续应复制 shared automation。",
-    "未检测到完整 car-rental 三个插件；后续真实业务 Adapter 前需要复制插件目录。"
-  ],
+  "warnings": [],
   "errors": [],
   "blockers": [
-    "包管理器不是 pnpm，当前检测为 yarn。"
+    "未检测到 packages/shared/nocobase-automation；需要先复制 shared automation。",
+    "未检测到完整 car-rental 三个插件；需要先复制插件目录。"
   ],
   "next_actions": [
     "从 car-rental-nocobase 复制 packages/shared/nocobase-automation 到宿主工程对应路径。",
     "复制 packages/plugins/plugin-rental-core。",
     "复制 packages/plugins/plugin-contract-documents。",
     "复制 packages/plugins/plugin-iopgps。",
-    "确认 v2.0.61 宿主工程实际包管理器；当前仓库声明不是 pnpm，真实 Collection Adapter 前需明确执行命令策略。",
     "保持只读检测策略：不读取 .env 密钥、不连接真实数据库、不调用真实 IOPGPS、不写入业务数据。"
   ],
   "safety": {
