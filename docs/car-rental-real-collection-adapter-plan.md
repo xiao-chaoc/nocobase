@@ -85,3 +85,11 @@
 - 当前 blockers：无。
 - 当前可以进入下一轮真实 Collection execute 前置检查，但仍不能真实执行。
 - 下一步建议：在隔离数据库中验证 `Database.collection(options)`、Collection Manager 元数据写入路径、事务和回滚边界。
+
+## 10. 下一阶段：execute preflight
+
+- 下一阶段是真实 Collection execute preflight，只检查是否具备未来执行真实 Collection 注册的安全条件。
+- execute preflight 仍不创建 Collection、不写数据库、不执行 migration、不注册权限、不创建页面、不导入测试数据。
+- execute 前必须人工确认隔离 PostgreSQL 测试库、数据库备份、可验证回滚路径、只使用 mock 数据、IOPGPS 真实同步禁用。
+- 没有 execute preflight 通过，不得进入真实 Collection 创建。
+- 即使 execute preflight 通过，也必须另起 PR，并显式提供 execute reason、target database、backup artifact、rollback command、operator、execution time 和 expected result。
