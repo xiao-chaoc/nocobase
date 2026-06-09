@@ -44,3 +44,8 @@ git-repos.json
 CLAUDE.local.md
 AGENTS.local.md
 openspec/
+
+# car-rental real Collection execute request local files
+test-data/generated/real-collection-execute-request.filled.json
+test-data/generated/real-collection-execute-request.*filled*.json
+test-data/generated/real-collection-execute-request.*secret*.json

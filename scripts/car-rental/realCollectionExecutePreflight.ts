@@ -1,5 +1,6 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { validateRealCollectionExecuteRequestFile } from './validate-real-collection-execute-request';
 
 export interface RealCollectionExecutePreflightContext {
   targetVersion: string | null;
@@ -17,6 +18,10 @@ export interface RealCollectionExecutePreflightContext {
   hostEnvironmentReportExists: boolean;
   realCollectionPlanExists: boolean;
   executeExplicitlyAllowed: boolean;
+  executeRequestFile?: string;
+  executeRequestValid: boolean;
+  executeRequestApplied: boolean;
+  executeRequestBlockers: string[];
   warnings: string[];
   errors: string[];
   blockers: string[];
@@ -47,6 +52,7 @@ export interface RealCollectionExecutePreflightValidationResult {
 export interface BuildRealCollectionExecutePreflightOptions {
   rootDir?: string;
   env?: Record<string, string | undefined>;
+  requestFile?: string;
   overrides?: Partial<RealCollectionExecutePreflightContext>;
 }
 
@@ -124,10 +130,36 @@ export function buildRealCollectionExecutePreflightContext(
   const hostReport = readJson(rootDir, HOST_ENVIRONMENT_REPORT_PATH);
   const realCollectionPlan = readJson(rootDir, REAL_COLLECTION_PLAN_PATH);
   const databaseDialect = getString(env.DB_DIALECT) ?? getString(env.DATABASE_DIALECT) ?? null;
-  const normalizedDialect = databaseDialect?.toLowerCase() ?? null;
-  const isPostgreSQL = normalizedDialect === 'postgres' || normalizedDialect === 'postgresql';
-  const isIsolatedDatabase = booleanFlag(env.CAR_RENTAL_ISOLATED_DATABASE_CONFIRMED);
-  const isProductionLikeDatabase = booleanFlag(env.CAR_RENTAL_PRODUCTION_DATABASE) || env.NODE_ENV === 'production';
+  let normalizedDialect = databaseDialect?.toLowerCase() ?? null;
+  let isPostgreSQL = normalizedDialect === 'postgres' || normalizedDialect === 'postgresql';
+  let isIsolatedDatabase = booleanFlag(env.CAR_RENTAL_ISOLATED_DATABASE_CONFIRMED);
+  let isProductionLikeDatabase = booleanFlag(env.CAR_RENTAL_PRODUCTION_DATABASE) || env.NODE_ENV === 'production';
+  let hasBackupPlan = booleanFlag(env.CAR_RENTAL_BACKUP_PLAN_CONFIRMED);
+  let hasRollbackPlan = booleanFlag(env.CAR_RENTAL_ROLLBACK_PLAN_CONFIRMED);
+  let iopgpsRealSyncAllowed = booleanFlag(env.IOPGPS_SYNC_ENABLED);
+  let mockDataOnly = booleanFlag(env.CAR_RENTAL_MOCK_DATA_ONLY);
+  let executeRequestValid = false;
+  let executeRequestApplied = false;
+  let executeRequestBlockers: string[] = [];
+
+  if (options.requestFile) {
+    const requestValidation = validateRealCollectionExecuteRequestFile(options.requestFile);
+    executeRequestValid = requestValidation.valid;
+    executeRequestBlockers = requestValidation.blockers;
+    if (requestValidation.valid && requestValidation.request) {
+      const request = requestValidation.request;
+      normalizedDialect = request.database_dialect;
+      isPostgreSQL = request.database_dialect === 'postgresql';
+      isIsolatedDatabase = request.is_isolated_database;
+      isProductionLikeDatabase = request.is_production_like_database;
+      hasBackupPlan = request.backup_plan_confirmed;
+      hasRollbackPlan = request.rollback_plan_confirmed;
+      iopgpsRealSyncAllowed = request.iopgps_real_sync_allowed;
+      mockDataOnly = request.mock_data_only;
+      executeRequestApplied = true;
+    }
+  }
+
   const executeExplicitlyAllowed = booleanFlag(env.CAR_RENTAL_ALLOW_REAL_COLLECTION_EXECUTE);
 
   const context: RealCollectionExecutePreflightContext = {
@@ -138,10 +170,10 @@ export function buildRealCollectionExecutePreflightContext(
     isPostgreSQL,
     isIsolatedDatabase,
     isProductionLikeDatabase,
-    hasBackupPlan: booleanFlag(env.CAR_RENTAL_BACKUP_PLAN_CONFIRMED),
-    hasRollbackPlan: booleanFlag(env.CAR_RENTAL_ROLLBACK_PLAN_CONFIRMED),
-    iopgpsRealSyncAllowed: booleanFlag(env.IOPGPS_SYNC_ENABLED),
-    mockDataOnly: booleanFlag(env.CAR_RENTAL_MOCK_DATA_ONLY),
+    hasBackupPlan,
+    hasRollbackPlan,
+    iopgpsRealSyncAllowed,
+    mockDataOnly,
     collectionPlanExists:
       fileExists(rootDir, COLLECTION_PLAN_PATH) &&
       fileExists(rootDir, 'packages/plugins/plugin-rental-core/src/server/collections'),
@@ -153,6 +185,10 @@ export function buildRealCollectionExecutePreflightContext(
       realCollectionPlan.createsCollection === false &&
       realCollectionPlan.runsMigration === false,
     executeExplicitlyAllowed,
+    executeRequestFile: options.requestFile,
+    executeRequestValid,
+    executeRequestApplied,
+    executeRequestBlockers,
     warnings: [],
     errors: [],
     blockers: [],
@@ -195,6 +231,19 @@ export function validateRealCollectionExecutePreflight(
     nextActions.push(nextAction);
   };
 
+  if (context.executeRequestFile) {
+    if (context.executeRequestValid && context.executeRequestApplied) {
+      warnings.push('已读取并应用已校验的 execute request；本轮仍不执行真实 Collection 创建。');
+    } else {
+      context.executeRequestBlockers.forEach((blocker) =>
+        addBlocker(
+          `execute request 校验失败：${blocker}`,
+          '修正 execute request filled.json 后重新运行 preflight --request。',
+        ),
+      );
+    }
+  }
+
   if (context.targetVersion !== TARGET_VERSION) {
     addBlocker(`当前 NocoBase 版本不是 ${TARGET_VERSION}。`, `确认宿主工程版本为 ${TARGET_VERSION} 后再申请 execute。`);
   }
@@ -204,11 +253,11 @@ export function validateRealCollectionExecutePreflight(
   if (!context.isPostgreSQL) {
     addBlocker(
       '数据库类型未明确为 postgres / postgresql。',
-      '在隔离测试库环境中明确 DB_DIALECT=postgres 或 postgresql。',
+      '在隔离测试库环境中明确 DB_DIALECT=postgres 或 postgresql，或提供合法 execute request。',
     );
   }
   if (!context.isIsolatedDatabase) {
-    addBlocker('未明确确认当前数据库是隔离测试库。', '设置隔离测试库确认门禁，并由人工确认目标库不是生产库。');
+    addBlocker('未明确确认当前数据库是隔离测试库。', '设置隔离测试库确认门禁，或提供合法 execute request。');
   }
   if (context.isProductionLikeDatabase) {
     addBlocker(
@@ -217,16 +266,19 @@ export function validateRealCollectionExecutePreflight(
     );
   }
   if (!context.hasBackupPlan) {
-    addBlocker('未确认数据库备份计划。', '先完成数据库备份计划并记录备份 artifact。');
+    addBlocker('未确认数据库备份计划。', '先完成数据库备份计划并记录备份 artifact，或提供合法 execute request。');
   }
   if (!context.hasRollbackPlan) {
-    addBlocker('未确认回滚计划。', '先验证并记录可执行的回滚命令或回滚流程。');
+    addBlocker('未确认回滚计划。', '先验证并记录可执行的回滚命令或回滚流程，或提供合法 execute request。');
   }
   if (context.iopgpsRealSyncAllowed) {
     addBlocker('IOPGPS 真实同步未禁用。', '确认 IOPGPS 同步开关保持关闭，下一阶段不得调用真实 IOPGPS。');
   }
   if (!context.mockDataOnly) {
-    addBlocker('未确认只允许 mock 数据。', '确认仅使用 mock 数据，不使用真实司机资料、付款截图或合同扫描件。');
+    addBlocker(
+      '未确认只允许 mock 数据。',
+      '确认仅使用 mock 数据，不使用真实司机资料、付款截图或合同扫描件，或提供合法 execute request。',
+    );
   }
   if (!context.collectionPlanExists) {
     addBlocker(
@@ -255,6 +307,9 @@ export function validateRealCollectionExecutePreflight(
   }
 
   warnings.push('本轮 preflight 不读取 .env、不连接数据库、不创建 Collection、不执行 migration、不调用 IOPGPS。');
+  if (blockers.length === 0) {
+    nextActions.push('preflight with request 已满足安全字段校验；只能进入真实 execute PR 审查，不能由本轮执行。');
+  }
 
   return {
     valid: blockers.length === 0,
@@ -283,6 +338,7 @@ export function summarizeRealCollectionExecutePreflight(context: RealCollectionE
     line('最小 Collection plan 存在', context.collectionPlanExists),
     line('真实宿主环境报告存在', context.hostEnvironmentReportExists),
     line('真实 Collection adapter plan 存在且未执行', context.realCollectionPlanExists),
+    line('execute request 已校验并应用', context.executeRequestApplied, context.executeRequestFile ?? '未提供'),
     line('execute 显式允许门禁关闭', !context.executeExplicitlyAllowed),
     `阻塞项数量：${context.blockers.length}`,
     ...context.blockers.map((blocker) => `- 阻塞：${blocker}`),

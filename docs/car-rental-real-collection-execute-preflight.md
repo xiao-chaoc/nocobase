@@ -2,7 +2,7 @@
 
 ## 1. 当前结论
 
-- 报告生成时间：`2026-06-09T00:23:53.533Z`。
+- 报告生成时间：`2026-06-09T08:09:29.520Z`。
 - 宿主工程：`/workspace/nocobase`。
 - preflight 是否通过：`false`。
 - 是否 production_ready：`false`。
@@ -12,6 +12,7 @@
 - 是否执行 migration：`false`。
 - 是否调用 IOPGPS：`false`。
 - 本轮只做 execute 前置检查；即使无 blocker，也不得在本轮真实执行。
+- execute request 文件：`未提供`。
 
 ## 2. preflight 检查项
 
@@ -27,6 +28,7 @@
 - ✅ 必须存在最小 Collection plan
 - ✅ 必须存在 real host environment report
 - ✅ 必须存在未执行、未写库的 real collection adapter plan
+- ❌ execute request 已校验并应用：`未提供`
 - ✅ execute 显式允许门禁本轮必须关闭
 
 ## 3. Blockers
@@ -44,11 +46,11 @@
 
 ## 5. 下一步动作
 
-- 在隔离测试库环境中明确 DB_DIALECT=postgres 或 postgresql。
-- 设置隔离测试库确认门禁，并由人工确认目标库不是生产库。
-- 先完成数据库备份计划并记录备份 artifact。
-- 先验证并记录可执行的回滚命令或回滚流程。
-- 确认仅使用 mock 数据，不使用真实司机资料、付款截图或合同扫描件。
+- 在隔离测试库环境中明确 DB_DIALECT=postgres 或 postgresql，或提供合法 execute request。
+- 设置隔离测试库确认门禁，或提供合法 execute request。
+- 先完成数据库备份计划并记录备份 artifact，或提供合法 execute request。
+- 先验证并记录可执行的回滚命令或回滚流程，或提供合法 execute request。
+- 确认仅使用 mock 数据，不使用真实司机资料、付款截图或合同扫描件，或提供合法 execute request。
 - 如需进入真实 execute，必须另起 PR，并提供人工确认清单、--execute 和执行信息。
 
 ## 6. execute 人工确认清单

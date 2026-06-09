@@ -58,3 +58,9 @@
 - expected result
 
 没有通过 execute preflight、没有人工确认清单、没有 `--execute` 显式门禁时，不得进入真实 Collection 创建。
+
+## 5. execute request 申请包
+
+- 下一步应先生成 `test-data/generated/real-collection-execute-request.template.json`，再由操作人复制为本地忽略的 `filled.json` 人工填写。
+- `filled.json` 必须通过 validate request、apply request dry-run 和 preflight with request。
+- 合法 request 只能消除 preflight 中可人工确认的安全字段 blockers；本轮仍不允许真实创建 Collection。

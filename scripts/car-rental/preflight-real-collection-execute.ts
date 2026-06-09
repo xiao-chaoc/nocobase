@@ -23,6 +23,7 @@ interface ExecutePreflightReport {
   runsMigration: false;
   callsIopgps: false;
   manualConfirmationChecklist: string[];
+  requestFile?: string;
 }
 
 const MANUAL_CONFIRMATION_CHECKLIST = [
@@ -93,6 +94,7 @@ function writeMarkdown(filePath: string, report: ExecutePreflightReport): void {
 - 是否执行 migration：\`${report.runsMigration}\`。
 - 是否调用 IOPGPS：\`${report.callsIopgps}\`。
 - 本轮只做 execute 前置检查；即使无 blocker，也不得在本轮真实执行。
+- execute request 文件：\`${report.requestFile ?? '未提供'}\`。
 
 ## 2. preflight 检查项
 
@@ -108,6 +110,7 @@ ${line('必须只允许 mock 数据', context.mockDataOnly)}
 ${line('必须存在最小 Collection plan', context.collectionPlanExists)}
 ${line('必须存在 real host environment report', context.hostEnvironmentReportExists)}
 ${line('必须存在未执行、未写库的 real collection adapter plan', context.realCollectionPlanExists)}
+${line('execute request 已校验并应用', context.executeRequestApplied, context.executeRequestFile ?? '未提供')}
 ${line('execute 显式允许门禁本轮必须关闭', !context.executeExplicitlyAllowed)}
 
 ## 3. Blockers
@@ -148,8 +151,14 @@ ${OUT_OF_SCOPE.map((item) => `- \`${item}\``).join('\n')}
   fs.writeFileSync(filePath, content, 'utf8');
 }
 
-function buildReport(): ExecutePreflightReport {
-  const context = buildRealCollectionExecutePreflightContext();
+function getArgValue(args: string[], name: string): string | null {
+  const index = args.indexOf(name);
+  if (index < 0) return null;
+  return args[index + 1] ?? null;
+}
+
+function buildReport(requestFile?: string): ExecutePreflightReport {
+  const context = buildRealCollectionExecutePreflightContext({ requestFile });
   const validation = validateRealCollectionExecutePreflight(context);
   return {
     generated_at: new Date().toISOString(),
@@ -169,12 +178,14 @@ function buildReport(): ExecutePreflightReport {
     runsMigration: false,
     callsIopgps: false,
     manualConfirmationChecklist: MANUAL_CONFIRMATION_CHECKLIST,
+    requestFile,
   };
 }
 
 function main(): void {
+  const requestFile = getArgValue(process.argv.slice(2), '--request');
   const allowBlockersForReport = process.argv.includes('--allow-blockers-for-report');
-  const report = buildReport();
+  const report = buildReport(requestFile ?? undefined);
   writeJson(JSON_REPORT_PATH, report);
   writeMarkdown(MARKDOWN_REPORT_PATH, report);
   // eslint-disable-next-line no-console
