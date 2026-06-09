@@ -79,3 +79,11 @@
 - 下一步是实现真实 Collection Adapter 最小范围。
 - 最小范围建议仅验证 NocoBase v2.0.61 中可确认的 collection 注册入口，并继续保持只读/受控策略：不真实创建业务数据、不执行 migration、不注册权限、不创建页面、不导入测试数据、不调用真实 IOPGPS。
 - 在进入实现前，应基于宿主工程源码确认可用 API，不使用不确定 API 写成已验证。
+
+## 8. 下一阶段：execute preflight
+
+- 下一阶段是真实 Collection execute preflight，用于确认未来真实注册 Collection 前的隔离测试库、PostgreSQL、备份、回滚、mock 数据和 IOPGPS 禁用条件。
+- execute preflight 仍不创建 Collection、不写数据库、不执行 migration、不注册服务、不注册权限、不创建页面、不导入测试数据。
+- execute 前必须确认当前数据库是隔离 PostgreSQL 测试库且明确不是生产库；必须已完成数据库备份并验证回滚路径。
+- execute 前必须确认只使用 mock 数据，不使用真实司机资料、真实付款截图或真实合同扫描件，并保持 IOPGPS 真实同步禁用。
+- 没有 execute preflight 通过，不得进入真实 Collection 创建。

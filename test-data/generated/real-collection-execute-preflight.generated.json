@@ -1,0 +1,101 @@
+{
+  "generated_at": "2026-06-09T00:23:53.533Z",
+  "root": "/workspace/nocobase",
+  "context": {
+    "targetVersion": "2.0.61",
+    "packageManager": "yarn",
+    "databaseDialect": null,
+    "databaseSafetyLabel": "unconfirmed",
+    "isPostgreSQL": false,
+    "isIsolatedDatabase": false,
+    "isProductionLikeDatabase": false,
+    "hasBackupPlan": false,
+    "hasRollbackPlan": false,
+    "iopgpsRealSyncAllowed": false,
+    "mockDataOnly": false,
+    "collectionPlanExists": true,
+    "hostEnvironmentReportExists": true,
+    "realCollectionPlanExists": true,
+    "executeExplicitlyAllowed": false,
+    "warnings": [
+      "execute 显式允许门禁保持关闭；这是本轮预期状态。",
+      "本轮 preflight 不读取 .env、不连接数据库、不创建 Collection、不执行 migration、不调用 IOPGPS。"
+    ],
+    "errors": [],
+    "blockers": [
+      "数据库类型未明确为 postgres / postgresql。",
+      "未明确确认当前数据库是隔离测试库。",
+      "未确认数据库备份计划。",
+      "未确认回滚计划。",
+      "未确认只允许 mock 数据。"
+    ],
+    "nextActions": [
+      "在隔离测试库环境中明确 DB_DIALECT=postgres 或 postgresql。",
+      "设置隔离测试库确认门禁，并由人工确认目标库不是生产库。",
+      "先完成数据库备份计划并记录备份 artifact。",
+      "先验证并记录可执行的回滚命令或回滚流程。",
+      "确认仅使用 mock 数据，不使用真实司机资料、付款截图或合同扫描件。",
+      "如需进入真实 execute，必须另起 PR，并提供人工确认清单、--execute 和执行信息。"
+    ],
+    "safety": {
+      "readsEnvFile": false,
+      "outputsSecretValues": false,
+      "connectsDatabase": false,
+      "writesDatabase": false,
+      "createsCollection": false,
+      "runsMigration": false,
+      "callsIopgps": false,
+      "allowsRealExecuteThisRound": false
+    },
+    "manualConfirmationRequired": true,
+    "executeFlagRequired": true
+  },
+  "validation": {
+    "valid": false,
+    "warnings": [
+      "execute 显式允许门禁保持关闭；这是本轮预期状态。",
+      "本轮 preflight 不读取 .env、不连接数据库、不创建 Collection、不执行 migration、不调用 IOPGPS。"
+    ],
+    "errors": [],
+    "blockers": [
+      "数据库类型未明确为 postgres / postgresql。",
+      "未明确确认当前数据库是隔离测试库。",
+      "未确认数据库备份计划。",
+      "未确认回滚计划。",
+      "未确认只允许 mock 数据。"
+    ],
+    "nextActions": [
+      "在隔离测试库环境中明确 DB_DIALECT=postgres 或 postgresql。",
+      "设置隔离测试库确认门禁，并由人工确认目标库不是生产库。",
+      "先完成数据库备份计划并记录备份 artifact。",
+      "先验证并记录可执行的回滚命令或回滚流程。",
+      "确认仅使用 mock 数据，不使用真实司机资料、付款截图或合同扫描件。",
+      "如需进入真实 execute，必须另起 PR，并提供人工确认清单、--execute 和执行信息。"
+    ],
+    "realExecutionAllowedThisRound": false
+  },
+  "production_ready": false,
+  "executed": false,
+  "writesDatabase": false,
+  "createsCollection": false,
+  "runsMigration": false,
+  "callsIopgps": false,
+  "manualConfirmationChecklist": [
+    "当前 NocoBase 版本 2.0.61。",
+    "当前包管理器 yarn。",
+    "当前数据库是 PostgreSQL。",
+    "当前数据库是隔离测试库。",
+    "当前数据库不是生产库。",
+    "已完成数据库备份。",
+    "已验证回滚路径。",
+    "IOPGPS_SYNC_ENABLED=false。",
+    "只使用 mock 数据。",
+    "不使用真实司机资料。",
+    "不使用真实付款截图。",
+    "不使用真实合同扫描件。",
+    "不启用真实 IOPGPS。",
+    "已阅读 real collection adapter plan。",
+    "已阅读 execute preflight 报告。",
+    "已明确最小 Collection 范围。"
+  ]
+}
