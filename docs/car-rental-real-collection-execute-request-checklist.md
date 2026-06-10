@@ -82,3 +82,13 @@ TS_NODE_SKIP_PROJECT=1 TS_NODE_COMPILER_OPTIONS='{"module":"CommonJS","moduleRes
 - 另起 PR。
 - 在 PR 中说明 execute reason、target database、backup artifact、rollback command、operator、execution time 和 expected result。
 - 附上 validate request、apply request dry-run 和 preflight with request 的输出摘要。
+
+## 14. 使用隔离测试库准备包预填 request
+
+1. 复制 `.env.car-rental-collection-test.example` 为 `.env.car-rental-collection-test`，只填写测试库占位密码，不加入 `APP_KEY` 或 `IOPGPS_LOGIN_KEY`。
+2. 启动 `docker-compose.car-rental-collection-test.yml` 中的 PostgreSQL 测试库。
+3. 运行 `scripts/car-rental/validate-collection-test-db-safety.ts`；不得跳过 safety check。
+4. 运行 `scripts/car-rental/backup-collection-test-db.sh`，并复制其输出的 `backup_artifact_reference`。
+5. 运行 `scripts/car-rental/generate-real-collection-execute-request-from-test-db.ts --backup <backup_artifact_reference>` 生成本地 `filled.json`。
+6. 确认 `rollback_command_reference` 引用 `scripts/car-rental/restore-collection-test-db.sh <backup-file>`。
+7. 不允许手写假的备份引用、不允许 production DB、不允许真实 IOPGPS、不允许提交 filled request。

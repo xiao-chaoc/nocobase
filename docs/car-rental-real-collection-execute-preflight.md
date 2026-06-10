@@ -2,7 +2,7 @@
 
 ## 1. 当前结论
 
-- 报告生成时间：`2026-06-09T08:09:29.520Z`。
+- 报告生成时间：`2026-06-10T00:31:40.367Z`。
 - 宿主工程：`/workspace/nocobase`。
 - preflight 是否通过：`false`。
 - 是否 production_ready：`false`。
@@ -106,3 +106,12 @@
 - 本脚本不调用真实 IOPGPS。
 - 本脚本不导入真实或 mock 业务数据。
 - 没有 preflight 通过和另起 PR 的人工确认，不得进入真实 Collection 创建。
+
+## 10. 如何用隔离 PostgreSQL 测试库准备包消除 blockers
+
+- 使用 `.env.car-rental-collection-test.example` 创建本地 `.env.car-rental-collection-test`，并保持 `DB_DIALECT=postgres` 或 `postgresql`，可消除“数据库类型未明确” blocker。
+- 使用明显包含 `test` / `car_rental` / `collection_test` 的 `DB_DATABASE`，并保持 `CAR_RENTAL_DATABASE_SAFETY_LABEL=isolated_test_database`，可消除“未确认隔离测试库” blocker；不得使用包含 `prod`、`production`、`live` 的库名。
+- 运行 `scripts/car-rental/backup-collection-test-db.sh` 生成真实测试库 dump，并使用脚本输出的 `backup_artifact_reference`；不允许手写假的备份引用。
+- 使用 `scripts/car-rental/restore-collection-test-db.sh <backup-file>` 或 `docs/car-rental-real-collection-execute-rollback.md` 作为 `rollback_command_reference`；不允许跳过回滚验证。
+- 保持 `CAR_RENTAL_MOCK_DATA_ONLY=true`、`IOPGPS_SYNC_ENABLED=false`、`CAR_RENTAL_COLLECTION_EXECUTE_ENABLED=false`，并先运行 `scripts/car-rental/validate-collection-test-db-safety.ts`。
+- 本准备包仍不允许真实创建 Collection、写数据库、执行 migration、调用真实 IOPGPS 或标记 `production_ready`。

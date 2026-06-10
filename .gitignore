@@ -49,3 +49,9 @@ openspec/
 test-data/generated/real-collection-execute-request.filled.json
 test-data/generated/real-collection-execute-request.*filled*.json
 test-data/generated/real-collection-execute-request.*secret*.json
+
+# car-rental isolated Collection test database local files
+.env.car-rental-collection-test
+backups-test/
+*.dump
+*.sql

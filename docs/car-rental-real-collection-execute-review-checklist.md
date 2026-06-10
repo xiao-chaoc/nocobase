@@ -18,3 +18,13 @@
 - [ ] 是否未执行 migration、未写数据库、未注册权限、未创建页面、未调用真实 IOPGPS。
 - [ ] preflight with request 是否通过。
 - [ ] 是否仍不允许标记 `production_ready`。
+
+## 隔离测试库准备包 review 项
+
+- [ ] `.env.car-rental-collection-test.example` 只包含测试占位值，未包含 `APP_KEY`、`IOPGPS_LOGIN_KEY` 或真实密码。
+- [ ] `.env.car-rental-collection-test` 未提交。
+- [ ] `docker-compose.car-rental-collection-test.yml` 只启动隔离 `postgres:16`，未挂载生产 storage，未启动真实 IOPGPS，未执行 Collection 注册。
+- [ ] `backup_artifact_reference` 来自 `scripts/car-rental/backup-collection-test-db.sh` 的真实测试库备份输出。
+- [ ] `rollback_command_reference` 引用 `scripts/car-rental/restore-collection-test-db.sh <backup-file>` 或 `docs/car-rental-real-collection-execute-rollback.md`。
+- [ ] 已运行 `scripts/car-rental/validate-collection-test-db-safety.ts`，并确认 `CAR_RENTAL_COLLECTION_EXECUTE_ENABLED=false`。
+- [ ] 未跳过 safety check，未使用 production DB，未调用真实 IOPGPS。
