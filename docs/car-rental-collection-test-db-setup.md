@@ -22,6 +22,8 @@ cp .env.car-rental-collection-test.example .env.car-rental-collection-test
 
 `.env.car-rental-collection-test.example` 可以提交；`.env.car-rental-collection-test` 不可提交。
 
+如果在宿主机上执行 `backup-collection-test-db.sh` / `restore-collection-test-db.sh`，并通过本 Compose 文件暴露的 `5432:5432` 连接容器，请在本地 `.env.car-rental-collection-test` 中将 `DB_HOST` 调整为 `127.0.0.1` 或 `localhost`；`POSTGRES_DB`、`POSTGRES_USER`、`POSTGRES_PASSWORD` 仍用于容器初始化。不要把这个本地 env 提交到 Git。
+
 ## 5. 需要修改哪些测试密码
 
 在 `.env.car-rental-collection-test` 中仅替换测试占位密码：

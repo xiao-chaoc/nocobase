@@ -1,14 +1,14 @@
-# car-rental 真实 Collection execute request 申请记录（本轮 blocked）
+# car-rental 真实 Collection execute request 申请记录（本轮 Docker unavailable）
 
 ## 1. 本轮结论
 
-本轮在 `/workspace/nocobase` 宿主工程中完成了文件扫描和安全前置检查，但当前环境无法确认隔离 PostgreSQL 测试库配置，因此没有生成可通过校验的 `real-collection-execute-request.filled.json`，也没有进入 execute。
+本轮在 `/workspace/nocobase` 完整 NocoBase v2.0.61 宿主工程中，基于已创建的隔离 PostgreSQL 测试库准备包进行了实际启动前置尝试：已创建本地 ignored 测试 env，并通过 safety check；但当前 Codex 环境没有 `docker` 命令，无法启动隔离 PostgreSQL 测试库。同时当前环境也没有可用 `pg_dump` / `pg_restore`，因此本轮没有生成真实 backup dump、没有生成 filled request，也没有执行 request 校验、apply dry-run 或 preflight with request。
 
-- 当前阶段：`blocked_preflight_materials_only`
+- 当前阶段：`blocked_by_missing_docker_runtime`
 - 是否 production ready：否
 - 是否 execute：否
 - 是否真实创建 Collection：否
-- 是否写数据库：否
+- 是否写数据库 schema：否
 - 是否执行 migration：否
 - 是否注册服务：否
 - 是否注册权限：否
@@ -24,92 +24,146 @@
 find . -maxdepth 6 -type f \( -path './node_modules/*' -o -path './.git/*' -o -path './.test-dist/*' -o -path './storage/*' -o -path './storage-test/*' -o -path './backups-test/*' -o -path './logs-test/*' -o -path './test-runtime/*' \) -prune -o -type f -print | sort
 ```
 
-扫描结果写入本地临时文件 `/tmp/nocobase-full-scan.txt`，共扫描到 6566 个文件路径。以下关键路径均存在：
+扫描结果写入本地临时文件 `/tmp/nocobase-full-scan-3.txt`，共扫描到 6132 个文件路径。以下关键路径均存在：
 
 - `package.json`
 - `yarn.lock`
-- `scripts/car-rental/generate-real-collection-execute-request-template.ts`
+- `.env.car-rental-collection-test.example`
+- `docker-compose.car-rental-collection-test.yml`
+- `scripts/car-rental/backup-collection-test-db.sh`
+- `scripts/car-rental/restore-collection-test-db.sh`
+- `scripts/car-rental/validate-collection-test-db-safety.ts`
+- `scripts/car-rental/generate-real-collection-execute-request-from-test-db.ts`
 - `scripts/car-rental/validate-real-collection-execute-request.ts`
 - `scripts/car-rental/apply-real-collection-execute-request.ts`
 - `scripts/car-rental/preflight-real-collection-execute.ts`
-- `scripts/car-rental/realCollectionExecutePreflight.ts`
-- `test-data/generated/real-collection-execute-request.template.json`
-- `test-data/generated/real-collection-execute-preflight.generated.json`
-- `docs/car-rental-real-collection-execute-request-schema.md`
-- `docs/car-rental-real-collection-execute-request-checklist.md`
-- `docs/car-rental-real-collection-execute-review-checklist.md`
+- `docs/car-rental-collection-test-db-setup.md`
 - `docs/car-rental-real-collection-execute-preflight.md`
+- `docs/car-rental-real-collection-execute-rollback.md`
 
-## 3. 数据库与备份确认结果
+## 3. Compose 与 env 模板检查
+
+已读取 `.env.car-rental-collection-test.example`、`docker-compose.car-rental-collection-test.yml` 和 `docs/car-rental-collection-test-db-setup.md`，确认：
 
 | 检查项 | 结果 |
 | --- | --- |
-| `.env` | 当前仓库根目录不存在 |
-| `.env.test` | 当前仓库根目录不存在 |
-| `process.env.DB_DIALECT` | 未设置 |
-| `process.env.DB_DATABASE` | 未设置 |
-| `process.env.DATABASE_URL` | 未设置 |
-| PostgreSQL 方言 | 无法确认 |
-| 隔离测试库标识 | 无法确认 |
-| 生产特征 | 当前可见环境变量未发现，但因数据库目标未确认，不能视为通过 |
-| `pg_dump` | 当前环境未发现可用命令 |
-| 宿主工程测试备份脚本 | 当前扫描未确认可用于本任务的测试备份脚本 |
+| `DB_DIALECT` | `postgres` |
+| `DB_DATABASE` | `nocobase_car_rental_collection_test`，明显是测试库 |
+| `CAR_RENTAL_DATABASE_SAFETY_LABEL` | `isolated_test_database` |
+| `CAR_RENTAL_MOCK_DATA_ONLY` | `true` |
+| `IOPGPS_SYNC_ENABLED` | `false` |
+| `CAR_RENTAL_COLLECTION_EXECUTE_ENABLED` | `false` |
+| Compose service | 只定义 `postgres` |
+| Compose image | `postgres:16` |
+| 数据目录 | `./storage-test/car-rental-postgres` |
+| 生产 storage | 未挂载 |
+| IOPGPS | 未启动 |
+| Collection 注册 | 未执行 |
 
-因为无法确认数据库是隔离 PostgreSQL 测试库，本轮没有创建 `backups-test/car-rental/` 下的真实备份 artifact，也没有将 `backup_plan_confirmed` 写为 `true`。
+Compose 暴露宿主端口 `5432:5432`。本轮本地 ignored env 将 `DB_HOST` 调整为 `127.0.0.1`，以便宿主机执行的 backup/restore 脚本通过映射端口连接容器；该本地 env 不提交。
 
-## 4. backup_artifact_reference
+## 4. 本地测试 env
 
-- `backup_artifact_reference`：`未确认`
-- 原因：没有可确认的隔离 PostgreSQL 测试库连接，也没有可确认的真实测试库备份文件或备份记录。
-- 后续要求：execute PR 前必须生成或确认真实存在的测试库备份 artifact，且不得提交 `backups-test/`、`*.dump` 或 `*.sql`。
+已执行：
 
-## 5. rollback_command_reference
+```bash
+cp .env.car-rental-collection-test.example .env.car-rental-collection-test
+```
 
-- `rollback_command_reference`：`docs/car-rental-real-collection-execute-rollback.md`
-- 本轮已创建隔离测试库专用回滚方案文档。
-- 该文档当前明确记录 backup artifact 未确认，因此不能单独作为通过 preflight 的依据。
+并将本地 ignored 文件中的测试密码替换为随机测试值，同时保持：
 
-## 6. filled request 状态
+- `DB_DIALECT=postgres`
+- `DB_DATABASE=nocobase_car_rental_collection_test`
+- `CAR_RENTAL_DATABASE_SAFETY_LABEL=isolated_test_database`
+- `CAR_RENTAL_MOCK_DATA_ONLY=true`
+- `IOPGPS_SYNC_ENABLED=false`
+- `CAR_RENTAL_COLLECTION_EXECUTE_ENABLED=false`
 
-- `test-data/generated/real-collection-execute-request.filled.json`：未生成。
-- 未生成原因：不满足以下通过条件：
-  - `database_dialect = postgresql` 未能由当前环境确认。
-  - `is_isolated_database = true` 未能由当前环境确认。
-  - 没有真实测试库备份文件或明确备份记录。
-- 因未生成 filled request，本轮也不存在需要提交或排除提交的 filled request 文件。
+未输出数据库密码，未写入 `APP_KEY`，未写入 `IOPGPS_LOGIN_KEY`。`.env.car-rental-collection-test` 被 `.gitignore` 忽略，不能提交。
 
-## 7. request 校验、apply dry-run 与 preflight with request
+## 5. safety check
+
+已执行：
+
+```bash
+TS_NODE_SKIP_PROJECT=1 TS_NODE_COMPILER_OPTIONS='{"module":"CommonJS","moduleResolution":"node","target":"ES2020","ignoreDeprecations":"6.0"}' npx ts-node --transpile-only scripts/car-rental/validate-collection-test-db-safety.ts
+```
+
+结果：通过。
+
+通过项包括：
+
+- `DB_DIALECT` 是 `postgres/postgresql`。
+- `DB_DATABASE` 包含 `test/car_rental/collection_test` 测试标识。
+- `CAR_RENTAL_DATABASE_SAFETY_LABEL=isolated_test_database`。
+- `CAR_RENTAL_MOCK_DATA_ONLY=true`。
+- `IOPGPS_SYNC_ENABLED=false`。
+- `CAR_RENTAL_COLLECTION_EXECUTE_ENABLED=false`。
+
+脚本同时提示 `backups-test/car-rental` 尚不存在，会在 backup 脚本运行时创建。该脚本没有连接数据库、没有写数据库、没有创建 Collection、没有执行 migration。
+
+## 6. Docker Compose 与 PostgreSQL 测试库启动
+
+已执行：
+
+```bash
+docker compose version && docker compose -f docker-compose.car-rental-collection-test.yml --env-file .env.car-rental-collection-test up -d
+```
+
+结果：失败，当前 Codex 环境没有 `docker` 命令：
+
+```text
+/bin/bash: line 1: docker: command not found
+```
+
+因此本轮没有启动隔离 PostgreSQL 测试库，也没有执行 `docker compose ps`。
+
+## 7. 备份与 backup_artifact_reference
+
+- 是否生成真实测试库备份：否。
+- `backup_artifact_reference`：未生成。
+- 原因：当前环境无法启动 Docker Compose PostgreSQL 测试库，且未发现可用 `pg_dump`。
+- 未创建或提交 `backups-test/`、`*.dump` 或 `*.sql`。
+
+不得编造 backup artifact。下一轮必须在支持 Docker Compose 和 PostgreSQL client 的 NAS / 本地宿主环境中运行 `scripts/car-rental/backup-collection-test-db.sh`，并使用脚本真实输出的 `backup_artifact_reference`。
+
+## 8. rollback_command_reference
+
+- 本轮未生成 filled request，因此没有最终 request 内的 `rollback_command_reference`。
+- 预期格式仍为：`scripts/car-rental/restore-collection-test-db.sh <backup-file>`。
+- 回滚说明文档仍为：`docs/car-rental-real-collection-execute-rollback.md`。
+
+## 9. filled request、validate、apply dry-run、preflight with request
 
 | 步骤 | 结果 | 说明 |
 | --- | --- | --- |
-| validate request | 未执行通过态校验 | filled request 未生成；不得伪造 request 通过。 |
-| apply request dry-run | 未执行 | validate request 未通过前不得执行 apply dry-run。 |
-| preflight with request | 未执行通过态 preflight | 没有合法 request；当前仅保留无 request 的 blocked preflight。 |
+| 生成 filled request | 未执行 | 没有真实 backup dump，不能生成。 |
+| filled request 是否未提交 | 是 | 文件不存在，且被 `.gitignore` 忽略。 |
+| validate request | 未执行 | 没有合法 filled request。 |
+| apply dry-run | 未执行 | validate request 未通过前不得执行。 |
+| preflight with request | 未执行 | 没有合法 filled request；不得伪造通过态报告。 |
 
-本轮尝试按任务指定命令运行 `npx ts-node` 形式的 preflight 报告生成，但当前依赖环境中 `ts-node` 不可用，命令以 `sh: 1: ts-node: not found` 失败。该失败不改变安全结论：因为数据库和备份条件未确认，本轮必须保持 blocked。
+## 10. 当前 blockers
 
-## 8. 当前 blockers
+1. 当前 Codex 环境没有 `docker` 命令，不能启动隔离 PostgreSQL 测试库。
+2. 当前环境未发现可用 `pg_dump` / `pg_restore`。
+3. 未生成真实测试库 backup dump。
+4. 未生成合法 filled request。
+5. 未执行 validate request、apply dry-run、preflight with request。
 
-1. 数据库类型未明确为 postgres / postgresql。
-2. 未明确确认当前数据库是隔离测试库。
-3. 未确认数据库备份计划。
-4. 未确认回滚计划中的真实 backup artifact。
-5. 未确认只允许 mock 数据。
-6. 当前环境缺少可用 `ts-node`，无法按指定 `npx ts-node` 命令重新生成报告。
+## 11. 是否可以进入真实 Collection execute PR 审查阶段
 
-## 9. 是否可以进入 execute PR 审查阶段
+当前不能进入真实 Collection execute PR 审查阶段。进入前必须在 NAS / 本地宿主环境完成：
 
-当前不能进入真实 Collection execute PR 审查阶段。进入前至少需要：
+1. 保留本地 `.env.car-rental-collection-test`，不要提交。
+2. 启动隔离 PostgreSQL：`docker compose -f docker-compose.car-rental-collection-test.yml --env-file .env.car-rental-collection-test up -d`。
+3. 确认 `docker compose ... ps` 显示 `postgres:16` 正常运行。
+4. 确认可用 `pg_dump`。
+5. 运行 `scripts/car-rental/backup-collection-test-db.sh` 生成真实 backup dump。
+6. 用真实 backup path 运行 `scripts/car-rental/generate-real-collection-execute-request-from-test-db.ts --backup <backup-file>`。
+7. 运行 validate request、apply dry-run 和 preflight with request。
+8. 确认 `.env.car-rental-collection-test`、filled request、dump、SQL 文件均未提交。
 
-1. 在隔离测试环境中提供 PostgreSQL 配置，但不得输出密码或密钥值。
-2. 明确数据库名、连接名或安全标签包含测试/隔离标识。
-3. 明确不存在生产特征。
-4. 使用 `pg_dump` 或宿主工程测试备份脚本生成真实测试库备份 artifact。
-5. 更新 `docs/car-rental-real-collection-execute-rollback.md` 的备份文件引用。
-6. 生成但不提交 `test-data/generated/real-collection-execute-request.filled.json`。
-7. 通过 validate request、apply dry-run 和 preflight with request。
-8. 另起 execute PR，并在该 PR 中仍保持 `allow_real_execution=false`，真实执行必须再次人工确认并显式使用 `--execute`。
+## 12. 本轮不是 execute
 
-## 10. 本轮不是 execute
-
-本轮只生成 blocked 申请记录和回滚文档，没有真实执行任何 Collection 注册动作。不得将本轮结果解读为生产可用或 execute 已获准。
+本轮只创建了本地 ignored env，并完成 safety check；由于当前环境缺少 Docker，未启动 PostgreSQL、未备份、未生成 filled request。本轮仍不是 execute，未创建 Collection、未写数据库 schema、未执行 migration、未注册服务、未注册权限、未创建页面、未导入数据、未调用真实 IOPGPS。
