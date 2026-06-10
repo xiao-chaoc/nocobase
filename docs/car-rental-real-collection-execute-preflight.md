@@ -2,7 +2,7 @@
 
 ## 1. 当前结论
 
-- 报告生成时间：`2026-06-09T08:09:29.520Z`。
+- 报告生成时间：`2026-06-10T00:31:40.367Z`。
 - 宿主工程：`/workspace/nocobase`。
 - preflight 是否通过：`false`。
 - 是否 production_ready：`false`。
