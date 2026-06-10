@@ -116,3 +116,19 @@ pg_restore \
 - 本轮未写数据库。
 - 本轮未执行 migration。
 - 本轮未调用 IOPGPS。
+
+## 13. 隔离测试库准备包中的回滚命令
+
+后续进入 execute PR 审查前，应优先使用准备包脚本生成和恢复测试库备份：
+
+```bash
+scripts/car-rental/backup-collection-test-db.sh
+scripts/car-rental/restore-collection-test-db.sh backups-test/car-rental/pre-real-collection-register-YYYYMMDD-HHmmss.dump
+```
+
+- `backup_artifact_reference` 必须来自 `backup-collection-test-db.sh` 的真实输出。
+- `rollback_command_reference` 可以写为 `scripts/car-rental/restore-collection-test-db.sh <backup-file>` 或引用本文档。
+- 不允许手写假的备份引用。
+- 不允许跳过 `validate-collection-test-db-safety.ts`。
+- 不允许 production DB、真实业务数据或真实 IOPGPS。
+- 本准备包仍不创建 Collection、不写数据库、不执行 migration。
