@@ -64,3 +64,17 @@
 - 下一步应先生成 `test-data/generated/real-collection-execute-request.template.json`，再由操作人复制为本地忽略的 `filled.json` 人工填写。
 - `filled.json` 必须通过 validate request、apply request dry-run 和 preflight with request。
 - 合法 request 只能消除 preflight 中可人工确认的安全字段 blockers；本轮仍不允许真实创建 Collection。
+
+## 6. 隔离 PostgreSQL 测试库准备包检查
+
+- [ ] 已复制 `.env.car-rental-collection-test.example` 为本地 `.env.car-rental-collection-test`，且未提交本地 env。
+- [ ] `DB_DIALECT` 是 `postgres` 或 `postgresql`。
+- [ ] `DB_DATABASE` 明确包含 `test` / `car_rental` / `collection_test`，且不包含 `prod`、`production`、`live`。
+- [ ] `CAR_RENTAL_DATABASE_SAFETY_LABEL=isolated_test_database`。
+- [ ] `CAR_RENTAL_MOCK_DATA_ONLY=true`。
+- [ ] `IOPGPS_SYNC_ENABLED=false`，且没有真实 `IOPGPS_LOGIN_KEY`。
+- [ ] `CAR_RENTAL_COLLECTION_EXECUTE_ENABLED=false`。
+- [ ] 已运行 `scripts/car-rental/validate-collection-test-db-safety.ts`，不得跳过 safety check。
+- [ ] `backup_artifact_reference` 来自 `scripts/car-rental/backup-collection-test-db.sh` 的真实输出，不是手写假路径。
+- [ ] `rollback_command_reference` 引用 `scripts/car-rental/restore-collection-test-db.sh <backup-file>` 或回滚文档。
+- [ ] 未提交 `.env.car-rental-collection-test`、`backups-test/`、`*.dump`、`*.sql` 或 filled request。
