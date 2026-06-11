@@ -1,0 +1,1650 @@
+{
+  "generated_at": "2026-06-11T22:42:15Z",
+  "workflow_mode": "codex_only",
+  "stage": "permission_sensitive_field",
+  "execution_mode": "codex_dry_run",
+  "production_ready": false,
+  "local_execution_required_pre_release": true,
+  "scan_roots": [
+    "packages/plugins/plugin-rental-core/src/server",
+    "packages/plugins/plugin-contract-documents/src/server",
+    "packages/plugins/plugin-iopgps/src/server",
+    "packages/shared/nocobase-automation/src"
+  ],
+  "detected_permission_entries": [
+    {
+      "name": "rentalCoreActionRegistry",
+      "status": "existing",
+      "kind": "resource_action",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/actions/actionRegistry.ts",
+      "matched_terms": [
+        "role",
+        "action"
+      ],
+      "exported_entries": [
+        "rentalCoreActionRegistry",
+        "ActionDraft",
+        "requiredRoles: system_admin, manager",
+        "requiredRoles: system_admin, manager",
+        "requiredRoles: system_admin, manager",
+        "requiredRoles: system_admin, manager, accountant",
+        "requiredRoles: system_admin, manager, accountant",
+        "requiredRoles: system_admin, manager, accountant, operator",
+        "requiredRoles: system_admin, manager, accountant",
+        "requiredRoles: system_admin, manager",
+        "requiredRoles: system_admin, manager, accountant",
+        "requiredRoles: system_admin, manager, accountant"
+      ]
+    },
+    {
+      "name": "index.ts",
+      "status": "existing",
+      "kind": "collection_resource_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/index.ts",
+      "matched_terms": [
+        "operationLogs"
+      ],
+      "exported_entries": []
+    },
+    {
+      "name": "operationLogsCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/operationLogs.ts",
+      "matched_terms": [
+        "action",
+        "operationLogs"
+      ],
+      "exported_entries": [
+        "operationLogsCollectionDraft"
+      ]
+    },
+    {
+      "name": "rentalCorePluginIntegrationPlan",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/index.ts",
+      "matched_terms": [
+        "permission",
+        "action"
+      ],
+      "exported_entries": [
+        "rentalCorePluginIntegrationPlan",
+        "rentalCoreI18nRegistrationNotes"
+      ]
+    },
+    {
+      "name": "rentalCoreSensitiveFields",
+      "status": "existing",
+      "kind": "permission_registry",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/permissions/permissionRegistry.ts",
+      "matched_terms": [
+        "acl",
+        "permission",
+        "role",
+        "filter"
+      ],
+      "exported_entries": [
+        "rentalCoreSensitiveFields",
+        "rentalCorePermissionRegistry",
+        "rentalCorePermissionRegistryNotes",
+        "RolePermissionDraft"
+      ]
+    },
+    {
+      "name": "createRentalCorePluginRegistrationPlan",
+      "status": "existing",
+      "kind": "plugin_registration_permission_notes",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/pluginRegistration.ts",
+      "matched_terms": [
+        "permission",
+        "action",
+        "filter",
+        "operationLogs"
+      ],
+      "exported_entries": [
+        "createRentalCorePluginRegistrationPlan",
+        "rentalCorePluginRegistration",
+        "PluginRegistrationDescription"
+      ]
+    },
+    {
+      "name": "generateContractBillingWeeks",
+      "status": "existing",
+      "kind": "service_policy_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/billingWeekService.ts",
+      "matched_terms": [
+        "permission"
+      ],
+      "exported_entries": [
+        "generateContractBillingWeeks"
+      ]
+    },
+    {
+      "name": "generateBusinessNo",
+      "status": "existing",
+      "kind": "service_policy_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/businessNoService.ts",
+      "matched_terms": [
+        "permission"
+      ],
+      "exported_entries": [
+        "generateBusinessNo"
+      ]
+    },
+    {
+      "name": "getDriverCalendarData",
+      "status": "existing",
+      "kind": "service_policy_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/calendarDataService.ts",
+      "matched_terms": [
+        "permission",
+        "filter"
+      ],
+      "exported_entries": [
+        "getDriverCalendarData",
+        "DriverCalendarFilters",
+        "GetDriverCalendarDataInput"
+      ]
+    },
+    {
+      "name": "checkVehicleContractAvailability",
+      "status": "existing",
+      "kind": "service_policy_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/contractAvailabilityService.ts",
+      "matched_terms": [
+        "permission"
+      ],
+      "exported_entries": [
+        "checkVehicleContractAvailability"
+      ]
+    },
+    {
+      "name": "getDepositAvailableAmount",
+      "status": "existing",
+      "kind": "service_policy_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/depositService.ts",
+      "matched_terms": [
+        "action",
+        "operationLogs"
+      ],
+      "exported_entries": [
+        "getDepositAvailableAmount",
+        "refreshDepositStatus",
+        "createDepositRecord",
+        "deductDeposit",
+        "refundDeposit",
+        "waiveDeposit"
+      ]
+    },
+    {
+      "name": "throwBusinessError",
+      "status": "existing",
+      "kind": "service_policy_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/errors.ts",
+      "matched_terms": [
+        "permission",
+        "role",
+        "action"
+      ],
+      "exported_entries": [
+        "throwBusinessError",
+        "rentalCoreErrorMessages",
+        "rentalCoreErrorCodes",
+        "RentalCoreErrorCode"
+      ]
+    },
+    {
+      "name": "index.ts",
+      "status": "existing",
+      "kind": "service_policy_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/index.ts",
+      "matched_terms": [
+        "permission",
+        "filter",
+        "operationLogs"
+      ],
+      "exported_entries": []
+    },
+    {
+      "name": "manuallyAdjustRentDate",
+      "status": "existing",
+      "kind": "service_policy_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/manualAdjustmentService.ts",
+      "matched_terms": [
+        "permission"
+      ],
+      "exported_entries": [
+        "manuallyAdjustRentDate"
+      ]
+    },
+    {
+      "name": "maskSensitiveLogValue",
+      "status": "existing",
+      "kind": "service_policy_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/operationLogService.ts",
+      "matched_terms": [
+        "permission",
+        "action",
+        "filter",
+        "signed_scan_file",
+        "login_key_encrypted",
+        "access_token"
+      ],
+      "exported_entries": [
+        "maskSensitiveLogValue",
+        "recordOperationLog",
+        "buildOperationLogForChange",
+        "operationActions"
+      ]
+    },
+    {
+      "name": "canViewCalendarField",
+      "status": "existing",
+      "kind": "service_policy_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/permissionFilterService.ts",
+      "matched_terms": [
+        "acl",
+        "permission",
+        "role",
+        "filter"
+      ],
+      "exported_entries": [
+        "canViewCalendarField",
+        "getCalendarFieldVisibility",
+        "filterCalendarSensitiveData",
+        "calendarSensitiveFields"
+      ]
+    },
+    {
+      "name": "refreshContractFinancialSummary",
+      "status": "existing",
+      "kind": "service_policy_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/summaryService.ts",
+      "matched_terms": [
+        "filter"
+      ],
+      "exported_entries": [
+        "refreshContractFinancialSummary",
+        "refreshDriverCalendarSummary"
+      ]
+    },
+    {
+      "name": "ServiceContext",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/types/commonTypes.ts",
+      "matched_terms": [
+        "role",
+        "action"
+      ],
+      "exported_entries": [
+        "ServiceContext",
+        "ServiceResult",
+        "DateRange",
+        "TodoTransactionOptions",
+        "ID",
+        "Weekday",
+        "WeekStartDay"
+      ]
+    },
+    {
+      "name": "index.ts",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/types/index.ts",
+      "matched_terms": [
+        "permission"
+      ],
+      "exported_entries": []
+    },
+    {
+      "name": "OperationLog",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/types/operationLogTypes.ts",
+      "matched_terms": [
+        "permission",
+        "action",
+        "filter"
+      ],
+      "exported_entries": [
+        "OperationLog",
+        "RecordOperationLogInput",
+        "OperationAction"
+      ]
+    },
+    {
+      "name": "CurrentUserContext",
+      "status": "existing",
+      "kind": "permission_plan_automation",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/types/permissionTypes.ts",
+      "matched_terms": [
+        "acl",
+        "permission",
+        "role",
+        "filter"
+      ],
+      "exported_entries": [
+        "CurrentUserContext",
+        "PermissionFilterResult",
+        "CurrentUserPermissionContext",
+        "CalendarVisibleFields",
+        "UserRole",
+        "CalendarSensitiveField",
+        "CalendarPermissionConfig",
+        "CalendarFieldVisibility",
+        "RentalRole"
+      ]
+    },
+    {
+      "name": "SummaryContractLike",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/types/summaryTypes.ts",
+      "matched_terms": [
+        "permission"
+      ],
+      "exported_entries": [
+        "SummaryContractLike",
+        "ContractFinancialSummary",
+        "DriverCalendarSummary",
+        "DriverCalendarDay",
+        "DriverCalendarData",
+        "DriverCalendarDateRange"
+      ]
+    },
+    {
+      "name": "contractDocumentsActionRegistry",
+      "status": "existing",
+      "kind": "resource_action",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/actions/actionRegistry.ts",
+      "matched_terms": [
+        "role",
+        "action",
+        "signed_scan_file"
+      ],
+      "exported_entries": [
+        "contractDocumentsActionRegistry",
+        "ContractDocumentActionDraft",
+        "requiredRoles: system_admin, manager, operator",
+        "requiredRoles: system_admin, manager, operator",
+        "requiredRoles: system_admin, manager, operator",
+        "requiredRoles: system_admin, manager"
+      ]
+    },
+    {
+      "name": "contractDocumentsCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource_candidate",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/collections/contractDocuments.ts",
+      "matched_terms": [
+        "signed_scan_file"
+      ],
+      "exported_entries": [
+        "contractDocumentsCollectionDraft"
+      ]
+    },
+    {
+      "name": "contractDocumentsPluginIntegrationPlan",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/index.ts",
+      "matched_terms": [
+        "action",
+        "signed_scan_file"
+      ],
+      "exported_entries": [
+        "contractDocumentsPluginIntegrationPlan",
+        "contractDocumentsI18nRegistrationNotes"
+      ]
+    },
+    {
+      "name": "createContractDocumentsPluginRegistrationPlan",
+      "status": "existing",
+      "kind": "plugin_registration_permission_notes",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/pluginRegistration.ts",
+      "matched_terms": [
+        "permission",
+        "action",
+        "signed_scan_file"
+      ],
+      "exported_entries": [
+        "createContractDocumentsPluginRegistrationPlan",
+        "contractDocumentsPluginRegistration",
+        "permissions: system_admin/manager/operator 可触发合同文件动作；generated_docx_file、generated_pdf_file、signed_scan_file 必须做服务端权限控制。,"
+      ]
+    },
+    {
+      "name": "buildContractRenderContext",
+      "status": "existing",
+      "kind": "service_policy_candidate",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/services/contractDocumentService.ts",
+      "matched_terms": [
+        "signed_scan_file"
+      ],
+      "exported_entries": [
+        "buildContractRenderContext",
+        "buildContractDocumentDraft",
+        "generateContractDocuments",
+        "buildContractDocumentFileName",
+        "validateContractDocument",
+        "renderContractDocument"
+      ]
+    },
+    {
+      "name": "validateSignedScanUpload",
+      "status": "existing",
+      "kind": "service_policy_candidate",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/services/contractScanService.ts",
+      "matched_terms": [
+        "signed_scan_file"
+      ],
+      "exported_entries": [
+        "validateSignedScanUpload",
+        "uploadSignedContractScan",
+        "markContractSigned",
+        "voidContractDocument"
+      ]
+    },
+    {
+      "name": "validateContractLanguage",
+      "status": "existing",
+      "kind": "service_policy_candidate",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/services/contractTemplateService.ts",
+      "matched_terms": [
+        "filter"
+      ],
+      "exported_entries": [
+        "validateContractLanguage",
+        "getContractTemplateByLanguage",
+        "validateContractTemplate",
+        "selectTemplatesForLanguages",
+        "contractLanguages"
+      ]
+    },
+    {
+      "name": "ContractTemplate",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/types/contractDocumentTypes.ts",
+      "matched_terms": [
+        "signed_scan_file"
+      ],
+      "exported_entries": [
+        "ContractTemplate",
+        "ContractDocument",
+        "ContractDocumentGenerationInput",
+        "ContractTemplateRenderContext",
+        "ContractDocumentGenerationResult",
+        "MarkContractPrintedInput",
+        "UploadSignedContractScanInput",
+        "VoidContractDocumentInput",
+        "BuildContractRenderContextInput",
+        "TemplateSelectionResult",
+        "GenerateContractDocumentsInput",
+        "ID"
+      ]
+    },
+    {
+      "name": "iopgpsActionRegistry",
+      "status": "existing",
+      "kind": "resource_action",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/actions/actionRegistry.ts",
+      "matched_terms": [
+        "role",
+        "action"
+      ],
+      "exported_entries": [
+        "iopgpsActionRegistry",
+        "IopgpsActionDraft",
+        "requiredRoles: system_admin, manager, gps_maintenance",
+        "requiredRoles: system_admin, manager, gps_maintenance",
+        "requiredRoles: system_admin, manager, gps_maintenance",
+        "requiredRoles: system_admin, manager"
+      ]
+    },
+    {
+      "name": "iopgpsSettingsCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource_candidate",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/collections/iopgpsSettings.ts",
+      "matched_terms": [
+        "login_key_encrypted",
+        "access_token"
+      ],
+      "exported_entries": [
+        "iopgpsSettingsCollectionDraft"
+      ]
+    },
+    {
+      "name": "iopgpsPluginIntegrationPlan",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/index.ts",
+      "matched_terms": [
+        "action",
+        "login_key_encrypted",
+        "access_token"
+      ],
+      "exported_entries": [
+        "iopgpsPluginIntegrationPlan",
+        "iopgpsI18nRegistrationNotes"
+      ]
+    },
+    {
+      "name": "createIopgpsPluginRegistrationPlan",
+      "status": "existing",
+      "kind": "plugin_registration_permission_notes",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/pluginRegistration.ts",
+      "matched_terms": [
+        "permission",
+        "action"
+      ],
+      "exported_entries": [
+        "createIopgpsPluginRegistrationPlan",
+        "iopgpsPluginRegistration",
+        "permissions: system_admin/manager/gps_maintenance 可操作 GPS 同步；财务和运营默认不查看 token。"
+      ]
+    },
+    {
+      "name": "throwIopgpsError",
+      "status": "existing",
+      "kind": "service_policy_candidate",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/services/errors.ts",
+      "matched_terms": [
+        "action",
+        "access_token"
+      ],
+      "exported_entries": [
+        "throwIopgpsError",
+        "iopgpsErrorMessages",
+        "IopgpsErrorCode"
+      ]
+    },
+    {
+      "name": "maskIopgpsSensitiveValue",
+      "status": "existing",
+      "kind": "service_policy_candidate",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/services/iopgpsErrorLogService.ts",
+      "matched_terms": [
+        "action",
+        "login_key_encrypted",
+        "access_token"
+      ],
+      "exported_entries": [
+        "maskIopgpsSensitiveValue",
+        "buildIopgpsErrorLog",
+        "safeIopgpsSyncWrapper",
+        "recordIopgpsError",
+        "iopgpsActions",
+        "BuildIopgpsErrorLogInput"
+      ]
+    },
+    {
+      "name": "isTokenExpired",
+      "status": "existing",
+      "kind": "service_policy_candidate",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/services/iopgpsTokenService.ts",
+      "matched_terms": [
+        "login_key_encrypted",
+        "access_token"
+      ],
+      "exported_entries": [
+        "isTokenExpired",
+        "shouldRefreshToken",
+        "buildTokenState",
+        "getIopgpsAccessToken"
+      ]
+    },
+    {
+      "name": "IopgpsSettings",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/types/iopgpsTypes.ts",
+      "matched_terms": [
+        "action",
+        "login_key_encrypted",
+        "access_token"
+      ],
+      "exported_entries": [
+        "IopgpsSettings",
+        "IopgpsTokenState",
+        "IopgpsRawDeviceStatus",
+        "NormalizedGpsStatusResult",
+        "GpsLocationSnapshot",
+        "GpsDailyMileage",
+        "IopgpsErrorLog",
+        "IopgpsSyncResult",
+        "IopgpsDeviceRef",
+        "GpsDeviceStatusLogDraft",
+        "VehicleGpsStatusPatch",
+        "ID"
+      ]
+    },
+    {
+      "name": "normalizeActionPlan",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/actionPlanNormalizer.ts",
+      "matched_terms": [
+        "permission",
+        "action"
+      ],
+      "exported_entries": [
+        "normalizeActionPlan",
+        "normalizeActionPlans"
+      ]
+    },
+    {
+      "name": "nocobaseAdapterErrorDefinitions",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/adapterErrors.ts",
+      "matched_terms": [
+        "acl"
+      ],
+      "exported_entries": [
+        "nocobaseAdapterErrorDefinitions",
+        "createNocobaseAdapterError",
+        "NocobaseAdapterErrorDefinition",
+        "NocobaseAdapterErrorCode"
+      ]
+    },
+    {
+      "name": "normalizeCollectionPlan",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/collectionPlanNormalizer.ts",
+      "matched_terms": [
+        "filter"
+      ],
+      "exported_entries": [
+        "normalizeCollectionPlan",
+        "normalizeCollectionPlans",
+        "extractSensitiveFields",
+        "extractUniqueConstraints",
+        "extractRelations"
+      ]
+    },
+    {
+      "name": "CRITICAL_COLLECTIONS",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/collectionRegistrationValidator.ts",
+      "matched_terms": [
+        "filter",
+        "signed_scan_file",
+        "login_key_encrypted",
+        "access_token"
+      ],
+      "exported_entries": [
+        "CRITICAL_COLLECTIONS",
+        "CRITICAL_UNIQUE_CONSTRAINTS",
+        "REQUIRED_SENSITIVE_FIELDS",
+        "validateCriticalCollections",
+        "validateCriticalUniqueConstraints",
+        "validateSensitiveFields",
+        "validateCollectionRegistrationPlan"
+      ]
+    },
+    {
+      "name": "dryRunAutomatedRegistration",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/dryRunExecutor.ts",
+      "matched_terms": [
+        "acl",
+        "permission",
+        "action"
+      ],
+      "exported_entries": [
+        "dryRunAutomatedRegistration"
+      ]
+    },
+    {
+      "name": "buildGoLiveReadinessGates",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/goLiveReadinessEvaluator.ts",
+      "matched_terms": [
+        "action",
+        "filter",
+        "access_token"
+      ],
+      "exported_entries": [
+        "buildGoLiveReadinessGates",
+        "evaluateGoLiveReadiness",
+        "summarizeGoLiveReadiness",
+        "getRequiredGoLiveReadinessGateNames",
+        "renderGoLiveReadinessMarkdown",
+        "GoLiveReadinessContext"
+      ]
+    },
+    {
+      "name": "index.ts",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/index.ts",
+      "matched_terms": [
+        "permission",
+        "action"
+      ],
+      "exported_entries": []
+    },
+    {
+      "name": "mockCollectionAdapter.ts",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/mockCollectionAdapter.ts",
+      "matched_terms": [
+        "filter"
+      ],
+      "exported_entries": []
+    },
+    {
+      "name": "mockPageAdapter.ts",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/mockPageAdapter.ts",
+      "matched_terms": [
+        "action",
+        "filter"
+      ],
+      "exported_entries": []
+    },
+    {
+      "name": "mockRuntimeAdapter.ts",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/mockRuntimeAdapter.ts",
+      "matched_terms": [
+        "acl",
+        "permission",
+        "role",
+        "action",
+        "filter"
+      ],
+      "exported_entries": []
+    },
+    {
+      "name": "mockSeedDataAdapter.ts",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/mockSeedDataAdapter.ts",
+      "matched_terms": [
+        "filter"
+      ],
+      "exported_entries": []
+    },
+    {
+      "name": "detectNocobaseAdapterMode",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/nocobaseAdapterFactory.ts",
+      "matched_terms": [
+        "acl",
+        "filter"
+      ],
+      "exported_entries": [
+        "detectNocobaseAdapterMode",
+        "createNocobaseAutomationAdapter",
+        "assertRealAdapterReady",
+        "NocobaseAdapterModeDetectionResult"
+      ]
+    },
+    {
+      "name": "inspectNocobaseEnvironment",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/nocobaseEnvironmentInspector.ts",
+      "matched_terms": [
+        "acl",
+        "permission",
+        "filter"
+      ],
+      "exported_entries": [
+        "inspectNocobaseEnvironment",
+        "summarizeNocobaseEnvironment"
+      ]
+    },
+    {
+      "name": "NocobaseRealAdapter",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/nocobaseRealAdapter.ts",
+      "matched_terms": [
+        "acl",
+        "permission",
+        "action"
+      ],
+      "exported_entries": [
+        "NocobaseRealAdapter"
+      ]
+    },
+    {
+      "name": "dryRunInitializePages",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/pageInitializationExecutor.ts",
+      "matched_terms": [
+        "action",
+        "filter"
+      ],
+      "exported_entries": [
+        "dryRunInitializePages",
+        "summarizePageInitializationResult"
+      ]
+    },
+    {
+      "name": "buildDashboardPagePlan",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/pageInitializationPlan.ts",
+      "matched_terms": [
+        "role",
+        "action",
+        "filter",
+        "signed_scan_file"
+      ],
+      "exported_entries": [
+        "buildDashboardPagePlan",
+        "buildDriverManagementPagePlan",
+        "buildVehicleManagementPagePlan",
+        "buildContractManagementPagePlan",
+        "buildRentLedgerPagePlan",
+        "buildRentCalendarPagePlan",
+        "buildPaymentPagePlan",
+        "buildDepositPagePlan",
+        "buildContractDocumentsPagePlan",
+        "buildGpsPagePlan",
+        "buildPageInitializationPlan",
+        "requiredRoles: system_admin, manager, accountant, operator"
+      ]
+    },
+    {
+      "name": "REQUIRED_PAGE_NAMES",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/pageInitializationValidator.ts",
+      "matched_terms": [
+        "role",
+        "action",
+        "filter",
+        "signed_scan_file",
+        "login_key_encrypted",
+        "access_token"
+      ],
+      "exported_entries": [
+        "REQUIRED_PAGE_NAMES",
+        "REQUIRED_PAGE_ACTION_NAMES",
+        "validatePageInitializationPlan",
+        "validatePageForbiddenPatterns",
+        "validateSensitivePageFields",
+        "validateRequiredPageActions",
+        "validatePageInitialization"
+      ]
+    },
+    {
+      "name": "runtimeSensitiveFieldAliases",
+      "status": "existing",
+      "kind": "permission_plan_automation",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/permissionPlanNormalizer.ts",
+      "matched_terms": [
+        "acl",
+        "permission",
+        "role",
+        "action",
+        "signed_scan_file",
+        "login_key_encrypted",
+        "access_token"
+      ],
+      "exported_entries": [
+        "runtimeSensitiveFieldAliases",
+        "normalizePermissionPlan",
+        "normalizePermissionPlans",
+        "extractSensitiveFieldPermissionCoverage"
+      ]
+    },
+    {
+      "name": "realBackupRollbackAdapter.ts",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realBackupRollbackAdapter.ts",
+      "matched_terms": [
+        "action"
+      ],
+      "exported_entries": []
+    },
+    {
+      "name": "createRealBackupRollbackContext",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realBackupRollbackPlanBuilder.ts",
+      "matched_terms": [
+        "acl",
+        "permission",
+        "action"
+      ],
+      "exported_entries": [
+        "createRealBackupRollbackContext",
+        "buildRealBackupPlan",
+        "buildPostRollbackVerificationPlan",
+        "buildRealRollbackPlan",
+        "buildFailureRecoveryPlans",
+        "realBackupTargets",
+        "realRollbackTargets",
+        "realFailureTypes"
+      ]
+    },
+    {
+      "name": "createDraftAdapterEnvironment",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realCollectionRegistrationAdapter.ts",
+      "matched_terms": [
+        "acl",
+        "action",
+        "filter"
+      ],
+      "exported_entries": [
+        "createDraftAdapterEnvironment",
+        "createDefaultRealCollectionRegistrationContext"
+      ]
+    },
+    {
+      "name": "mapRelationPlanToRealRelationDraft",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realCollectionSchemaMapper.ts",
+      "matched_terms": [
+        "filter"
+      ],
+      "exported_entries": [
+        "mapRelationPlanToRealRelationDraft",
+        "mapIndexPlanToRealIndexDraft",
+        "mapFieldPlanToRealFieldSchemaDraft",
+        "mapCollectionPlanToRealSchemaDraft"
+      ]
+    },
+    {
+      "name": "createDefaultRealPageAdapterEnvironment",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realPageRegistrationAdapter.ts",
+      "matched_terms": [
+        "acl",
+        "action",
+        "filter"
+      ],
+      "exported_entries": [
+        "createDefaultRealPageAdapterEnvironment",
+        "createDefaultRealPageRegistrationContext"
+      ]
+    },
+    {
+      "name": "validateRealPageSchemaDraft",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realPageSafetyChecker.ts",
+      "matched_terms": [
+        "acl",
+        "role",
+        "action",
+        "filter"
+      ],
+      "exported_entries": [
+        "validateRealPageSchemaDraft",
+        "validateRealPageRegistrationSafety"
+      ]
+    },
+    {
+      "name": "mapMenuPlanToRealPageSchemaDraft",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realPageSchemaMapper.ts",
+      "matched_terms": [
+        "acl",
+        "role",
+        "action",
+        "filter",
+        "access_token"
+      ],
+      "exported_entries": [
+        "mapMenuPlanToRealPageSchemaDraft",
+        "mapPagePlanToRealPageSchemaDraft",
+        "mapBlockPlanToRealPageSchemaDraft",
+        "mapFilterPlanToRealPageSchemaDraft",
+        "mapPageActionPlanToRealPageSchemaDraft",
+        "requiredRoles: ...menu.requiredRoles",
+        "requiredRoles: ...page.requiredRoles",
+        "requiredRoles: ...block.requiredRoles",
+        "requiredRoles: ...filter.requiredRoles",
+        "requiredRoles: ...action.requiredRoles"
+      ]
+    },
+    {
+      "name": "createDefaultRealRuntimeAdapterEnvironment",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realRuntimeRegistrationAdapter.ts",
+      "matched_terms": [
+        "acl",
+        "permission",
+        "role",
+        "action",
+        "filter"
+      ],
+      "exported_entries": [
+        "createDefaultRealRuntimeAdapterEnvironment",
+        "createDefaultRealRuntimeRegistrationContext"
+      ]
+    },
+    {
+      "name": "validateRealRuntimeRegistrationSafety",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realRuntimeSafetyChecker.ts",
+      "matched_terms": [
+        "permission",
+        "role",
+        "action"
+      ],
+      "exported_entries": [
+        "validateRealRuntimeRegistrationSafety",
+        "validateRealRuntimeSchemaDraft"
+      ]
+    },
+    {
+      "name": "mapServicePlanToRealSchemaDraft",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realRuntimeSchemaMapper.ts",
+      "matched_terms": [
+        "acl",
+        "permission",
+        "role",
+        "action",
+        "filter"
+      ],
+      "exported_entries": [
+        "mapServicePlanToRealSchemaDraft",
+        "mapActionPlanToRealSchemaDraft",
+        "mapPermissionPlanToRealSchemaDraft",
+        "mapSchedulePlanToRealSchemaDraft",
+        "mapI18nPlanToRealSchemaDraft",
+        "permissions: ...normalized.permissions"
+      ]
+    },
+    {
+      "name": "realSeedDataImportAdapter.ts",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realSeedDataImportAdapter.ts",
+      "matched_terms": [
+        "action",
+        "filter"
+      ],
+      "exported_entries": []
+    },
+    {
+      "name": "validateRealSeedDataImportSafety",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realSeedDataSafetyChecker.ts",
+      "matched_terms": [
+        "action",
+        "signed_scan_file",
+        "access_token"
+      ],
+      "exported_entries": [
+        "validateRealSeedDataImportSafety",
+        "validateRealSeedDataSchemaDraft",
+        "validateRealSeedDataNoRealData"
+      ]
+    },
+    {
+      "name": "extractFileFieldDrafts",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realSeedDataSchemaMapper.ts",
+      "matched_terms": [
+        "filter",
+        "signed_scan_file"
+      ],
+      "exported_entries": [
+        "extractFileFieldDrafts",
+        "extractRelationDrafts",
+        "mapSeedDataEntityPlanToRealSchemaDraft",
+        "mapSeedDataImportPlanToRealSchemaDraft"
+      ]
+    },
+    {
+      "name": "realSmokeTestAdapter.ts",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realSmokeTestAdapter.ts",
+      "matched_terms": [
+        "action"
+      ],
+      "exported_entries": []
+    },
+    {
+      "name": "createRealSmokeTestContext",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realSmokeTestPlanMapper.ts",
+      "matched_terms": [
+        "acl",
+        "permission",
+        "role",
+        "action",
+        "policy",
+        "filter"
+      ],
+      "exported_entries": [
+        "createRealSmokeTestContext",
+        "mapCollectionPlanToSmokeSteps",
+        "mapRuntimePlanToSmokeSteps",
+        "mapPagePlanToSmokeSteps",
+        "mapSeedDataPlanToSmokeSteps",
+        "buildCoreBusinessSmokeSteps",
+        "buildPermissionSmokeSteps",
+        "buildGpsMockSmokeSteps",
+        "buildContractDocumentSmokeSteps",
+        "buildFailureIsolationSmokeSteps",
+        "buildRollbackSmokeSteps",
+        "buildRealSmokeTestPlan"
+      ]
+    },
+    {
+      "name": "validateRealSmokeTestSafety",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realSmokeTestSafetyChecker.ts",
+      "matched_terms": [
+        "permission",
+        "action"
+      ],
+      "exported_entries": [
+        "validateRealSmokeTestSafety",
+        "validateRealSmokeTestPlan",
+        "validateRealSmokeTestReportDraft"
+      ]
+    },
+    {
+      "name": "sortPluginRegistrations",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/registrationPlan.ts",
+      "matched_terms": [
+        "permission",
+        "role",
+        "action",
+        "filter"
+      ],
+      "exported_entries": [
+        "sortPluginRegistrations",
+        "buildCollectionPlansFromRegistrations",
+        "buildPagePlans",
+        "buildSmokeTestPlans",
+        "buildAutomatedRegistrationPlan",
+        "RawPluginRegistration",
+        "requiredRoles: system_admin, manager, accountant",
+        "requiredRoles: system_admin, manager, accountant",
+        "requiredRoles: system_admin, manager, gps_maintenance",
+        "requiredRoles: system_admin, manager, gps_maintenance",
+        "requiredRoles: system_admin, manager, operator",
+        "requiredRoles: system_admin, manager, operator"
+      ]
+    },
+    {
+      "name": "validateCollectionUniquenessRules",
+      "status": "existing",
+      "kind": "visibility_or_acl_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/registrationValidator.ts",
+      "matched_terms": [
+        "permission",
+        "action",
+        "signed_scan_file",
+        "login_key_encrypted",
+        "access_token"
+      ],
+      "exported_entries": [
+        "validateCollectionUniquenessRules",
+        "validateSensitiveFieldCoverage",
+        "validateAutomatedRegistrationPlan"
+      ]
+    },
+    {
+      "name": "buildRuntimeRegistrationPlanFromAutomatedPlan",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/runtimeRegistrationExecutor.ts",
+      "matched_terms": [
+        "acl",
+        "permission",
+        "role",
+        "action",
+        "filter"
+      ],
+      "exported_entries": [
+        "buildRuntimeRegistrationPlanFromAutomatedPlan",
+        "dryRunRegisterRuntime",
+        "summarizeRuntimeRegistrationResult",
+        "permissions: 后续接入真实 NocoBase 服务端权限"
+      ]
+    },
+    {
+      "name": "CORE_SERVICE_NAMES",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/runtimeRegistrationValidator.ts",
+      "matched_terms": [
+        "permission",
+        "role",
+        "action",
+        "filter"
+      ],
+      "exported_entries": [
+        "CORE_SERVICE_NAMES",
+        "CORE_ACTION_NAMES",
+        "CORE_ROLE_NAMES",
+        "validateCoreServiceCoverage",
+        "validateCoreActionCoverage",
+        "validateRolePermissionCoverage",
+        "validateRuntimeForbiddenPatterns",
+        "validateRuntimeRegistrationPlan"
+      ]
+    },
+    {
+      "name": "seedDataFileByEntity",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/seedDataImportPlan.ts",
+      "matched_terms": [
+        "filter",
+        "signed_scan_file",
+        "access_token"
+      ],
+      "exported_entries": [
+        "seedDataFileByEntity",
+        "getDefaultSeedDataImportOrder",
+        "buildSeedDataDependencyPlan",
+        "buildSeedDataUniqueKeyPlan",
+        "buildSeedDataSensitiveFieldPlan",
+        "buildSeedDataImportPlan"
+      ]
+    },
+    {
+      "name": "validateSeedDataImportPlan",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/seedDataImportValidator.ts",
+      "matched_terms": [
+        "filter",
+        "access_token"
+      ],
+      "exported_entries": [
+        "validateSeedDataImportPlan",
+        "validateSeedDataFilesExist",
+        "validateSeedDataReferences",
+        "validateSeedDataUniqueKeys",
+        "validateNoSensitiveRealData",
+        "validateRentLedgerBusinessRules",
+        "validatePaymentAllocationBusinessRules",
+        "validateDepositBusinessRules",
+        "validateGpsMockRules",
+        "validateSeedDataForImport",
+        "validateSeedDataImportResultBoundaries",
+        "SeedDataByEntity"
+      ]
+    },
+    {
+      "name": "normalizeServicePlan",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/servicePlanNormalizer.ts",
+      "matched_terms": [
+        "permission",
+        "action",
+        "filter"
+      ],
+      "exported_entries": [
+        "normalizeServicePlan",
+        "normalizeServicePlans",
+        "extractTransactionalServices",
+        "coreTransactionalServiceNames"
+      ]
+    },
+    {
+      "name": "buildSmokeTestPlan",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/smokeTestOrchestrator.ts",
+      "matched_terms": [
+        "action",
+        "filter"
+      ],
+      "exported_entries": [
+        "buildSmokeTestPlan",
+        "createSmokeTestStepResult",
+        "summarizeSmokeTestResult",
+        "buildSmokeTestReport",
+        "validateSmokeTestPrerequisites"
+      ]
+    },
+    {
+      "name": "RegistrationStep",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/types.ts",
+      "matched_terms": [
+        "acl",
+        "permission",
+        "role",
+        "action",
+        "filter"
+      ],
+      "exported_entries": [
+        "RegistrationStep",
+        "PluginPlanSummary",
+        "CollectionRelationPlan",
+        "CollectionFieldPlan",
+        "CollectionIndexPlan",
+        "NocobaseCollectionPlan",
+        "NocobaseServicePlan",
+        "NocobasePermissionPlan",
+        "NocobaseActionPlan",
+        "NocobaseSchedulePlan",
+        "NocobaseMenuPlan",
+        "NocobaseFilterPlan"
+      ]
+    },
+    {
+      "name": "createUnconfiguredNocobaseRealAdapter",
+      "status": "existing",
+      "kind": "filter_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/unconfiguredRealAdapter.ts",
+      "matched_terms": [
+        "acl",
+        "permission",
+        "role",
+        "action",
+        "filter"
+      ],
+      "exported_entries": [
+        "createUnconfiguredNocobaseRealAdapter"
+      ]
+    }
+  ],
+  "planned_permission_entries": [
+    {
+      "name": "finance_sensitive_totals_visibility",
+      "status": "planned",
+      "business_rule": "总收入、总付款额、未来应收只对财务和管理员可见，普通操作员不可见。",
+      "source_plugin": "plugin-rental-core"
+    },
+    {
+      "name": "payment_attachment_visibility",
+      "status": "planned",
+      "business_rule": "完整付款截图仅财务和管理员可访问，其他角色只可见脱敏状态。",
+      "source_plugin": "plugin-rental-core"
+    },
+    {
+      "name": "contract_scan_visibility",
+      "status": "planned",
+      "business_rule": "合同扫描件为敏感文件，仅授权业务管理角色可访问。",
+      "source_plugin": "plugin-contract-documents"
+    },
+    {
+      "name": "driver_document_visibility",
+      "status": "planned",
+      "business_rule": "司机证件字段必须脱敏，非授权角色不得查看。司机不登录系统。",
+      "source_plugin": "plugin-rental-core"
+    },
+    {
+      "name": "iopgps_secret_never_exposed",
+      "status": "planned",
+      "business_rule": "IOPGPS 登录凭据、系统密钥和 token 永不在 UI/API/operation logs 中明文暴露。",
+      "source_plugin": "plugin-iopgps"
+    },
+    {
+      "name": "gps_raw_track_visibility",
+      "status": "planned",
+      "business_rule": "车辆 GPS 原始轨迹仅管理员和 GPS 维护角色可访问；财务默认不可见。",
+      "source_plugin": "plugin-iopgps"
+    },
+    {
+      "name": "operation_log_redaction_policy",
+      "status": "planned",
+      "business_rule": "operation logs 可审计，但必须过滤系统密钥、凭据、真实文件内容和令牌。",
+      "source_plugin": "plugin-rental-core/plugin-iopgps/plugin-contract-documents"
+    }
+  ],
+  "missing_permission_entries": [
+    {
+      "name": "总收入隐藏规则",
+      "status": "missing",
+      "source_plugin": "plugin-rental-core",
+      "note": "未在当前 server/shared automation 扫描中找到明确真实权限入口；本阶段只记录修改项，不失败退出。"
+    },
+    {
+      "name": "系统密钥永不暴露规则",
+      "status": "missing",
+      "source_plugin": "all",
+      "note": "未在当前 server/shared automation 扫描中找到明确真实权限入口；本阶段只记录修改项，不失败退出。"
+    },
+    {
+      "name": "online payment 禁止规则",
+      "status": "missing",
+      "source_plugin": "plugin-rental-core",
+      "note": "未在当前 server/shared automation 扫描中找到明确真实权限入口；本阶段只记录修改项，不失败退出。"
+    }
+  ],
+  "pending_verification_entries": [
+    {
+      "name": "NocoBase ACL API exact registration point",
+      "status": "pending_verification",
+      "business_rule": "正式实现前需在完整宿主工程确认 v2.0.61 ACL / resource action / field permission API。",
+      "source_plugin": "nocobase host"
+    },
+    {
+      "name": "owner scoped access exact policy",
+      "status": "pending_verification",
+      "business_rule": "如后续引入业务 owner 维度，需确认 record permissions 具体接入点。",
+      "source_plugin": "plugin-rental-core"
+    }
+  ],
+  "sensitive_field_rules": [
+    "非授权角色不得查看总收入。",
+    "非授权角色不得查看总付款额。",
+    "非授权角色不得查看未来应收。",
+    "非授权角色不得查看完整付款截图。",
+    "非授权角色不得查看合同扫描件。",
+    "非授权角色不得查看司机证件。",
+    "非授权角色不得查看 IOPGPS 登录凭据。",
+    "非授权角色不得查看车辆 GPS 原始轨迹。",
+    "普通操作员只能看到必要操作字段。",
+    "财务角色可以查看收款、欠款、押金，但仍不得查看系统密钥。",
+    "管理员可以查看业务敏感数据，但不得在 UI/API 中暴露系统密钥。",
+    "司机不登录系统，没有司机端权限。",
+    "没有 customer portal。",
+    "没有 online payment permission。",
+    "押金不计入租金收入。",
+    "当前欠款不包含未来应收。",
+    "operation logs 可审计，但不得泄露密钥。"
+  ],
+  "role_matrix": [
+    {
+      "role": "operator",
+      "allowed": [
+        "必要操作字段",
+        "合同基础状态",
+        "车辆基础状态"
+      ],
+      "denied": [
+        "总收入",
+        "总付款额",
+        "未来应收",
+        "完整付款截图",
+        "合同扫描件",
+        "司机证件",
+        "系统密钥",
+        "GPS 原始轨迹"
+      ]
+    },
+    {
+      "role": "finance",
+      "allowed": [
+        "收款",
+        "欠款",
+        "押金",
+        "付款分配状态"
+      ],
+      "denied": [
+        "系统密钥",
+        "IOPGPS 登录凭据",
+        "车辆 GPS 原始轨迹",
+        "司机证件原文"
+      ]
+    },
+    {
+      "role": "manager",
+      "allowed": [
+        "业务敏感数据",
+        "合同扫描件授权查看",
+        "司机证件脱敏查看"
+      ],
+      "denied": [
+        "系统密钥明文",
+        "IOPGPS 登录凭据明文"
+      ]
+    },
+    {
+      "role": "system_admin",
+      "allowed": [
+        "业务敏感数据",
+        "权限配置后续执行",
+        "审计配置"
+      ],
+      "denied": [
+        "UI/API 中暴露系统密钥明文",
+        "operation logs 中泄露凭据"
+      ]
+    },
+    {
+      "role": "driver",
+      "allowed": [],
+      "denied": [
+        "系统登录",
+        "司机端权限",
+        "customer portal",
+        "online payment permission"
+      ]
+    }
+  ],
+  "blockers": [],
+  "warnings": [
+    "当前不要求用户本地运行；正式版前才本地执行真实权限注册和本地/NAS 隔离验证。",
+    "本 dry-run 不连接数据库、不真实注册权限、不创建角色、不写 schema、不执行 migration、不启用真实 IOPGPS。",
+    "missing_permission_entries 只记录为修改项，不导致 Codex-only dry-run 失败。",
+    "mock 数据不能进入生产，真实司机资料、真实付款截图、真实合同扫描件均不得用于本阶段。"
+  ],
+  "modification_items": [
+    "补齐 总收入隐藏规则 的真实权限/字段可见性规则。",
+    "补齐 系统密钥永不暴露规则 的真实权限/字段可见性规则。",
+    "补齐 online payment 禁止规则 的真实权限/字段可见性规则。",
+    "将 planned 权限项 finance_sensitive_totals_visibility 接入真实 ACL / field visibility / resource action。",
+    "将 planned 权限项 payment_attachment_visibility 接入真实 ACL / field visibility / resource action。",
+    "将 planned 权限项 contract_scan_visibility 接入真实 ACL / field visibility / resource action。",
+    "将 planned 权限项 driver_document_visibility 接入真实 ACL / field visibility / resource action。",
+    "将 planned 权限项 iopgps_secret_never_exposed 接入真实 ACL / field visibility / resource action。",
+    "将 planned 权限项 gps_raw_track_visibility 接入真实 ACL / field visibility / resource action。",
+    "将 planned 权限项 operation_log_redaction_policy 接入真实 ACL / field visibility / resource action。",
+    "正式版前本地/NAS 执行前，需把本 Codex-only dry-run 结果转为真实权限注册验证。",
+    "继续保持 production_ready=false，直到所有 local_pre_release 权限验证通过。"
+  ]
+}
