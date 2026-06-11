@@ -114,3 +114,29 @@
 - 失败处理：集中生成 blockers、warnings、modification_items，交给 Codex 后续批量修复。
 - 是否允许 mock 数据：允许，仅限测试。
 - 是否允许生产执行：不允许。
+
+## Codex-only 执行模式调整（2026-06-11）
+
+当前路线图明确本地即时测试已暂停。用户已删除本地 NAS 测试目录和 Docker 容器，因此当前由 Codex 维护测试脚本和模拟/静态报告；真实 Docker / PostgreSQL 执行移动到正式版前的 pre-release local execution 阶段。
+
+| 阶段 | 当前执行模式 | 当前责任方 | modification_items |
+| --- | --- | --- | --- |
+| Collection 注册隔离测试 | codex_dry_run | Codex 维护脚本、request 模板、dry-run 报告 | 保留 run-isolated 和 run-full，未来 pre-release 再执行真实本地/NAS 测试 |
+| Runtime / 服务 / 动作注册测试 | codex_static | Codex | 生成 Runtime / service / action 注册测试脚本和报告模板 |
+| 权限与敏感字段测试 | codex_static | Codex | 生成 Permission 测试脚本、敏感字段访问矩阵和报告模板 |
+| 页面 / 菜单 / 区块初始化测试 | codex_static | Codex | 生成 Page / menu / block 初始化测试脚本和 mock 报告 |
+| mock 数据导入测试 | codex_mock_report | Codex | 生成 mock data import 脚本、生产防 mock 门禁和报告模板 |
+| 核心业务 smoke test | codex_mock_report | Codex | 生成 business smoke test 脚本和模拟报告 |
+| 合同文件测试 | codex_static | Codex | 生成合同文件测试脚本；禁止真实合同扫描件 |
+| GPS mock 测试 | codex_mock_report | Codex | 生成 GPS mock 测试脚本；禁止真实 IOPGPS |
+| 备份 / 回滚演练 | codex_static | Codex | 维护 backup / restore 脚本和 rollback drill 模板，当前不生成本地 dump |
+| 正式版前本地/NAS 总执行 | local_pre_release | 用户在正式版前执行 | 重新 clone、新目录、新 env、新 DB volume、新 storage 后运行总测试 |
+| 生产初始化 | production_init | 用户 + Codex runbook | 生产初始化必须与测试初始化分离，mock data cannot enter production |
+
+### Codex-only 阶段规则
+
+- local NAS paused，Docker containers deleted by user。
+- current local test not required，当前不要求用户本地启动 Docker、运行 PostgreSQL、运行 run-full、生成 backup dump 或生成 filled request。
+- run-full retained for future pre-release execution：`scripts/car-rental/run-full-isolated-system-test.sh` 保留为未来正式版前本地/NAS 总入口。
+- pre-release local execution 才进行真实本地/NAS 执行。
+- production_ready=false，当前仍不能标记 production_ready。
