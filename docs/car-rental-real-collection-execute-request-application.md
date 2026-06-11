@@ -167,3 +167,12 @@ docker compose version && docker compose -f docker-compose.car-rental-collection
 ## 12. 本轮不是 execute
 
 本轮只创建了本地 ignored env，并完成 safety check；由于当前环境缺少 Docker，未启动 PostgreSQL、未备份、未生成 filled request。本轮仍不是 execute，未创建 Collection、未写数据库 schema、未执行 migration、未注册服务、未注册权限、未创建页面、未导入数据、未调用真实 IOPGPS。
+
+## Execute PR 审查包补充（2026-06-11）
+
+- 已获得真实 backup artifact：`backups-test/car-rental/pre-real-collection-register-20260610-235309.dump`。
+- 该 backup artifact 不得提交到 Git，执行前必须在隔离测试环境中确认文件真实存在。
+- 下一步是 execute PR 审查包：`docs/car-rental-real-collection-execute-pr-package.md`。
+- 本轮仍不 execute，不执行真实 Collection 创建，不写数据库 schema，不执行 migration。
+- execute 需要单独 PR，并且必须显式提供 `--execute` 与 `--confirm-real-collection-execute`。
+- execute 仍只允许隔离测试库，不使用生产库；`IOPGPS_SYNC_ENABLED = false`，`mock_data_only = true`。
