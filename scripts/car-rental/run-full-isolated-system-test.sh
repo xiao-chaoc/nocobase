@@ -24,7 +24,7 @@ usage() {
   cat <<'USAGE'
 用法：bash scripts/car-rental/run-full-isolated-system-test.sh
 
-默认不生产，只允许隔离 PostgreSQL 测试库。脚本会执行已存在的一键隔离阶段；尚未实现的阶段会记录 skipped，并进入 modification_items。
+默认不生产，只允许隔离 PostgreSQL 测试库。脚本会执行已存在的一键隔离阶段；Runtime 当前以 codex_dry_run / codex_mock_report 记录，真实本地执行仍属于 pre-release local execution；尚未实现的阶段会记录 skipped，并进入 modification_items。
 USAGE
 }
 
@@ -108,6 +108,28 @@ record_skipped() {
   add_stage_json "$1" "$2" "$3" "skipped" "$4" "$5"
 }
 
+record_codex_dry_run() {
+  PASSED=$((PASSED + 1))
+  add_stage_json "$1" "$2" "$3" "codex_dry_run" "$4" "$5"
+}
+
+merge_runtime_dry_run_report() {
+  local report_path="$1"
+  [ -f "${ROOT_DIR}/${report_path}" ] || return 0
+
+  local blockers modifications
+  blockers="$(node -e 'const fs=require("fs"); const report=JSON.parse(fs.readFileSync(process.argv[1],"utf8")); for (const item of report.blockers || []) console.log(item);' "${ROOT_DIR}/${report_path}")"
+  modifications="$(node -e 'const fs=require("fs"); const report=JSON.parse(fs.readFileSync(process.argv[1],"utf8")); for (const item of report.modification_items || []) console.log(item);' "${ROOT_DIR}/${report_path}")"
+
+  while IFS= read -r blocker; do
+    [ -n "$blocker" ] && BLOCKERS+=("Runtime dry-run blocker: $blocker")
+  done <<< "$blockers"
+
+  while IFS= read -r modification; do
+    [ -n "$modification" ] && MODIFICATION_ITEMS+=("Runtime dry-run: $modification")
+  done <<< "$modifications"
+}
+
 run_stage() {
   local id="$1" name="$2" script="$3" report="$4" note="$5"
   printf '\n==> %s\n' "$name"
@@ -118,6 +140,22 @@ run_stage() {
   fi
   if bash "${ROOT_DIR}/${script}"; then
     record_passed "$id" "$name" "$script" "$report" "$note"
+  else
+    record_failed "$id" "$name" "$script" "$report" "$note"
+  fi
+}
+
+run_runtime_stage() {
+  local id="$1" name="$2" script="$3" report="$4" note="$5"
+  printf '\n==> %s\n' "$name"
+  if [ ! -f "${ROOT_DIR}/${script}" ]; then
+    printf 'Runtime 阶段脚本尚不存在，记录 skipped：%s\n' "$script"
+    record_skipped "$id" "$name" "$script" "$report" "脚本尚未实现；$note"
+    return
+  fi
+  if bash "${ROOT_DIR}/${script}"; then
+    merge_runtime_dry_run_report "$report"
+    record_codex_dry_run "$id" "$name" "$script" "$report" "codex_dry_run / codex_mock_report 已建立；真实本地执行仍为 pre-release local execution。$note"
   else
     record_failed "$id" "$name" "$script" "$report" "$note"
   fi
@@ -182,7 +220,7 @@ JSON
 
 ## 说明
 
-本报告由隔离总测试脚本生成。它不代表生产就绪；当前 production_ready=false。阶段脚本不存在时会被标记 skipped，并进入修改项清单。
+本报告由隔离总测试脚本生成。它不代表生产就绪；当前 production_ready=false。Runtime 阶段当前记录为 codex_dry_run / codex_mock_report，真实本地执行仍标记为 pre-release local execution。阶段脚本不存在时会被标记 skipped，并进入修改项清单。
 
 ## JSON 报告
 
@@ -206,7 +244,7 @@ main() {
   WARNINGS+=("总测试默认不生产，production_ready=false。")
 
   run_stage "collection" "Collection 注册隔离测试" "scripts/car-rental/run-isolated-collection-registration-test.sh" "test-data/generated/isolated-collection-registration-test-report.generated.json" "已建立的一键 collection runner。"
-  run_stage "runtime" "Runtime / 服务 / 动作注册隔离测试" "scripts/car-rental/run-isolated-runtime-registration-test.sh" "test-data/generated/isolated-runtime-registration-test-report.generated.json" "下一阶段补 Runtime / 服务 / 动作注册。"
+  run_runtime_stage "runtime" "Runtime / 服务 / 动作注册 Codex dry-run" "scripts/car-rental/run-isolated-runtime-registration-test.sh" "test-data/generated/car-rental-runtime-registration-dry-run.generated.json" "当前不要求用户本地运行；正式版前才本地执行真实 Runtime 注册验证。"
   run_stage "permission" "权限和敏感字段隔离测试" "scripts/car-rental/run-isolated-permission-test.sh" "test-data/generated/isolated-permission-test-report.generated.json" "下一阶段补权限和敏感字段。"
   run_stage "page" "页面 / 菜单 / 区块初始化测试" "scripts/car-rental/run-isolated-page-initialization-test.sh" "test-data/generated/isolated-page-initialization-test-report.generated.json" "下一阶段补页面 / 菜单 / 区块初始化。"
   run_stage "mock-data" "mock 数据导入测试" "scripts/car-rental/run-isolated-mock-data-import-test.sh" "test-data/generated/isolated-mock-data-import-test-report.generated.json" "下一阶段补 mock 数据导入。"

@@ -14,12 +14,14 @@
 
 ## 阶段 2：Runtime / 服务 / 动作注册隔离测试
 
-- 输入：Runtime / service / action 注册计划、隔离测试库、Collection 测试报告。
+- 当前状态：codex_dry_run 已建立。
+- Runtime 真实执行：仍为 local_pre_release，正式版前才本地执行。
+- 输入：Runtime / service / action 注册计划、Codex-only 源码扫描结果、Collection 测试报告。
 - 自动脚本：`scripts/car-rental/run-isolated-runtime-registration-test.sh`。
-- 输出报告：Runtime 注册隔离报告。
-- 成功标准：服务、动作、runtime 元数据仅在隔离库内完成并可回滚。
-- 失败处理：记录 blockers，回滚隔离库。
-- 是否允许 mock 数据：允许。
+- 输出报告：`test-data/generated/car-rental-runtime-registration-dry-run.generated.json`、`docs/car-rental-runtime-registration-dry-run-report.md`。
+- 成功标准：当前仅生成 dry-run / mock report，不连接数据库、不真实注册 runtime、不写 schema、不启用真实 IOPGPS；后续真实服务、动作、runtime 元数据必须在正式版前隔离库内完成并可回滚。
+- 失败处理：记录 blockers 和 modification_items；真实执行失败时回滚隔离库。
+- 是否允许 mock 数据：允许，仅限 Codex-only mock report 或隔离测试库；mock 数据不能进入生产。
 - 是否允许生产执行：不允许。
 
 ## 阶段 3：权限和敏感字段隔离测试
@@ -122,11 +124,11 @@
 | 阶段 | 当前执行模式 | 当前责任方 | modification_items |
 | --- | --- | --- | --- |
 | Collection 注册隔离测试 | codex_dry_run | Codex 维护脚本、request 模板、dry-run 报告 | 保留 run-isolated 和 run-full，未来 pre-release 再执行真实本地/NAS 测试 |
-| Runtime / 服务 / 动作注册测试 | codex_static | Codex | 生成 Runtime / service / action 注册测试脚本和报告模板 |
-| 权限与敏感字段测试 | codex_static | Codex | 生成 Permission 测试脚本、敏感字段访问矩阵和报告模板 |
-| 页面 / 菜单 / 区块初始化测试 | codex_static | Codex | 生成 Page / menu / block 初始化测试脚本和 mock 报告 |
-| mock 数据导入测试 | codex_mock_report | Codex | 生成 mock data import 脚本、生产防 mock 门禁和报告模板 |
-| 核心业务 smoke test | codex_mock_report | Codex | 生成 business smoke test 脚本和模拟报告 |
+| Runtime / 服务 / 动作注册测试 | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | Runtime dry-run 脚本、JSON report、报告文档、修改项清单已建立；仍需后续实现真实 runtime |
+| 权限与敏感字段测试 | next_codex_task | Codex | 生成 Permission 测试脚本、敏感字段访问矩阵和报告模板 |
+| 页面 / 菜单 / 区块初始化测试 | pending | Codex | 生成 Page / menu / block 初始化测试脚本和 mock 报告 |
+| mock 数据导入测试 | pending | Codex | 生成 mock data import 脚本、生产防 mock 门禁和报告模板 |
+| 核心业务 smoke test | pending | Codex | 生成 business smoke test 脚本和模拟报告 |
 | 合同文件测试 | codex_static | Codex | 生成合同文件测试脚本；禁止真实合同扫描件 |
 | GPS mock 测试 | codex_mock_report | Codex | 生成 GPS mock 测试脚本；禁止真实 IOPGPS |
 | 备份 / 回滚演练 | codex_static | Codex | 维护 backup / restore 脚本和 rollback drill 模板，当前不生成本地 dump |
