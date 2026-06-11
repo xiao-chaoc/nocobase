@@ -78,3 +78,12 @@
 - [ ] `backup_artifact_reference` 来自 `scripts/car-rental/backup-collection-test-db.sh` 的真实输出，不是手写假路径。
 - [ ] `rollback_command_reference` 引用 `scripts/car-rental/restore-collection-test-db.sh <backup-file>` 或回滚文档。
 - [ ] 未提交 `.env.car-rental-collection-test`、`backups-test/`、`*.dump`、`*.sql` 或 filled request。
+
+## Execute PR 审查包补充（2026-06-11）
+
+- 已获得真实 backup artifact：`backups-test/car-rental/pre-real-collection-register-20260610-235309.dump`。
+- 该 backup artifact 不得提交到 Git，执行前必须在隔离测试环境中确认文件真实存在。
+- 下一步是 execute PR 审查包：`docs/car-rental-real-collection-execute-pr-package.md`。
+- 本轮仍不 execute，不执行真实 Collection 创建，不写数据库 schema，不执行 migration。
+- execute 需要单独 PR，并且必须显式提供 `--execute` 与 `--confirm-real-collection-execute`。
+- execute 仍只允许隔离测试库，不使用生产库；`IOPGPS_SYNC_ENABLED = false`，`mock_data_only = true`。

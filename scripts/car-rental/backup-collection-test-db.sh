@@ -62,7 +62,7 @@ esac
 [ "$SAFETY_LABEL" = "isolated_test_database" ] || fail "CAR_RENTAL_DATABASE_SAFETY_LABEL 必须是 isolated_test_database。"
 [ "$MOCK_DATA_ONLY" = "true" ] || fail "CAR_RENTAL_MOCK_DATA_ONLY 必须是 true。"
 [ "$IOPGPS_SYNC_ENABLED" = "false" ] || fail "IOPGPS_SYNC_ENABLED 必须是 false。"
-[ "$EXECUTE_ENABLED" = "false" ] || fail "CAR_RENTAL_COLLECTION_EXECUTE_ENABLED 必须是 false。"
+[ "$EXECUTE_ENABLED" = "false" ] || [ "${CAR_RENTAL_BACKUP_ALLOW_EXECUTE_ENABLED:-false}" = "true" ] || fail "CAR_RENTAL_COLLECTION_EXECUTE_ENABLED 必须是 false，除非由一键隔离测试执行器显式授权备份。"
 contains_test_marker "$DB_DATABASE" || fail "DB_DATABASE 必须包含 test、car_rental 或 collection_test 测试标识，拒绝备份。"
 contains_production_marker "$DB_DATABASE" && fail "DB_DATABASE 包含 prod/production/live 生产特征，拒绝备份。"
 
