@@ -40,3 +40,11 @@
 - [ ] 失败时必须使用 `scripts/car-rental/restore-collection-test-db.sh <backup-file>` 回滚。
 - [ ] 成功仍不代表 `production_ready`，报告必须保持 `production_ready=false`。
 - [ ] Runtime、权限、页面和数据导入均留到下一阶段。
+
+## NAS 一键 runner 兼容性补充
+
+- 推荐优先使用 `bash scripts/car-rental/run-isolated-collection-registration-test.sh` 一键执行隔离测试准备流程，不再手动逐步执行 compose 启动、备份、filled request 生成、request 校验、apply dry-run 和 preflight。
+- Synology NAS 环境可能只有 `node` 和 `npm`，没有 `yarn`、`npx` 或 `node_modules/.bin/ts-node`；一键 runner 会依次尝试 `node_modules/.bin/ts-node`、`npx ts-node`、`npm exec --package=ts-node --package=typescript -- ts-node`，不可用时输出手工 fallback 步骤。
+- `docker-compose` 1.28.5 不支持 Compose 顶层 `name` 字段；隔离测试项目名应由命令参数 `-p car-rental-collection-test` 提供。
+- PostgreSQL 端口映射必须是 `53240:5432`，不能是 `53240:53240`；容器内 PostgreSQL target port 仍是 `5432`。
+- 生产前删除测试容器、测试 network、测试 storage、测试备份和测试源码目录后，在生产新目录重新 clone，可以最小化测试影响；但生产仍必须使用新目录、新 `.env`、新 PostgreSQL 数据目录 / volume、新 storage 和新数据库，不能复用测试 dump、filled request 或 mock 数据。
