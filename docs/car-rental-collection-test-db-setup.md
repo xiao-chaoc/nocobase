@@ -126,3 +126,19 @@ rm -rf storage-test/car-rental-postgres
 ## 14. 当前仍不创建 Collection
 
 本准备包只创建模板、脚本和文档。它不创建 Collection、不执行 migration、不注册服务、不注册权限、不创建页面、不导入数据、不调用真实 IOPGPS。
+
+## 一键隔离 Collection 注册测试执行器
+
+推荐在 NAS / 本地 Docker 环境使用 `scripts/car-rental/run-isolated-collection-registration-test.sh` 替代手工步骤：
+
+```bash
+bash scripts/car-rental/run-isolated-collection-registration-test.sh
+```
+
+该脚本默认 `prepare-only`，会启动隔离 PostgreSQL 测试库、等待 DB health check、生成 backup、生成 filled request、validate request、apply dry-run、preflight 并生成总报告，不创建 Collection。真实隔离测试 execute 必须显式提供：
+
+```bash
+CAR_RENTAL_COLLECTION_EXECUTE_ENABLED=true bash scripts/car-rental/run-isolated-collection-registration-test.sh --execute --confirm-real-collection-execute
+```
+
+脚本仍只适用于隔离 PostgreSQL 测试库；Docker 运行环境仍需数据库隔离和备份，Docker 隔离不等于数据库安全，不可直接生产部署。不要提交 `.env.car-rental-collection-test`、backup dump、filled request 或 SQL 文件。

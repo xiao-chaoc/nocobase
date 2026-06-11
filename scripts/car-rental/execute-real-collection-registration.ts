@@ -13,6 +13,7 @@ interface ExecuteOptions {
   backupPath: string;
   execute: boolean;
   confirmRealCollectionExecute: boolean;
+  runtimeAllowRealExecution: boolean;
 }
 
 interface ExecuteRequestForGate {
@@ -68,6 +69,7 @@ function parseArgs(args: string[]): ExecuteOptions {
     backupPath: getArgValue(args, '--backup', DEFAULT_BACKUP_PATH),
     execute: args.includes('--execute'),
     confirmRealCollectionExecute: args.includes('--confirm-real-collection-execute'),
+    runtimeAllowRealExecution: args.includes('--runtime-allow-real-execution'),
   };
 }
 
@@ -110,6 +112,9 @@ function validateExecutionGates(options: ExecuteOptions): GateResult {
   if (options.execute && !options.confirmRealCollectionExecute) {
     blockers.push('使用 --execute 时必须同时提供 --confirm-real-collection-execute。');
   }
+  if (options.execute && !options.runtimeAllowRealExecution) {
+    blockers.push('使用 --execute 时必须同时提供 --runtime-allow-real-execution，本地运行时授权文件或参数不得提交。');
+  }
 
   let request: ExecuteRequestForGate = {};
   let preflight: PreflightForGate = {};
@@ -125,7 +130,15 @@ function validateExecutionGates(options: ExecuteOptions): GateResult {
     }
   }
 
-  if (request.allow_real_execution !== true) blockers.push('allow_real_execution 必须是 true。');
+  if (request.allow_real_execution !== true && request.allow_real_execution !== false) {
+    blockers.push('allow_real_execution 必须是 boolean。');
+  }
+  if (request.allow_real_execution === true && !options.runtimeAllowRealExecution) {
+    blockers.push('不允许单靠 request 文件中的 allow_real_execution=true 执行。');
+  }
+  if (request.allow_real_execution === false && options.execute && !options.runtimeAllowRealExecution) {
+    blockers.push('request 中 allow_real_execution=false 时，必须提供运行时授权参数。');
+  }
   if (request.database_dialect !== 'postgresql') blockers.push('database_dialect 必须是 postgresql。');
   if (request.is_isolated_database !== true) blockers.push('is_isolated_database 必须是 true。');
   if (request.is_production_like_database !== false) blockers.push('is_production_like_database 必须是 false。');
@@ -152,7 +165,8 @@ function buildDryRunPlan(options: ExecuteOptions): DryRunPlan {
     preflightPath: options.preflightPath,
     backupPath: options.backupPath,
     collectionScope: MINIMAL_COLLECTION_SCOPE,
-    nextStep: '本轮只输出 dry-run plan；最终 execute 必须另起 PR 并人工确认。',
+    nextStep:
+      '本轮只输出 dry-run plan；真实隔离测试 execute 必须由 run-isolated 脚本提供 --execute、--confirm-real-collection-execute 和 --runtime-allow-real-execution。',
   };
 }
 

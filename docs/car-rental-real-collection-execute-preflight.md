@@ -124,3 +124,7 @@
 - 本轮仍不 execute，不执行真实 Collection 创建，不写数据库 schema，不执行 migration。
 - execute 需要单独 PR，并且必须显式提供 `--execute` 与 `--confirm-real-collection-execute`。
 - execute 仍只允许隔离测试库，不使用生产库；`IOPGPS_SYNC_ENABLED = false`，`mock_data_only = true`。
+
+## 一键隔离测试执行器补充
+
+推荐使用 `scripts/car-rental/run-isolated-collection-registration-test.sh` 替代手工步骤生成新的 preflight with request。run-isolated 默认 `prepare-only`，不创建 Collection；真实 execute 需要显式 `CAR_RENTAL_COLLECTION_EXECUTE_ENABLED=true`、`--execute`、`--confirm-real-collection-execute`，并且仍只适用于隔离 PostgreSQL 测试库。Docker 运行环境仍需数据库隔离和备份，不可直接生产部署。

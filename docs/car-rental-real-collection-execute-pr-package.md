@@ -78,3 +78,9 @@
 本轮只生成 execute 包，不执行真实 Collection 创建，不写数据库 schema，不执行 migration，不注册服务，不注册权限，不创建页面，不导入数据，不调用真实 IOPGPS，不生成合同文件。
 
 如果需要进入最终 execute，必须另起单独 PR，重新附上人工确认结果、backup artifact、preflight with request 输出、rollback 演练记录与执行窗口。
+
+## 9. 一键隔离测试执行器
+
+推荐在 NAS / 本地 Docker 环境使用 `scripts/car-rental/run-isolated-collection-registration-test.sh` 替代手工串联步骤。该脚本默认 `prepare-only`，只执行 env safety、compose up、DB health check、backup、request generation、validate request、apply dry-run、preflight 与总报告，不创建 Collection。
+
+真实隔离测试 execute 必须同时满足：`CAR_RENTAL_COLLECTION_EXECUTE_ENABLED=true`、`--execute`、`--confirm-real-collection-execute`、备份文件存在、request 校验通过、preflight with request 无 blockers。脚本仍只适用于隔离 PostgreSQL 测试库；Docker 运行环境仍需要数据库隔离和备份，不可直接生产部署。

@@ -21,3 +21,12 @@
 - [ ] 不使用生产库，不连接生产库，不对生产库执行 restore 或 execute。
 - [ ] NocoBase 2.0.61、yarn、postgresql、isolated_test_database、mock_data_only = true 均已确认。
 - [ ] 明确不提交 dump、不提交 filled request、不提交 `.env.car-rental-collection-test`。
+
+## 一键隔离测试执行器审查项
+
+- [ ] 推荐使用 `scripts/car-rental/run-isolated-collection-registration-test.sh` 替代手工步骤。
+- [ ] run-isolated 默认 `prepare-only`，不创建 Collection。
+- [ ] 真实 execute 需要 `CAR_RENTAL_COLLECTION_EXECUTE_ENABLED=true`、`--execute` 和 `--confirm-real-collection-execute`。
+- [ ] 脚本仍只适用于隔离 PostgreSQL 测试库，不使用生产库。
+- [ ] Docker 运行环境仍需数据库隔离和备份；Docker 隔离不等于数据库安全。
+- [ ] 不可直接生产部署。
