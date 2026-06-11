@@ -2,17 +2,24 @@
 
 ## 当前立即由 Codex 继续补齐的项目
 
-- Runtime / 服务 / 动作注册测试脚本。
-- Permission / 权限与敏感字段测试脚本。
-- Page / 页面 / 菜单 / 区块初始化测试脚本。
-- mock data import / mock 数据导入测试脚本。
-- business smoke test / 核心业务 smoke test 脚本。
+- Runtime / 服务 / 动作注册阶段：已建立 dry-run 阶段，仍需后续实现真实 runtime。
+- Permission / sensitive field test stage.
+- Page / menu / block initialization stage.
+- Mock data import test stage.
+- Business smoke test stage.
 - 合同文件测试脚本。
 - GPS mock 测试脚本。
 - 备份 / 回滚演练脚本。
 - 完整 pre-release 总报告。
 - 生产初始化脚本草案。
 - production init guard / 生产防 mock 门禁。
+
+## 下一优先级
+
+1. Permission / sensitive field test stage.
+2. Page / menu / block initialization stage.
+3. Mock data import test stage.
+4. Business smoke test stage.
 
 ## 当前不由用户执行的项目
 
@@ -36,3 +43,4 @@
 - production_ready=false。
 - mock data cannot enter production。
 - run-full retained for future pre-release execution。
+- 当前不启用真实 IOPGPS。

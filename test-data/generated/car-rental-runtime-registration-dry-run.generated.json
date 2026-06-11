@@ -1,0 +1,1558 @@
+{
+  "generated_at": "2026-06-11T21:37:24Z",
+  "workflow_mode": "codex_only",
+  "stage": "runtime_registration",
+  "execution_mode": "codex_dry_run",
+  "production_ready": false,
+  "local_execution_required_pre_release": true,
+  "scan_roots": [
+    "packages/plugins/plugin-rental-core/src/server",
+    "packages/plugins/plugin-contract-documents/src/server",
+    "packages/plugins/plugin-iopgps/src/server",
+    "packages/shared/nocobase-automation/src"
+  ],
+  "detected_runtime_entries": [
+    {
+      "name": "rentalCoreActionRegistry",
+      "status": "existing",
+      "kind": "action",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/actions/actionRegistry.ts",
+      "exported_entries": [
+        "rentalCoreActionRegistry"
+      ]
+    },
+    {
+      "name": "contractBillingWeeksCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/contractBillingWeeks.ts",
+      "exported_entries": [
+        "contractBillingWeeksCollectionDraft"
+      ]
+    },
+    {
+      "name": "depositRecordsCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/depositRecords.ts",
+      "exported_entries": [
+        "depositRecordsCollectionDraft"
+      ]
+    },
+    {
+      "name": "driversCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/drivers.ts",
+      "exported_entries": [
+        "driversCollectionDraft"
+      ]
+    },
+    {
+      "name": "index",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/index.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "leaseContractsCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/leaseContracts.ts",
+      "exported_entries": [
+        "leaseContractsCollectionDraft"
+      ]
+    },
+    {
+      "name": "operationLogsCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/operationLogs.ts",
+      "exported_entries": [
+        "operationLogsCollectionDraft"
+      ]
+    },
+    {
+      "name": "rentAdjustmentsCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/rentAdjustments.ts",
+      "exported_entries": [
+        "rentAdjustmentsCollectionDraft"
+      ]
+    },
+    {
+      "name": "rentDailyLedgersCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/rentDailyLedgers.ts",
+      "exported_entries": [
+        "rentDailyLedgersCollectionDraft"
+      ]
+    },
+    {
+      "name": "rentPaymentAllocationsCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/rentPaymentAllocations.ts",
+      "exported_entries": [
+        "rentPaymentAllocationsCollectionDraft"
+      ]
+    },
+    {
+      "name": "rentPaymentsCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/rentPayments.ts",
+      "exported_entries": [
+        "rentPaymentsCollectionDraft"
+      ]
+    },
+    {
+      "name": "vehiclesCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/vehicles.ts",
+      "exported_entries": [
+        "vehiclesCollectionDraft"
+      ]
+    },
+    {
+      "name": "rentalCorePluginIntegrationPlan",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/index.ts",
+      "exported_entries": [
+        "rentalCorePluginIntegrationPlan",
+        "rentalCoreI18nRegistrationNotes"
+      ]
+    },
+    {
+      "name": "rentalCoreSensitiveFields",
+      "status": "existing",
+      "kind": "permission",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/permissions/permissionRegistry.ts",
+      "exported_entries": [
+        "rentalCoreSensitiveFields",
+        "rentalCorePermissionRegistry",
+        "rentalCorePermissionRegistryNotes"
+      ]
+    },
+    {
+      "name": "createRentalCorePluginRegistrationPlan",
+      "status": "existing",
+      "kind": "plugin_registration",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/pluginRegistration.ts",
+      "exported_entries": [
+        "createRentalCorePluginRegistrationPlan",
+        "rentalCorePluginRegistration"
+      ]
+    },
+    {
+      "name": "rentalCoreScheduleRegistry",
+      "status": "existing",
+      "kind": "schedule",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/schedules/scheduleRegistry.ts",
+      "exported_entries": [
+        "rentalCoreScheduleRegistry"
+      ]
+    },
+    {
+      "name": "validateWeeklyPayableDays",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/billingRuleService.ts",
+      "exported_entries": [
+        "validateWeeklyPayableDays",
+        "validateDefaultFreeWeekdays",
+        "isDefaultFreeWeekday",
+        "applyDefaultFreeDays"
+      ]
+    },
+    {
+      "name": "generateContractBillingWeeks",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/billingWeekService.ts",
+      "exported_entries": [
+        "generateContractBillingWeeks"
+      ]
+    },
+    {
+      "name": "generateBusinessNo",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/businessNoService.ts",
+      "exported_entries": [
+        "generateBusinessNo"
+      ]
+    },
+    {
+      "name": "getDriverCalendarData",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/calendarDataService.ts",
+      "exported_entries": [
+        "getDriverCalendarData"
+      ]
+    },
+    {
+      "name": "checkVehicleContractAvailability",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/contractAvailabilityService.ts",
+      "exported_entries": [
+        "checkVehicleContractAvailability"
+      ]
+    },
+    {
+      "name": "createLeaseContractDraft",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/contractLifecycleService.ts",
+      "exported_entries": [
+        "createLeaseContractDraft",
+        "activateLeaseContract"
+      ]
+    },
+    {
+      "name": "getNaturalWeekRange",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/dateBillingUtils.ts",
+      "exported_entries": [
+        "getNaturalWeekRange",
+        "eachDateBetween",
+        "getWeekday",
+        "addMonthsClamped",
+        "calculateFixedTermEndDate",
+        "addDaysForBilling",
+        "compareBillingDate"
+      ]
+    },
+    {
+      "name": "getDepositAvailableAmount",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/depositService.ts",
+      "exported_entries": [
+        "getDepositAvailableAmount",
+        "refreshDepositStatus",
+        "createDepositRecord",
+        "deductDeposit",
+        "refundDeposit",
+        "waiveDeposit"
+      ]
+    },
+    {
+      "name": "throwBusinessError",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/errors.ts",
+      "exported_entries": [
+        "throwBusinessError",
+        "rentalCoreErrorMessages",
+        "rentalCoreErrorCodes"
+      ]
+    },
+    {
+      "name": "index",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/index.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "buildDailyLedgerForDate",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/ledgerGenerationService.ts",
+      "exported_entries": [
+        "buildDailyLedgerForDate",
+        "generateFixedTermDailyLedgerPreview",
+        "generateOpenEndedDailyLedgerPreview",
+        "summarizeLedgerPreview",
+        "generateFixedTermDailyLedgers",
+        "ensureOpenEndedDailyLedgers"
+      ]
+    },
+    {
+      "name": "refreshLedgerPaymentStatus",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/ledgerStatusService.ts",
+      "exported_entries": [
+        "refreshLedgerPaymentStatus"
+      ]
+    },
+    {
+      "name": "manuallyAdjustRentDate",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/manualAdjustmentService.ts",
+      "exported_entries": [
+        "manuallyAdjustRentDate"
+      ]
+    },
+    {
+      "name": "maskSensitiveLogValue",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/operationLogService.ts",
+      "exported_entries": [
+        "maskSensitiveLogValue",
+        "recordOperationLog",
+        "buildOperationLogForChange",
+        "operationActions"
+      ]
+    },
+    {
+      "name": "createRentPaymentDraft",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/paymentAllocationService.ts",
+      "exported_entries": [
+        "createRentPaymentDraft",
+        "validateNoOverpayment",
+        "validatePaymentAllocations",
+        "confirmRentPayment",
+        "allocateRentPayment",
+        "createRentPayment"
+      ]
+    },
+    {
+      "name": "reverseRentPayment",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/paymentReversalService.ts",
+      "exported_entries": [
+        "reverseRentPayment"
+      ]
+    },
+    {
+      "name": "canViewCalendarField",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/permissionFilterService.ts",
+      "exported_entries": [
+        "canViewCalendarField",
+        "getCalendarFieldVisibility",
+        "filterCalendarSensitiveData",
+        "calendarSensitiveFields"
+      ]
+    },
+    {
+      "name": "markShortfallAsDebt",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/shortfallService.ts",
+      "exported_entries": [
+        "markShortfallAsDebt",
+        "markShortfallAsDispute",
+        "markShortfallAsPendingWaiver",
+        "markShortfallDisposition"
+      ]
+    },
+    {
+      "name": "refreshContractFinancialSummary",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/summaryService.ts",
+      "exported_entries": [
+        "refreshContractFinancialSummary",
+        "refreshDriverCalendarSummary"
+      ]
+    },
+    {
+      "name": "validateUnpaidReason",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/unpaidReasonService.ts",
+      "exported_entries": [
+        "validateUnpaidReason",
+        "markUnpaidReason"
+      ]
+    },
+    {
+      "name": "requestRentWaiver",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/services/waiverService.ts",
+      "exported_entries": [
+        "requestRentWaiver",
+        "approveRentWaiver",
+        "rejectRentWaiver"
+      ]
+    },
+    {
+      "name": "commonTypes",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/types/commonTypes.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "contractTypes",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/types/contractTypes.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "depositTypes",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/types/depositTypes.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "index",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/types/index.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "ledgerTypes",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/types/ledgerTypes.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "operationLogTypes",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/types/operationLogTypes.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "paymentTypes",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/types/paymentTypes.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "permissionTypes",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/types/permissionTypes.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "summaryTypes",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "plugin-rental-core",
+      "file": "packages/plugins/plugin-rental-core/src/server/types/summaryTypes.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "contractDocumentsActionRegistry",
+      "status": "existing",
+      "kind": "action",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/actions/actionRegistry.ts",
+      "exported_entries": [
+        "contractDocumentsActionRegistry"
+      ]
+    },
+    {
+      "name": "contractDocumentsCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/collections/contractDocuments.ts",
+      "exported_entries": [
+        "contractDocumentsCollectionDraft"
+      ]
+    },
+    {
+      "name": "contractTemplatesCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/collections/contractTemplates.ts",
+      "exported_entries": [
+        "contractTemplatesCollectionDraft"
+      ]
+    },
+    {
+      "name": "index",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/collections/index.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "contractDocumentsPluginIntegrationPlan",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/index.ts",
+      "exported_entries": [
+        "contractDocumentsPluginIntegrationPlan",
+        "contractDocumentsI18nRegistrationNotes"
+      ]
+    },
+    {
+      "name": "createContractDocumentsPluginRegistrationPlan",
+      "status": "existing",
+      "kind": "plugin_registration",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/pluginRegistration.ts",
+      "exported_entries": [
+        "createContractDocumentsPluginRegistrationPlan",
+        "contractDocumentsPluginRegistration"
+      ]
+    },
+    {
+      "name": "buildContractRenderContext",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/services/contractDocumentService.ts",
+      "exported_entries": [
+        "buildContractRenderContext",
+        "buildContractDocumentDraft",
+        "generateContractDocuments",
+        "buildContractDocumentFileName",
+        "validateContractDocument",
+        "renderContractDocument"
+      ]
+    },
+    {
+      "name": "canTransitionContractDocumentStatus",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/services/contractDocumentStatusService.ts",
+      "exported_entries": [
+        "canTransitionContractDocumentStatus",
+        "assertContractDocumentStatusTransition",
+        "getContractSignatureStatusFromDocuments"
+      ]
+    },
+    {
+      "name": "validatePrintableDocument",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/services/contractPrintService.ts",
+      "exported_entries": [
+        "validatePrintableDocument",
+        "buildPrintRecordPatch",
+        "markContractPrinted"
+      ]
+    },
+    {
+      "name": "validateSignedScanUpload",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/services/contractScanService.ts",
+      "exported_entries": [
+        "validateSignedScanUpload",
+        "uploadSignedContractScan",
+        "markContractSigned",
+        "voidContractDocument"
+      ]
+    },
+    {
+      "name": "validateContractLanguage",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/services/contractTemplateService.ts",
+      "exported_entries": [
+        "validateContractLanguage",
+        "getContractTemplateByLanguage",
+        "validateContractTemplate",
+        "selectTemplatesForLanguages",
+        "contractLanguages"
+      ]
+    },
+    {
+      "name": "throwContractDocumentError",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/services/errors.ts",
+      "exported_entries": [
+        "throwContractDocumentError",
+        "contractDocumentErrorMessages"
+      ]
+    },
+    {
+      "name": "index",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/services/index.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "contractDocumentTypes",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/types/contractDocumentTypes.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "index",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "plugin-contract-documents",
+      "file": "packages/plugins/plugin-contract-documents/src/server/types/index.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "iopgpsActionRegistry",
+      "status": "existing",
+      "kind": "action",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/actions/actionRegistry.ts",
+      "exported_entries": [
+        "iopgpsActionRegistry"
+      ]
+    },
+    {
+      "name": "gpsDailyMileagesCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/collections/gpsDailyMileages.ts",
+      "exported_entries": [
+        "gpsDailyMileagesCollectionDraft"
+      ]
+    },
+    {
+      "name": "gpsDeviceBindingsCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/collections/gpsDeviceBindings.ts",
+      "exported_entries": [
+        "gpsDeviceBindingsCollectionDraft"
+      ]
+    },
+    {
+      "name": "gpsDeviceStatusLogsCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/collections/gpsDeviceStatusLogs.ts",
+      "exported_entries": [
+        "gpsDeviceStatusLogsCollectionDraft"
+      ]
+    },
+    {
+      "name": "gpsDevicesCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/collections/gpsDevices.ts",
+      "exported_entries": [
+        "gpsDevicesCollectionDraft"
+      ]
+    },
+    {
+      "name": "gpsLocationSnapshotsCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/collections/gpsLocationSnapshots.ts",
+      "exported_entries": [
+        "gpsLocationSnapshotsCollectionDraft"
+      ]
+    },
+    {
+      "name": "index",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/collections/index.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "iopgpsSettingsCollectionDraft",
+      "status": "existing",
+      "kind": "collection_resource",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/collections/iopgpsSettings.ts",
+      "exported_entries": [
+        "iopgpsSettingsCollectionDraft"
+      ]
+    },
+    {
+      "name": "iopgpsPluginIntegrationPlan",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/index.ts",
+      "exported_entries": [
+        "iopgpsPluginIntegrationPlan",
+        "iopgpsI18nRegistrationNotes"
+      ]
+    },
+    {
+      "name": "createIopgpsPluginRegistrationPlan",
+      "status": "existing",
+      "kind": "plugin_registration",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/pluginRegistration.ts",
+      "exported_entries": [
+        "createIopgpsPluginRegistrationPlan",
+        "iopgpsPluginRegistration"
+      ]
+    },
+    {
+      "name": "iopgpsScheduleRegistry",
+      "status": "existing",
+      "kind": "schedule",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/schedules/scheduleRegistry.ts",
+      "exported_entries": [
+        "iopgpsScheduleRegistry"
+      ]
+    },
+    {
+      "name": "throwIopgpsError",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/services/errors.ts",
+      "exported_entries": [
+        "throwIopgpsError",
+        "iopgpsErrorMessages"
+      ]
+    },
+    {
+      "name": "index",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/services/index.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "buildGpsDeviceStatusLog",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/services/iopgpsDeviceStatusService.ts",
+      "exported_entries": [
+        "buildGpsDeviceStatusLog",
+        "buildVehicleGpsStatusPatch",
+        "syncIopgpsDeviceStatus"
+      ]
+    },
+    {
+      "name": "maskIopgpsSensitiveValue",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/services/iopgpsErrorLogService.ts",
+      "exported_entries": [
+        "maskIopgpsSensitiveValue",
+        "buildIopgpsErrorLog",
+        "safeIopgpsSyncWrapper",
+        "recordIopgpsError",
+        "iopgpsActions"
+      ]
+    },
+    {
+      "name": "buildGpsLocationSnapshot",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/services/iopgpsLocationService.ts",
+      "exported_entries": [
+        "buildGpsLocationSnapshot",
+        "buildVehicleLocationPatch",
+        "syncIopgpsLocation"
+      ]
+    },
+    {
+      "name": "buildMileageSyncKey",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/services/iopgpsMileageService.ts",
+      "exported_entries": [
+        "buildMileageSyncKey",
+        "buildGpsDailyMileage",
+        "syncIopgpsDailyMileage"
+      ]
+    },
+    {
+      "name": "mapNormalizedStatusToVehicleGpsStatus",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/services/iopgpsNormalizeService.ts",
+      "exported_entries": [
+        "mapNormalizedStatusToVehicleGpsStatus",
+        "normalizeIopgpsStatus"
+      ]
+    },
+    {
+      "name": "isTokenExpired",
+      "status": "existing",
+      "kind": "service",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/services/iopgpsTokenService.ts",
+      "exported_entries": [
+        "isTokenExpired",
+        "shouldRefreshToken",
+        "buildTokenState",
+        "getIopgpsAccessToken"
+      ]
+    },
+    {
+      "name": "index",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/types/index.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "iopgpsTypes",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "plugin-iopgps",
+      "file": "packages/plugins/plugin-iopgps/src/server/types/iopgpsTypes.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "normalizeActionPlan",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/actionPlanNormalizer.ts",
+      "exported_entries": [
+        "normalizeActionPlan",
+        "normalizeActionPlans"
+      ]
+    },
+    {
+      "name": "nocobaseAdapterErrorDefinitions",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/adapterErrors.ts",
+      "exported_entries": [
+        "nocobaseAdapterErrorDefinitions",
+        "createNocobaseAdapterError"
+      ]
+    },
+    {
+      "name": "normalizeCollectionPlan",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/collectionPlanNormalizer.ts",
+      "exported_entries": [
+        "normalizeCollectionPlan",
+        "normalizeCollectionPlans",
+        "extractSensitiveFields",
+        "extractUniqueConstraints",
+        "extractRelations"
+      ]
+    },
+    {
+      "name": "buildCollectionRegistrationPlanFromAutomatedPlan",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/collectionRegistrationExecutor.ts",
+      "exported_entries": [
+        "buildCollectionRegistrationPlanFromAutomatedPlan",
+        "dryRunRegisterCollections",
+        "summarizeCollectionRegistrationResult"
+      ]
+    },
+    {
+      "name": "CRITICAL_COLLECTIONS",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/collectionRegistrationValidator.ts",
+      "exported_entries": [
+        "CRITICAL_COLLECTIONS",
+        "CRITICAL_UNIQUE_CONSTRAINTS",
+        "REQUIRED_SENSITIVE_FIELDS",
+        "validateCriticalCollections",
+        "validateCriticalUniqueConstraints",
+        "validateSensitiveFields",
+        "validateCollectionRegistrationPlan"
+      ]
+    },
+    {
+      "name": "dryRunAutomatedRegistration",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/dryRunExecutor.ts",
+      "exported_entries": [
+        "dryRunAutomatedRegistration"
+      ]
+    },
+    {
+      "name": "buildGoLiveReadinessGates",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/goLiveReadinessEvaluator.ts",
+      "exported_entries": [
+        "buildGoLiveReadinessGates",
+        "evaluateGoLiveReadiness",
+        "summarizeGoLiveReadiness",
+        "getRequiredGoLiveReadinessGateNames",
+        "renderGoLiveReadinessMarkdown"
+      ]
+    },
+    {
+      "name": "requiredRuntimeLanguages",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/i18nPlanNormalizer.ts",
+      "exported_entries": [
+        "requiredRuntimeLanguages",
+        "normalizeI18nPlan",
+        "normalizeI18nPlans"
+      ]
+    },
+    {
+      "name": "index",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/index.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "mockCollectionAdapter",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/mockCollectionAdapter.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "mockPageAdapter",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/mockPageAdapter.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "mockRuntimeAdapter",
+      "status": "existing",
+      "kind": "runtime_automation",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/mockRuntimeAdapter.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "mockSeedDataAdapter",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/mockSeedDataAdapter.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "detectNocobaseAdapterMode",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/nocobaseAdapterFactory.ts",
+      "exported_entries": [
+        "detectNocobaseAdapterMode",
+        "createNocobaseAutomationAdapter",
+        "assertRealAdapterReady"
+      ]
+    },
+    {
+      "name": "inspectNocobaseEnvironment",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/nocobaseEnvironmentInspector.ts",
+      "exported_entries": [
+        "inspectNocobaseEnvironment",
+        "summarizeNocobaseEnvironment"
+      ]
+    },
+    {
+      "name": "nocobaseRealAdapter",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/nocobaseRealAdapter.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "dryRunInitializePages",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/pageInitializationExecutor.ts",
+      "exported_entries": [
+        "dryRunInitializePages",
+        "summarizePageInitializationResult"
+      ]
+    },
+    {
+      "name": "buildDashboardPagePlan",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/pageInitializationPlan.ts",
+      "exported_entries": [
+        "buildDashboardPagePlan",
+        "buildDriverManagementPagePlan",
+        "buildVehicleManagementPagePlan",
+        "buildContractManagementPagePlan",
+        "buildRentLedgerPagePlan",
+        "buildRentCalendarPagePlan",
+        "buildPaymentPagePlan",
+        "buildDepositPagePlan",
+        "buildContractDocumentsPagePlan",
+        "buildGpsPagePlan",
+        "buildPageInitializationPlan"
+      ]
+    },
+    {
+      "name": "REQUIRED_PAGE_NAMES",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/pageInitializationValidator.ts",
+      "exported_entries": [
+        "REQUIRED_PAGE_NAMES",
+        "REQUIRED_PAGE_ACTION_NAMES",
+        "validatePageInitializationPlan",
+        "validatePageForbiddenPatterns",
+        "validateSensitivePageFields",
+        "validateRequiredPageActions",
+        "validatePageInitialization"
+      ]
+    },
+    {
+      "name": "runtimeSensitiveFieldAliases",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/permissionPlanNormalizer.ts",
+      "exported_entries": [
+        "runtimeSensitiveFieldAliases",
+        "normalizePermissionPlan",
+        "normalizePermissionPlans",
+        "extractSensitiveFieldPermissionCoverage"
+      ]
+    },
+    {
+      "name": "realBackupRollbackAdapter",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realBackupRollbackAdapter.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "createRealBackupRollbackContext",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realBackupRollbackPlanBuilder.ts",
+      "exported_entries": [
+        "createRealBackupRollbackContext",
+        "buildRealBackupPlan",
+        "buildPostRollbackVerificationPlan",
+        "buildRealRollbackPlan",
+        "buildFailureRecoveryPlans",
+        "realBackupTargets",
+        "realRollbackTargets",
+        "realFailureTypes"
+      ]
+    },
+    {
+      "name": "validateRealBackupRollbackSafety",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realBackupRollbackSafetyChecker.ts",
+      "exported_entries": [
+        "validateRealBackupRollbackSafety",
+        "validateRealBackupPlan",
+        "validateRealRollbackPlan",
+        "validateFailureRecoveryPlans"
+      ]
+    },
+    {
+      "name": "createDraftAdapterEnvironment",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realCollectionRegistrationAdapter.ts",
+      "exported_entries": [
+        "createDraftAdapterEnvironment",
+        "createDefaultRealCollectionRegistrationContext"
+      ]
+    },
+    {
+      "name": "validateRealCollectionSchemaDraft",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realCollectionSafetyChecker.ts",
+      "exported_entries": [
+        "validateRealCollectionSchemaDraft",
+        "validateRealCollectionRegistrationSafety"
+      ]
+    },
+    {
+      "name": "mapRelationPlanToRealRelationDraft",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realCollectionSchemaMapper.ts",
+      "exported_entries": [
+        "mapRelationPlanToRealRelationDraft",
+        "mapIndexPlanToRealIndexDraft",
+        "mapFieldPlanToRealFieldSchemaDraft",
+        "mapCollectionPlanToRealSchemaDraft"
+      ]
+    },
+    {
+      "name": "createDefaultRealPageAdapterEnvironment",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realPageRegistrationAdapter.ts",
+      "exported_entries": [
+        "createDefaultRealPageAdapterEnvironment",
+        "createDefaultRealPageRegistrationContext"
+      ]
+    },
+    {
+      "name": "validateRealPageSchemaDraft",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realPageSafetyChecker.ts",
+      "exported_entries": [
+        "validateRealPageSchemaDraft",
+        "validateRealPageRegistrationSafety"
+      ]
+    },
+    {
+      "name": "mapMenuPlanToRealPageSchemaDraft",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realPageSchemaMapper.ts",
+      "exported_entries": [
+        "mapMenuPlanToRealPageSchemaDraft",
+        "mapPagePlanToRealPageSchemaDraft",
+        "mapBlockPlanToRealPageSchemaDraft",
+        "mapFilterPlanToRealPageSchemaDraft",
+        "mapPageActionPlanToRealPageSchemaDraft"
+      ]
+    },
+    {
+      "name": "createDefaultRealRuntimeAdapterEnvironment",
+      "status": "existing",
+      "kind": "runtime_automation",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realRuntimeRegistrationAdapter.ts",
+      "exported_entries": [
+        "createDefaultRealRuntimeAdapterEnvironment",
+        "createDefaultRealRuntimeRegistrationContext"
+      ]
+    },
+    {
+      "name": "validateRealRuntimeRegistrationSafety",
+      "status": "existing",
+      "kind": "runtime_automation",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realRuntimeSafetyChecker.ts",
+      "exported_entries": [
+        "validateRealRuntimeRegistrationSafety",
+        "validateRealRuntimeSchemaDraft"
+      ]
+    },
+    {
+      "name": "mapServicePlanToRealSchemaDraft",
+      "status": "existing",
+      "kind": "runtime_automation",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realRuntimeSchemaMapper.ts",
+      "exported_entries": [
+        "mapServicePlanToRealSchemaDraft",
+        "mapActionPlanToRealSchemaDraft",
+        "mapPermissionPlanToRealSchemaDraft",
+        "mapSchedulePlanToRealSchemaDraft",
+        "mapI18nPlanToRealSchemaDraft"
+      ]
+    },
+    {
+      "name": "realSeedDataImportAdapter",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realSeedDataImportAdapter.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "validateRealSeedDataImportSafety",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realSeedDataSafetyChecker.ts",
+      "exported_entries": [
+        "validateRealSeedDataImportSafety",
+        "validateRealSeedDataSchemaDraft",
+        "validateRealSeedDataNoRealData"
+      ]
+    },
+    {
+      "name": "extractFileFieldDrafts",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realSeedDataSchemaMapper.ts",
+      "exported_entries": [
+        "extractFileFieldDrafts",
+        "extractRelationDrafts",
+        "mapSeedDataEntityPlanToRealSchemaDraft",
+        "mapSeedDataImportPlanToRealSchemaDraft"
+      ]
+    },
+    {
+      "name": "realSmokeTestAdapter",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realSmokeTestAdapter.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "createRealSmokeTestContext",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realSmokeTestPlanMapper.ts",
+      "exported_entries": [
+        "createRealSmokeTestContext",
+        "mapCollectionPlanToSmokeSteps",
+        "mapRuntimePlanToSmokeSteps",
+        "mapPagePlanToSmokeSteps",
+        "mapSeedDataPlanToSmokeSteps",
+        "buildCoreBusinessSmokeSteps",
+        "buildPermissionSmokeSteps",
+        "buildGpsMockSmokeSteps",
+        "buildContractDocumentSmokeSteps",
+        "buildFailureIsolationSmokeSteps",
+        "buildRollbackSmokeSteps",
+        "buildRealSmokeTestPlan"
+      ]
+    },
+    {
+      "name": "validateRealSmokeTestSafety",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/realSmokeTestSafetyChecker.ts",
+      "exported_entries": [
+        "validateRealSmokeTestSafety",
+        "validateRealSmokeTestPlan",
+        "validateRealSmokeTestReportDraft"
+      ]
+    },
+    {
+      "name": "sortPluginRegistrations",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/registrationPlan.ts",
+      "exported_entries": [
+        "sortPluginRegistrations",
+        "buildCollectionPlansFromRegistrations",
+        "buildPagePlans",
+        "buildSmokeTestPlans",
+        "buildAutomatedRegistrationPlan"
+      ]
+    },
+    {
+      "name": "validateCollectionUniquenessRules",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/registrationValidator.ts",
+      "exported_entries": [
+        "validateCollectionUniquenessRules",
+        "validateSensitiveFieldCoverage",
+        "validateAutomatedRegistrationPlan"
+      ]
+    },
+    {
+      "name": "buildRuntimeRegistrationPlanFromAutomatedPlan",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/runtimeRegistrationExecutor.ts",
+      "exported_entries": [
+        "buildRuntimeRegistrationPlanFromAutomatedPlan",
+        "dryRunRegisterRuntime",
+        "summarizeRuntimeRegistrationResult"
+      ]
+    },
+    {
+      "name": "CORE_SERVICE_NAMES",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/runtimeRegistrationValidator.ts",
+      "exported_entries": [
+        "CORE_SERVICE_NAMES",
+        "CORE_ACTION_NAMES",
+        "CORE_ROLE_NAMES",
+        "validateCoreServiceCoverage",
+        "validateCoreActionCoverage",
+        "validateRolePermissionCoverage",
+        "validateRuntimeForbiddenPatterns",
+        "validateRuntimeRegistrationPlan"
+      ]
+    },
+    {
+      "name": "normalizeSchedulePlan",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/schedulePlanNormalizer.ts",
+      "exported_entries": [
+        "normalizeSchedulePlan",
+        "normalizeSchedulePlans"
+      ]
+    },
+    {
+      "name": "dryRunImportSeedData",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/seedDataImportExecutor.ts",
+      "exported_entries": [
+        "dryRunImportSeedData",
+        "summarizeSeedDataImportResult"
+      ]
+    },
+    {
+      "name": "seedDataFileByEntity",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/seedDataImportPlan.ts",
+      "exported_entries": [
+        "seedDataFileByEntity",
+        "getDefaultSeedDataImportOrder",
+        "buildSeedDataDependencyPlan",
+        "buildSeedDataUniqueKeyPlan",
+        "buildSeedDataSensitiveFieldPlan",
+        "buildSeedDataImportPlan"
+      ]
+    },
+    {
+      "name": "validateSeedDataImportPlan",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/seedDataImportValidator.ts",
+      "exported_entries": [
+        "validateSeedDataImportPlan",
+        "validateSeedDataFilesExist",
+        "validateSeedDataReferences",
+        "validateSeedDataUniqueKeys",
+        "validateNoSensitiveRealData",
+        "validateRentLedgerBusinessRules",
+        "validatePaymentAllocationBusinessRules",
+        "validateDepositBusinessRules",
+        "validateGpsMockRules",
+        "validateSeedDataForImport",
+        "validateSeedDataImportResultBoundaries"
+      ]
+    },
+    {
+      "name": "normalizeServicePlan",
+      "status": "existing",
+      "kind": "server_export",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/servicePlanNormalizer.ts",
+      "exported_entries": [
+        "normalizeServicePlan",
+        "normalizeServicePlans",
+        "extractTransactionalServices",
+        "coreTransactionalServiceNames"
+      ]
+    },
+    {
+      "name": "buildSmokeTestPlan",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/smokeTestOrchestrator.ts",
+      "exported_entries": [
+        "buildSmokeTestPlan",
+        "createSmokeTestStepResult",
+        "summarizeSmokeTestResult",
+        "buildSmokeTestReport",
+        "validateSmokeTestPrerequisites"
+      ]
+    },
+    {
+      "name": "types",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/types.ts",
+      "exported_entries": []
+    },
+    {
+      "name": "createUnconfiguredNocobaseRealAdapter",
+      "status": "existing",
+      "kind": "runtime_candidate",
+      "source_plugin": "nocobase-automation",
+      "file": "packages/shared/nocobase-automation/src/unconfiguredRealAdapter.ts",
+      "exported_entries": [
+        "createUnconfiguredNocobaseRealAdapter"
+      ]
+    }
+  ],
+  "planned_runtime_entries": [
+    {
+      "name": "contract_creation_runtime",
+      "status": "planned",
+      "business_rule": "合同创建需校验司机、车辆、长租/时限合同规则，激活后才能生成台账。",
+      "source_plugin": "plugin-rental-core"
+    },
+    {
+      "name": "natural_week_ledger_generation_runtime",
+      "status": "planned",
+      "business_rule": "按自然周生成租金台账，支持默认免租日；每日台账为唯一事实来源。",
+      "source_plugin": "plugin-rental-core"
+    },
+    {
+      "name": "payment_daily_allocation_runtime",
+      "status": "planned",
+      "business_rule": "付款必须分配到具体日期，单日不可超付，整笔分配失败需整体失败。",
+      "source_plugin": "plugin-rental-core"
+    },
+    {
+      "name": "deposit_lifecycle_runtime",
+      "status": "planned",
+      "business_rule": "押金收取、抵扣、退还与租金收入隔离。",
+      "source_plugin": "plugin-rental-core"
+    },
+    {
+      "name": "shortfall_calculation_runtime",
+      "status": "planned",
+      "business_rule": "当前欠款不包含未来应收，并保留未付原因。",
+      "source_plugin": "plugin-rental-core"
+    },
+    {
+      "name": "contract_document_generation_runtime",
+      "status": "planned",
+      "business_rule": "只在后续真实执行中生成合同文件，本阶段不生成真实合同。",
+      "source_plugin": "plugin-contract-documents"
+    },
+    {
+      "name": "iopgps_mock_sync_runtime",
+      "status": "planned",
+      "business_rule": "IOPGPS 真实同步默认禁用，仅允许 mock sync 与错误日志隔离。",
+      "source_plugin": "plugin-iopgps"
+    },
+    {
+      "name": "operation_log_runtime",
+      "status": "planned",
+      "business_rule": "关键动作写 operation logs，并对敏感字段脱敏。",
+      "source_plugin": "plugin-rental-core"
+    },
+    {
+      "name": "permission_check_runtime_placeholder",
+      "status": "planned",
+      "business_rule": "权限和敏感字段阶段补齐真实权限校验。",
+      "source_plugin": "plugin-rental-core"
+    },
+    {
+      "name": "page_action_runtime_placeholder",
+      "status": "planned",
+      "business_rule": "页面、菜单、区块初始化阶段补齐页面动作绑定。",
+      "source_plugin": "plugin-rental-core"
+    }
+  ],
+  "missing_runtime_entries": [],
+  "blockers": [],
+  "warnings": [
+    "当前 Codex-only 阶段不要求用户本地运行；正式版前才进行本地/NAS 隔离执行。",
+    "本 dry-run 不连接数据库、不注册真实 runtime、不写 schema、不执行 migration。"
+  ],
+  "modification_items": [
+    "将 Codex-only planned runtime 转换为真实 NocoBase service/action/permission 注册前，需增加本地 pre-release 验证。",
+    "权限与敏感字段测试阶段需继续验证 permission placeholder。",
+    "页面动作 runtime placeholder 需在页面 / 菜单 / 区块阶段绑定。"
+  ]
+}

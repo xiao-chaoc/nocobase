@@ -1,6 +1,6 @@
 # Car Rental Codex-only Project Status
 
-- generated_at: 2026-06-11T15:27:51.864Z
+- generated_at: 2026-06-11T21:37:24.941Z
 - workflow_mode: codex_only
 - local_nas_test_status: paused
 - local_docker_status: deleted_by_user
@@ -14,23 +14,22 @@
 ## Current completed items
 
 - 完整 NocoBase v2.0.61 宿主工程基线已确认
-- Codex-only workflow 文档已创建
-- local NAS paused 状态已记录
-- run-full retained for future pre-release execution
+- Codex-only workflow established.
+- Local NAS test paused.
+- Full isolated system test plan created.
+- Runtime registration dry-run stage added.
 - production_ready=false 门禁保持开启
 
 ## Current pending items
 
-- Runtime / 服务 / 动作注册测试脚本
-- 权限与敏感字段测试脚本
-- 页面 / 菜单 / 区块初始化测试脚本
-- mock 数据导入测试脚本
-- 核心业务 smoke test 脚本
-- 合同文件测试脚本
-- GPS mock 测试脚本
-- 备份 / 回滚演练脚本
-- 完整 pre-release 总报告
-- 生产初始化脚本草案与生产防 mock 门禁
+- Permission and sensitive field test stage.
+- Page/menu/block initialization stage.
+- Mock data import stage.
+- Business smoke test stage.
+- Contract document test stage.
+- GPS mock test stage.
+- Backup/rollback rehearsal stage.
+- Production init guard stage.
 
 ## Current blockers
 
@@ -41,8 +40,7 @@
 
 ## Next Codex tasks
 
-- 补齐 Runtime / 服务 / 动作注册测试脚本
-- 补齐权限与敏感字段测试脚本
+- Implement permission and sensitive field test stage.
 - 补齐页面 / 菜单 / 区块初始化测试脚本
 - 补齐 mock 数据导入和生产防 mock 门禁
 - 生成正式部署 runbook 与隐私数据导入前检查清单
