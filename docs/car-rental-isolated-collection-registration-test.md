@@ -106,3 +106,13 @@ scripts/car-rental/restore-collection-test-db.sh <backup-file>
 - `docker-compose` 1.28.5 不支持 Compose 顶层 `name` 字段；隔离测试项目名应由命令参数 `-p car-rental-collection-test` 提供。
 - PostgreSQL 端口映射必须是 `53240:5432`，不能是 `53240:53240`；容器内 PostgreSQL target port 仍是 `5432`。
 - 生产前删除测试容器、测试 network、测试 storage、测试备份和测试源码目录后，在生产新目录重新 clone，可以最小化测试影响；但生产仍必须使用新目录、新 `.env`、新 PostgreSQL 数据目录 / volume、新 storage 和新数据库，不能复用测试 dump、filled request 或 mock 数据。
+
+## 正式版前一键隔离总测试补充
+
+- 当前测试策略将从逐步手工执行每个小门禁，调整为正式版前集中运行 `bash scripts/car-rental/run-full-isolated-system-test.sh` 的一键隔离总测试流程。
+- 用户可在正式版前运行 full isolated system test，由总控脚本集中调用已存在阶段，并把尚未实现的 Runtime / 权限 / 页面 / mock 数据 / smoke test / 合同文件 / GPS mock / 备份回滚阶段记录为 skipped 和 modification_items。
+- 当前 Docker 只有 PostgreSQL 容器是正常现象；`docker-compose.car-rental-collection-test.yml` 只用于隔离 PostgreSQL 测试库，不是完整 NocoBase 应用部署。
+- 完整 NocoBase 应用容器部署会在后续生产初始化阶段单独处理，不应与隔离测试 compose 混用。
+- 测试和生产必须使用不同目录、不同 `.env`、不同 PostgreSQL DB volume、不同 storage。
+- 生产前重新 clone 项目不会自动携带 PostgreSQL 测试数据；GitHub 拉取源码不会拉取 NAS 本地 volume、storage、dump 或 ignored env。
+- 不要复用测试 dump / storage / env 到生产，也不要把 filled request、backup dump、SQL 文件或测试 `.env` 提交到 Git。
