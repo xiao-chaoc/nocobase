@@ -116,3 +116,16 @@ scripts/car-rental/restore-collection-test-db.sh <backup-file>
 - 测试和生产必须使用不同目录、不同 `.env`、不同 PostgreSQL DB volume、不同 storage。
 - 生产前重新 clone 项目不会自动携带 PostgreSQL 测试数据；GitHub 拉取源码不会拉取 NAS 本地 volume、storage、dump 或 ignored env。
 - 不要复用测试 dump / storage / env 到生产，也不要把 filled request、backup dump、SQL 文件或测试 `.env` 提交到 Git。
+
+## Codex-only / 本地 NAS 测试暂停补充（2026-06-11）
+
+- local NAS paused：用户已删除本地 NAS 测试目录。
+- Docker containers deleted by user：用户已删除本地 Docker 测试容器。
+- current local test not required：当前 Codex-only 模式下不再要求用户执行本地 Docker、PostgreSQL、run-full、backup dump 或 filled request 步骤。
+- Codex 继续在 GitHub 仓库中维护测试脚本、dry-run 报告、mock 报告、报告模板和 modification_items。
+- run-full retained for future pre-release execution：`scripts/car-rental/run-full-isolated-system-test.sh` 保留为未来正式版前本地/NAS 执行入口，当前不要求用户运行。
+- 这些脚本保留用于正式版前恢复本地/NAS 测试；真实执行移动到 pre-release local execution 阶段。
+- 生产初始化仍必须与测试初始化分离。
+- 正式生产部署前必须重新 clone、使用新目录、新 `.env`、新 PostgreSQL volume、新 storage。
+- 生产前重新 clone 不会带测试数据库数据，前提是不复用测试 volume、storage、dump、filled request 或 env。
+- production_ready=false；mock data cannot enter production。

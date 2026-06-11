@@ -51,3 +51,15 @@
 - 合同文件、GPS mock、核心业务 smoke test、备份 / 回滚演练和 UAT 均未完成。
 - 生产初始化脚本尚未与测试初始化脚本完全分离。
 - 当前不允许启用真实 IOPGPS，不允许使用真实司机证件、真实付款截图、真实合同扫描件。
+
+## Codex-only 工作流更新（2026-06-11）
+
+- 已确认本任务运行在完整 NocoBase v2.0.61 宿主工程中，目标仓库为 `xiao-chaoc/nocobase`，不是 car-rental 插件骨架仓库。
+- local NAS paused：本地 NAS 测试已暂停，用户已删除本地 NAS 测试目录。
+- Docker containers deleted by user：用户已删除本地 Docker 测试容器。
+- current local test not required：后续改为 Codex-only 工作流，当前不要求用户启动 Docker、运行 PostgreSQL 测试库、运行 run-full、生成 backup dump 或生成 filled request。
+- Codex 继续在 GitHub 仓库中维护测试脚本、dry-run 报告、mock 报告、修改项清单和 pre-release 路线图。
+- `scripts/car-rental/run-full-isolated-system-test.sh` 继续保留，但现在仅作为未来 pre-release local execution 阶段的本地/NAS 总入口；当前 Codex-only 阶段不要求用户运行。
+- 所有未完成阶段改由 Codex 继续生成脚本、报告和 modification_items，包括 Runtime、权限、页面、mock 数据、smoke test、合同文件、GPS mock、备份回滚、生产初始化脚本草案和生产防 mock 门禁。
+- 正式版前才恢复本地/NAS 执行，并且必须重新 clone、使用新目录、新 `.env`、新 PostgreSQL volume、新 storage。
+- 当前仍保持 production_ready=false；mock data cannot enter production。
