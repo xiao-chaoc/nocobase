@@ -1,5 +1,6 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { Database } from '@nocobase/database';
 import type {
   CollectionRelationType,
   RealCollectionFieldSchemaDraft,
@@ -71,8 +72,8 @@ export interface NocobaseCollectionSchemaDraft {
   notes: string[];
   metadata: {
     generatedBy: 'car-rental-real-nocobase-collection-adapter';
-    planOnly: true;
-    dryRunOnly: true;
+    planOnly: boolean;
+    dryRunOnly: boolean;
   };
 }
 
@@ -459,7 +460,7 @@ export function validateNocobaseCollectionSchema(
     errors.push(`Collection ${schema.name} 违反规则：押金不得计入租金收入或租金已付。`);
   }
   if (!REQUIRED_MINIMAL_COLLECTIONS.includes(schema.name)) {
-    warnings.push(`Collection ${schema.name} 不在本轮最小范围内；本轮仅 plan/dry-run，不真实注册。`);
+    warnings.push(`Collection ${schema.name} 不在本轮最小范围内；本轮真实执行会拒绝注册。`);
   }
   return { valid: errors.length === 0, errors, warnings };
 }
@@ -519,8 +520,9 @@ export function assertCanExecuteCollectionRegistration(context: CollectionExecut
   if (!context.isolatedDatabase) reasons.push('必须使用隔离数据库。');
   if (!context.iopgpsDisabled) reasons.push('必须确认 IOPGPS 已禁用。');
   if (!context.mockDataOnly) reasons.push('必须限定 mock 数据，不得使用真实司机或生产数据。');
-  reasons.push('当前任务未要求真实创建 Collection，本轮强制禁止真实执行。');
-  throw new CollectionRegistrationExecutionBlockedError('真实 Collection 注册被安全门禁阻止。', reasons);
+  if (reasons.length > 0) {
+    throw new CollectionRegistrationExecutionBlockedError('真实 Collection 注册被安全门禁阻止。', reasons);
+  }
 }
 
 export function registerCollections(
@@ -530,6 +532,241 @@ export function registerCollections(
 ): CollectionRegistrationPlanOnlyResult {
   assertCanExecuteCollectionRegistration(context);
   return planCollections(collectionPlans, 'real', inspectCollectionApi(rootDir));
+}
+
+export interface RealCollectionExecutionGateContext extends CollectionExecutionContext {
+  targetVersion: '2.0.61';
+  packageManager: 'yarn';
+  databaseDialect: 'postgresql';
+  databaseSafetyLabel: 'isolated_test_database';
+  isProductionLikeDatabase: false;
+  backupArtifactPath: string;
+  preflightBlockers: string[];
+  executeFlag: boolean;
+  confirmRealCollectionExecute: boolean;
+  runtimeAllowRealExecution: boolean;
+  envExecuteEnabled: boolean;
+}
+
+export interface RealCollectionRegistrationResult {
+  mode: 'real';
+  executed: true;
+  writesDatabase: true;
+  createsCollection: boolean;
+  runsMigration: false;
+  syncExecuted: true;
+  created: string[];
+  skipped: Array<{ collectionName: string; reason: 'already_exists' | 'skipped' }>;
+  failed: Array<{ collectionName: string; error: string }>;
+  warnings: string[];
+  errors: string[];
+  collectionNames: string[];
+  production_ready: false;
+  apiEvidence: NocobaseCollectionApiEvidence[];
+}
+
+const NON_SECRET_DB_ENV_KEYS = ['DB_DIALECT', 'DB_HOST', 'DB_PORT', 'DB_DATABASE', 'DB_USER', 'DB_SCHEMA'] as const;
+
+function normalizeDialect(value: string | undefined): 'postgres' {
+  if (value === 'postgres' || value === 'postgresql') return 'postgres';
+  throw new Error('DB_DIALECT 必须通过运行环境提供为 postgres/postgresql；adapter 不读取 .env 文件。');
+}
+
+function requiredEnvValue(key: (typeof NON_SECRET_DB_ENV_KEYS)[number] | 'DB_PASSWORD'): string {
+  const value = process.env[key];
+  if (!value) throw new Error(`${key} 未在运行环境中提供；adapter 不读取 .env 文件。`);
+  return value;
+}
+
+function createIsolatedNocobaseDatabase(): Database {
+  const dialect = normalizeDialect(requiredEnvValue('DB_DIALECT'));
+  return new Database({
+    dialect,
+    host: requiredEnvValue('DB_HOST'),
+    port: Number(requiredEnvValue('DB_PORT')),
+    database: requiredEnvValue('DB_DATABASE'),
+    username: requiredEnvValue('DB_USER'),
+    password: requiredEnvValue('DB_PASSWORD'),
+    schema: process.env.DB_SCHEMA || 'public',
+    logging: false,
+    underscored: true,
+  });
+}
+
+function assertCanExecuteRealCollectionRegistration(context: RealCollectionExecutionGateContext): void {
+  const reasons: string[] = [];
+  try {
+    assertCanExecuteCollectionRegistration(context);
+  } catch (error) {
+    if (error instanceof CollectionRegistrationExecutionBlockedError) reasons.push(...error.reasons);
+    else reasons.push(error instanceof Error ? error.message : String(error));
+  }
+  if (context.targetVersion !== '2.0.61') reasons.push('targetVersion 必须是 2.0.61。');
+  if (context.packageManager !== 'yarn') reasons.push('packageManager 必须是 yarn。');
+  if (context.databaseDialect !== 'postgresql') reasons.push('databaseDialect 必须是 postgresql。');
+  if (context.databaseSafetyLabel !== 'isolated_test_database') {
+    reasons.push('databaseSafetyLabel 必须是 isolated_test_database。');
+  }
+  if (context.isProductionLikeDatabase !== false) reasons.push('isProductionLikeDatabase 必须是 false。');
+  if (!context.backupArtifactPath || !fs.existsSync(path.resolve(context.backupArtifactPath))) {
+    reasons.push('backup artifact 必须存在，禁止跳过 backup。');
+  }
+  if (context.preflightBlockers.length > 0)
+    reasons.push(`preflight 存在 blockers：${context.preflightBlockers.join('；')}`);
+  if (!context.executeFlag) reasons.push('必须提供 --execute。');
+  if (!context.confirmRealCollectionExecute) reasons.push('必须提供 --confirm-real-collection-execute。');
+  if (!context.runtimeAllowRealExecution) reasons.push('必须提供 --runtime-allow-real-execution。');
+  if (!context.envExecuteEnabled) reasons.push('CAR_RENTAL_COLLECTION_EXECUTE_ENABLED 必须是 true。');
+  if (reasons.length > 0) {
+    throw new CollectionRegistrationExecutionBlockedError('真实 Collection 注册被安全门禁阻止。', reasons);
+  }
+}
+
+function toRealCollectionOptions(schema: NocobaseCollectionSchemaDraft): Record<string, unknown> {
+  return {
+    name: schema.name,
+    title: schema.title,
+    origin: schema.origin,
+    dumpRules: schema.dumpRules,
+    migrationRules: schema.migrationRules,
+    autoGenId: true,
+    timestamps: true,
+    fields: schema.fields.map((field) => {
+      const relationTarget = field.target;
+      if ((field.type === 'belongsTo' || field.type === 'hasMany' || field.type === 'hasOne') && relationTarget) {
+        const scalarType = fieldTypeForName(field.foreignKey || field.name);
+        return {
+          type: scalarType,
+          name: field.foreignKey || field.name,
+          title: field.title,
+          allowNull: field.allowNull,
+          interface: interfaceForType(scalarType),
+          carRental: field.carRental,
+        };
+      }
+      return {
+        type: field.type,
+        name: field.name,
+        title: field.title,
+        allowNull: field.allowNull,
+        defaultValue: field.defaultValue,
+        unique: field.unique,
+        index: field.index,
+        interface: field.interface,
+        uiSchema: field.uiSchema,
+        carRental: field.carRental,
+      };
+    }),
+    indexes: schema.indexes.map((index) => ({ name: index.name, fields: index.fields, unique: index.unique })),
+  };
+}
+
+async function tableExists(db: Database, collectionName: string): Promise<boolean> {
+  const collection = db.getCollection(collectionName);
+  if (!collection) return false;
+  return db.collectionExistsInDb(collectionName);
+}
+
+async function assertExistingTableCompatible(db: Database, schema: NocobaseCollectionSchemaDraft): Promise<void> {
+  const collection = db.getCollection(schema.name);
+  const tableName = collection.getTableNameWithSchemaAsString();
+  const description = await db.sequelize.getQueryInterface().describeTable(tableName);
+  const columns = new Set(Object.keys(description));
+  const missingColumns = schema.fields
+    .map((field) => field.foreignKey || field.name)
+    .filter((fieldName) => !columns.has(fieldName));
+  if (missingColumns.length > 0) {
+    throw new Error(`已存在表 ${schema.name} 缺少字段：${missingColumns.join(', ')}`);
+  }
+}
+
+export async function registerCollectionsForReal(
+  collectionPlans: RealCollectionSchemaDraft[],
+  context: RealCollectionExecutionGateContext,
+  rootDir = process.cwd(),
+): Promise<RealCollectionRegistrationResult> {
+  assertCanExecuteRealCollectionRegistration(context);
+  const apiInspection = inspectCollectionApi(rootDir);
+  if (!apiInspection.canPlanWithVerifiedApi) {
+    throw new CollectionRegistrationExecutionBlockedError(
+      '真实 Collection API 证据未通过，拒绝执行。',
+      apiInspection.errors,
+    );
+  }
+
+  const plan = planCollections(collectionPlans, 'real', apiInspection);
+  const validationErrors = plan.collections.flatMap((collection) => collection.validation.errors);
+  if (validationErrors.length > 0) {
+    throw new CollectionRegistrationExecutionBlockedError('Collection schema 校验失败，拒绝执行。', validationErrors);
+  }
+  const names = plan.collections.map((collection) => collection.collectionName);
+  const notMinimal = names.filter((name) => !REQUIRED_MINIMAL_COLLECTIONS.includes(name));
+  const missingMinimal = REQUIRED_MINIMAL_COLLECTIONS.filter((name) => !names.includes(name));
+  if (notMinimal.length > 0 || missingMinimal.length > 0) {
+    throw new CollectionRegistrationExecutionBlockedError('本轮只能注册最小 8 个 Collection。', [
+      ...(notMinimal.length ? [`超出范围：${notMinimal.join(', ')}`] : []),
+      ...(missingMinimal.length ? [`缺少：${missingMinimal.join(', ')}`] : []),
+    ]);
+  }
+
+  const db = createIsolatedNocobaseDatabase();
+  const created: string[] = [];
+  const skipped: RealCollectionRegistrationResult['skipped'] = [];
+  const failed: RealCollectionRegistrationResult['failed'] = [];
+  const warnings = [...plan.warnings];
+
+  try {
+    await db.auth({ retry: 1 });
+    await db.prepare();
+    for (const collection of plan.collections) {
+      db.collection(toRealCollectionOptions(collection.schema));
+    }
+    for (const collection of plan.collections) {
+      try {
+        if (await tableExists(db, collection.collectionName)) {
+          await assertExistingTableCompatible(db, collection.schema);
+          skipped.push({ collectionName: collection.collectionName, reason: 'already_exists' });
+          continue;
+        }
+        created.push(collection.collectionName);
+      } catch (error) {
+        failed.push({
+          collectionName: collection.collectionName,
+          error: error instanceof Error ? error.message : String(error),
+        });
+      }
+    }
+    if (failed.length === 0 && created.length > 0) {
+      await db.sync();
+    }
+  } finally {
+    await db.close();
+  }
+
+  return {
+    mode: 'real',
+    executed: true,
+    writesDatabase: true,
+    createsCollection: created.length > 0,
+    runsMigration: false,
+    syncExecuted: true,
+    created,
+    skipped,
+    failed,
+    warnings,
+    errors: failed.map((item) => `${item.collectionName}: ${item.error}`),
+    collectionNames: names,
+    production_ready: false,
+    apiEvidence: apiInspection.evidence,
+  };
+}
+
+export async function executeRealCollectionRegistration(
+  collectionPlans: RealCollectionSchemaDraft[],
+  context: RealCollectionExecutionGateContext,
+  rootDir = process.cwd(),
+): Promise<RealCollectionRegistrationResult> {
+  return registerCollectionsForReal(collectionPlans, context, rootDir);
 }
 
 export function makeRealCollectionFieldDraft(

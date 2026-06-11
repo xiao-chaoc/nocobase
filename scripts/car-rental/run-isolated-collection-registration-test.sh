@@ -89,6 +89,11 @@ write_report() {
   "database_safety_label": "isolated_test_database",
   "mock_data_only": true,
   "iopgps_real_sync_allowed": false,
+  "preparePassed": $([ "$status" = "passed" ] && echo true || echo false),
+  "executeAttempted": $([ "$MODE" = "execute" ] && echo true || echo false),
+  "executePassed": $([ "$MODE" = "execute" ] && [ "$status" = "passed" ] && echo true || echo false),
+  "postValidatePassed": $([ -f "${ROOT_DIR}/${POST_VALIDATE_PATH}" ] && node -e 'const fs=require("fs"); const r=JSON.parse(fs.readFileSync(process.argv[1],"utf8")); process.exit(r.overallStatus==="passed"?0:1)' "${ROOT_DIR}/${POST_VALIDATE_PATH}" >/dev/null 2>&1 && echo true || echo false),
+  "rollbackCommand": "scripts/car-rental/restore-collection-test-db.sh ${BACKUP_FILE}",
   "writes_database_requested": $([ "$MODE" = "execute" ] && echo true || echo false),
   "backup_artifact_reference": ${backup_json},
   "request_file": ${request_json},
@@ -111,6 +116,28 @@ write_report() {
   }
 }
 JSON
+}
+
+export_collection_test_env() {
+  while IFS= read -r line; do
+    case "$line" in
+      ''|'#'*) continue ;;
+    esac
+    case "$line" in
+      *=*) ;;
+      *) continue ;;
+    esac
+    local key value
+    key="${line%%=*}"
+    value="${line#*=}"
+    key="$(printf '%s' "$key" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
+    value="$(printf '%s' "$value" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//;s/^"//;s/"$//;s/^'\''//;s/'\''$//')"
+    if [ "$key" = "CAR_RENTAL_COLLECTION_EXECUTE_ENABLED" ] && [ "${CAR_RENTAL_COLLECTION_EXECUTE_ENABLED:-false}" = "true" ]; then
+      export CAR_RENTAL_COLLECTION_EXECUTE_ENABLED="true"
+    elif [ -n "$key" ]; then
+      export "$key=$value"
+    fi
+  done < "$ENV_FILE"
 }
 
 run_ts_node() {
@@ -201,6 +228,7 @@ check_env_file_and_safety() {
     [ "$execute_enabled" = "false" ] || fail "prepare-only 模式要求 CAR_RENTAL_COLLECTION_EXECUTE_ENABLED=false。"
   fi
 
+  export_collection_test_env
   run_step "运行隔离测试库 safety check" run_ts_node scripts/car-rental/validate-collection-test-db-safety.ts
 }
 

@@ -30,3 +30,13 @@
 - [ ] 脚本仍只适用于隔离 PostgreSQL 测试库，不使用生产库。
 - [ ] Docker 运行环境仍需数据库隔离和备份；Docker 隔离不等于数据库安全。
 - [ ] 不可直接生产部署。
+
+## 本阶段新增审查项
+
+- [ ] 已确认当前 PR 允许在隔离 PostgreSQL 测试库真实注册最小 8 个 Collection。
+- [ ] 执行命令必须是：`CAR_RENTAL_COLLECTION_EXECUTE_ENABLED=true bash scripts/car-rental/run-isolated-collection-registration-test.sh --execute --confirm-real-collection-execute`。
+- [ ] `run-isolated` 调用 execute 脚本时必须传入 `--execute`、`--confirm-real-collection-execute`、`--runtime-allow-real-execution`。
+- [ ] Docker 隔离不等于数据库安全，仍必须检查 `isolated_test_database`。
+- [ ] 失败时必须使用 `scripts/car-rental/restore-collection-test-db.sh <backup-file>` 回滚。
+- [ ] 成功仍不代表 `production_ready`，报告必须保持 `production_ready=false`。
+- [ ] Runtime、权限、页面和数据导入均留到下一阶段。

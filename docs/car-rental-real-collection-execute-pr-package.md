@@ -84,3 +84,21 @@
 推荐在 NAS / 本地 Docker 环境使用 `scripts/car-rental/run-isolated-collection-registration-test.sh` 替代手工串联步骤。该脚本默认 `prepare-only`，只执行 env safety、compose up、DB health check、backup、request generation、validate request、apply dry-run、preflight 与总报告，不创建 Collection。
 
 真实隔离测试 execute 必须同时满足：`CAR_RENTAL_COLLECTION_EXECUTE_ENABLED=true`、`--execute`、`--confirm-real-collection-execute`、备份文件存在、request 校验通过、preflight with request 无 blockers。脚本仍只适用于隔离 PostgreSQL 测试库；Docker 运行环境仍需要数据库隔离和备份，不可直接生产部署。
+
+## 当前 PR 执行包更新
+
+当前 execute 包已从草案推进为隔离测试库真实注册逻辑：允许在 NocoBase v2.0.61 宿主工程的隔离 PostgreSQL 测试库中创建最小 8 个 Collection。范围仅限 `drivers`、`vehicles`、`lease_contracts`、`rent_daily_ledgers`、`rent_payments`、`rent_payment_allocations`、`deposit_records`、`operation_logs`，不包含合同文档、IOPGPS、页面、权限、服务动作或测试数据导入。
+
+执行命令：
+
+```bash
+CAR_RENTAL_COLLECTION_EXECUTE_ENABLED=true bash scripts/car-rental/run-isolated-collection-registration-test.sh --execute --confirm-real-collection-execute
+```
+
+Docker 隔离不等于数据库安全，仍必须使用 `isolated_test_database` safety label，并在 execute 前生成备份。失败时使用：
+
+```bash
+scripts/car-rental/restore-collection-test-db.sh <backup-file>
+```
+
+即使 execute 和 post-validate 成功，也不得标记 `production_ready`；下一阶段才处理 Runtime、权限、页面和数据导入。

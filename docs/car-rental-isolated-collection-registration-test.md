@@ -82,3 +82,19 @@ scripts/car-rental/restore-collection-test-db.sh backups-test/car-rental/pre-rea
 - 不提交 SQL 文件。
 - 不标记 `production_ready`。
 - 不直接生产部署。
+
+## 10. 当前真实执行状态（v2.0.61）
+
+本阶段已经允许在 **隔离 PostgreSQL 测试库** 中真实注册 car-rental 最小 8 个 Collection：`drivers`、`vehicles`、`lease_contracts`、`rent_daily_ledgers`、`rent_payments`、`rent_payment_allocations`、`deposit_records`、`operation_logs`。`prepare-only` 模式仍不创建 Collection；只有以下命令会进入真实 execute：
+
+```bash
+CAR_RENTAL_COLLECTION_EXECUTE_ENABLED=true bash scripts/car-rental/run-isolated-collection-registration-test.sh --execute --confirm-real-collection-execute
+```
+
+真实 execute 仍只适用于 `database_safety_label=isolated_test_database` 的隔离测试库。Docker 隔离不等于数据库安全；执行前必须完成 safety check、备份、filled request、validate request、apply dry-run 和 preflight。失败时使用脚本输出的命令回滚：
+
+```bash
+scripts/car-rental/restore-collection-test-db.sh <backup-file>
+```
+
+成功也不代表 `production_ready`；所有报告必须保持 `production_ready=false`。下一阶段才进入 Runtime、权限、页面和测试数据导入。
