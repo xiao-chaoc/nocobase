@@ -3,7 +3,7 @@
 ## 当前立即由 Codex 继续补齐的项目
 
 - Runtime / 服务 / 动作注册阶段：已建立 dry-run 阶段，仍需后续实现真实 runtime。
-- Permission / sensitive field test stage.
+- Permission / sensitive field test stage：已建立 dry-run 阶段，仍需后续实现真实权限注册和本地 pre-release 验证。
 - Page / menu / block initialization stage.
 - Mock data import test stage.
 - Business smoke test stage.
@@ -16,10 +16,9 @@
 
 ## 下一优先级
 
-1. Permission / sensitive field test stage.
-2. Page / menu / block initialization stage.
-3. Mock data import test stage.
-4. Business smoke test stage.
+1. Page / menu / block initialization stage.
+2. Mock data import test stage.
+3. Business smoke test stage.
 
 ## 当前不由用户执行的项目
 
