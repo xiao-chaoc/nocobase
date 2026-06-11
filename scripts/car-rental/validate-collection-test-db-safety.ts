@@ -115,7 +115,13 @@ export function validateCollectionTestDbSafety(rootDir = process.cwd()): Collect
   checkEquals(env, 'CAR_RENTAL_DATABASE_SAFETY_LABEL', REQUIRED_SAFETY_LABEL, checks, blockers);
   checkEquals(env, 'CAR_RENTAL_MOCK_DATA_ONLY', 'true', checks, blockers);
   checkEquals(env, 'IOPGPS_SYNC_ENABLED', 'false', checks, blockers);
-  checkEquals(env, 'CAR_RENTAL_COLLECTION_EXECUTE_ENABLED', 'false', checks, blockers);
+  if (env.CAR_RENTAL_COLLECTION_EXECUTE_ENABLED === 'false') {
+    checks.push('✅ CAR_RENTAL_COLLECTION_EXECUTE_ENABLED=false（env 文件默认安全）。');
+  } else if (process.env.CAR_RENTAL_COLLECTION_EXECUTE_ENABLED === 'true') {
+    checks.push('✅ CAR_RENTAL_COLLECTION_EXECUTE_ENABLED 由运行时命令显式授权为 true。');
+  } else {
+    blockers.push('CAR_RENTAL_COLLECTION_EXECUTE_ENABLED 在 env 文件中必须是 false，或由运行时命令显式授权为 true。');
+  }
 
   if (fs.existsSync(backupDir)) {
     checks.push(`✅ ${COLLECTION_TEST_BACKUP_DIR} 已存在。`);

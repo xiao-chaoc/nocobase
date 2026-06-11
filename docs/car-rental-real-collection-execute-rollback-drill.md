@@ -95,3 +95,21 @@ scripts/car-rental/restore-collection-test-db.sh backups-test/car-rental/pre-rea
 - post-rollback validation result
 - 是否确认未影响生产库
 - 是否确认 IOPGPS 仍禁用
+
+## 11. 当前阶段回滚命令
+
+当前阶段允许在隔离 PostgreSQL 测试库真实创建最小 8 个 Collection，但 Docker 隔离不等于数据库安全；恢复前仍必须确认 `database_safety_label=isolated_test_database`。
+
+标准 execute 命令为：
+
+```bash
+CAR_RENTAL_COLLECTION_EXECUTE_ENABLED=true bash scripts/car-rental/run-isolated-collection-registration-test.sh --execute --confirm-real-collection-execute
+```
+
+失败时使用本次执行报告中的备份 artifact：
+
+```bash
+scripts/car-rental/restore-collection-test-db.sh <backup-file>
+```
+
+回滚成功或 execute 成功都不代表 `production_ready`。下一阶段才处理 Runtime、权限、页面和数据导入。
