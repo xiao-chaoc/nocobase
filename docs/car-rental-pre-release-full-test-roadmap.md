@@ -126,8 +126,8 @@
 | Collection 注册隔离测试 | codex_dry_run | Codex 维护脚本、request 模板、dry-run 报告 | 保留 run-isolated 和 run-full，未来 pre-release 再执行真实本地/NAS 测试 |
 | Runtime / 服务 / 动作注册测试 | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | Runtime dry-run 脚本、JSON report、报告文档、修改项清单已建立；仍需后续实现真实 runtime |
 | 权限与敏感字段测试 | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | Permission dry-run 脚本、JSON report、报告文档、修改项清单已建立；仍需后续实现真实权限注册和本地 pre-release 验证 |
-| 页面 / 菜单 / 区块初始化测试 | next_codex_task | Codex | 生成 Page / menu / block 初始化测试脚本和 mock 报告 |
-| mock 数据导入测试 | pending | Codex | 生成 mock data import 脚本、生产防 mock 门禁和报告模板 |
+| 页面 / 菜单 / 区块初始化测试 | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | Page / menu / block dry-run 已建立；真实执行仍为 local_pre_release |
+| mock 数据导入测试 | next_codex_task | Codex | 生成 mock data import 脚本、生产防 mock 门禁和报告模板 |
 | 核心业务 smoke test | pending | Codex | 生成 business smoke test 脚本和模拟报告 |
 | 合同文件测试 | codex_static | Codex | 生成合同文件测试脚本；禁止真实合同扫描件 |
 | GPS mock 测试 | codex_mock_report | Codex | 生成 GPS mock 测试脚本；禁止真实 IOPGPS |
@@ -142,3 +142,10 @@
 - run-full retained for future pre-release execution：`scripts/car-rental/run-full-isolated-system-test.sh` 保留为未来正式版前本地/NAS 总入口。
 - pre-release local execution 才进行真实本地/NAS 执行。
 - production_ready=false，当前仍不能标记 production_ready。
+
+## Page / menu / block 阶段更新（2026-06-11）
+
+- Page / menu / block 阶段标记为 codex_dry_run 已建立。
+- Page / menu / block 真实执行仍为 local_pre_release。
+- Mock data import 阶段标记为 next_codex_task。
+- Business smoke test 仍为 pending。

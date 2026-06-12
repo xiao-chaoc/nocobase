@@ -4,7 +4,7 @@
 
 - Runtime / 服务 / 动作注册阶段：已建立 dry-run 阶段，仍需后续实现真实 runtime。
 - Permission / sensitive field test stage：已建立 dry-run 阶段，仍需后续实现真实权限注册和本地 pre-release 验证。
-- Page / menu / block initialization stage.
+- Page / menu / block 阶段：已建立 dry-run 阶段，仍需后续实现真实页面/菜单/区块初始化和本地 pre-release 验证。
 - Mock data import test stage.
 - Business smoke test stage.
 - 合同文件测试脚本。
@@ -16,9 +16,10 @@
 
 ## 下一优先级
 
-1. Page / menu / block initialization stage.
-2. Mock data import test stage.
-3. Business smoke test stage.
+1. Mock data import test stage.
+2. Business smoke test stage.
+3. Contract document test stage.
+4. GPS mock test stage.
 
 ## 当前不由用户执行的项目
 
@@ -43,3 +44,12 @@
 - mock data cannot enter production。
 - run-full retained for future pre-release execution。
 - 当前不启用真实 IOPGPS。
+
+## Page / menu / block 阶段更新（2026-06-11）
+
+- Page / menu / block 阶段已建立 dry-run 阶段，仍需后续实现真实页面/菜单/区块初始化和本地 pre-release 验证。
+- 下一优先级：
+  - Mock data import test stage.
+  - Business smoke test stage.
+  - Contract document test stage.
+  - GPS mock test stage.

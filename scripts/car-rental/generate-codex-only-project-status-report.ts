@@ -92,10 +92,10 @@ function buildReport(): ProjectStatusReport {
       'Full isolated system test plan created.',
       'Runtime registration dry-run stage added.',
       'Permission and sensitive field dry-run stage added.',
+      'Page/menu/block dry-run stage added.',
       'production_ready=false 门禁保持开启',
     ],
     current_pending_items: [
-      'Page/menu/block initialization stage.',
       'Mock data import stage.',
       'Business smoke test stage.',
       'Contract document test stage.',
@@ -110,8 +110,7 @@ function buildReport(): ProjectStatusReport {
       'mock data cannot enter production',
     ],
     next_codex_tasks: [
-      'Implement page/menu/block initialization stage.',
-      '补齐页面 / 菜单 / 区块初始化测试脚本',
+      'Implement mock data import stage.',
       '补齐 mock 数据导入和生产防 mock 门禁',
       '生成正式部署 runbook 与隐私数据导入前检查清单',
     ],
