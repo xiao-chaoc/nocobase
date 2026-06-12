@@ -8,16 +8,15 @@
 - Mock data import 阶段：已建立 dry-run 阶段，已添加安全 mock fixtures 和生产防 mock 门禁，仍需后续实现真实 pre-release 导入验证。
 - Business smoke test 阶段：已建立 dry-run 阶段，仍需后续真实 pre-release 本地验证。
 - Contract document test 阶段：已建立 dry-run 阶段，仍需后续真实 pre-release 本地验证。
-- GPS mock test stage.
+- GPS mock test 阶段：已建立 dry-run 阶段，仍需后续真实 pre-release 本地验证。
 - Backup/rollback rehearsal stage.
 - Production init guard stage.
 - 完整 pre-release 总报告。
 
 ## 下一优先级
 
-1. GPS mock test stage.
-2. Backup/rollback rehearsal stage.
-3. Production init guard stage.
+1. Backup/rollback rehearsal stage.
+2. Production init guard stage.
 
 ## 当前不由用户执行的项目
 
@@ -59,7 +58,6 @@
 - Mock data import 真实执行仍为 local_pre_release。
 - 当前不要求用户本地运行。
 - 下一优先级：
-  - GPS mock test stage.
   - Backup/rollback rehearsal stage.
   - Production init guard stage.
 
@@ -72,7 +70,6 @@
 - production_ready=false。
 - 不启用真实 IOPGPS，mock 数据不得进入生产。
 - 下一优先级：
-  - GPS mock test stage.
   - Backup/rollback rehearsal stage.
   - Production init guard stage.
 
@@ -86,6 +83,19 @@
 - production_ready=false。
 - 不启用真实 IOPGPS，mock 数据不得进入生产，mock 数据不能进入生产。
 - 下一优先级：
-  - GPS mock test stage.
+  - Backup/rollback rehearsal stage.
+  - Production init guard stage.
+
+
+## GPS mock test 阶段更新（2026-06-12）
+
+- GPS mock test 阶段标记为 codex_dry_run 已建立。
+- 已添加 GPS mock test plan、dry-run 脚本、JSON/Markdown 报告、修改项清单、校验脚本和测试。
+- GPS mock test 真实执行仍为 local_pre_release，仍需后续真实 pre-release 本地验证。
+- 当前不要求用户本地运行。
+- production_ready=false。
+- 不启用真实 IOPGPS，mock 数据不得进入生产，mock 数据不能进入生产。
+- GPS 不参与租金计算，GPS 失败不影响租金台账、付款分配、押金或合同文档。
+- 下一优先级：
   - Backup/rollback rehearsal stage.
   - Production init guard stage.

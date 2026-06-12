@@ -1,27 +1,112 @@
 {
   "mock_data_only": true,
   "not_for_production": true,
-  "fixture_scope": "car_rental_mock_data_import_stage",
+  "fixture_scope": "car_rental_gps_mock_test_stage",
+  "notes": [
+    "Safe mock GPS status fixture for Codex-only dry-run analysis.",
+    "Coordinates are obvious mock placeholders and are not real vehicle traces.",
+    "No credential fields, provider auth fields, or raw provider responses are included."
+  ],
   "records": [
     {
       "id": "MOCK-GPS-STATUS-001",
       "vehicle_id": "MOCK-VEHICLE-001",
       "gps_device_id": "MOCK-GPS-DEVICE-001",
-      "status": "mock_online",
+      "device_label": "Mock GPS Device 001",
+      "status": "online",
       "last_seen_at": "2026-01-06T08:00:00Z",
       "iopgps_sync_record_id": "MOCK-IOPGPS-SYNC-001",
       "credential_present": false,
-      "location_mode": "mock_status_only_no_raw_track"
+      "mileage": {
+        "value": 12345.67,
+        "unit": "km",
+        "placeholder": true,
+        "not_real_odometer": true
+      },
+      "location": {
+        "latitude": 0.0001,
+        "longitude": 0.0001,
+        "address": "MOCK_LOCATION_PLACEHOLDER_A_NOT_REAL",
+        "placeholder": true,
+        "not_real_coordinates": true
+      },
+      "location_mode": "mock_status_only_no_raw_track",
+      "raw_response_included": false
     },
     {
       "id": "MOCK-GPS-STATUS-002",
       "vehicle_id": "MOCK-VEHICLE-002",
       "gps_device_id": "MOCK-GPS-DEVICE-002",
-      "status": "mock_offline",
+      "device_label": "Mock GPS Device 002",
+      "status": "offline",
       "last_seen_at": "2026-01-07T08:00:00Z",
       "iopgps_sync_record_id": "MOCK-IOPGPS-SYNC-002",
       "credential_present": false,
-      "location_mode": "mock_status_only_no_raw_track"
+      "mileage": {
+        "value": null,
+        "unit": "km",
+        "placeholder": true,
+        "missing_reason": "mock_mileage_missing_case"
+      },
+      "location": {
+        "latitude": 0.0002,
+        "longitude": 0.0002,
+        "address": "MOCK_LOCATION_PLACEHOLDER_B_NOT_REAL",
+        "placeholder": true,
+        "not_real_coordinates": true
+      },
+      "location_mode": "mock_status_only_no_raw_track",
+      "raw_response_included": false
+    },
+    {
+      "id": "MOCK-GPS-STATUS-003",
+      "vehicle_id": "MOCK-VEHICLE-003",
+      "gps_device_id": "MOCK-GPS-DEVICE-001",
+      "device_label": "Mock GPS Device 001 fault scenario",
+      "status": "fault",
+      "last_seen_at": "2026-01-08T08:00:00Z",
+      "iopgps_sync_record_id": "MOCK-IOPGPS-SYNC-003",
+      "credential_present": false,
+      "mileage": {
+        "value": 0,
+        "unit": "km",
+        "placeholder": true,
+        "not_real_odometer": true
+      },
+      "location": {
+        "latitude": 0,
+        "longitude": 0,
+        "address": "MOCK_LOCATION_PLACEHOLDER_FAULT_NOT_REAL",
+        "placeholder": true,
+        "not_real_coordinates": true
+      },
+      "location_mode": "mock_status_only_no_raw_track",
+      "raw_response_included": false
+    },
+    {
+      "id": "MOCK-GPS-STATUS-004",
+      "vehicle_id": "MOCK-VEHICLE-004",
+      "gps_device_id": "MOCK-GPS-DEVICE-002",
+      "device_label": "Mock GPS Device 002 sync failure scenario",
+      "status": "sync_failed",
+      "last_seen_at": null,
+      "iopgps_sync_record_id": "MOCK-IOPGPS-SYNC-004",
+      "credential_present": false,
+      "mileage": {
+        "value": null,
+        "unit": "km",
+        "placeholder": true,
+        "missing_reason": "mock_sync_failed_no_mileage"
+      },
+      "location": {
+        "latitude": null,
+        "longitude": null,
+        "address": "MOCK_LOCATION_PLACEHOLDER_SYNC_FAILED_NOT_REAL",
+        "placeholder": true,
+        "not_real_coordinates": true
+      },
+      "location_mode": "mock_status_only_no_raw_track",
+      "raw_response_included": false
     }
   ]
 }
