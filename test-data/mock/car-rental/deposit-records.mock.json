@@ -1,0 +1,35 @@
+{
+  "mock_data_only": true,
+  "not_for_production": true,
+  "fixture_scope": "car_rental_mock_data_import_stage",
+  "records": [
+    {
+      "id": "MOCK-DEPOSIT-COLLECT-001",
+      "contract_id": "MOCK-CONTRACT-LONG-001",
+      "driver_id": "MOCK-DRIVER-A",
+      "deposit_event": "collect",
+      "event_date": "2026-01-05",
+      "amount": 500,
+      "rent_income": false
+    },
+    {
+      "id": "MOCK-DEPOSIT-OFFSET-001",
+      "contract_id": "MOCK-CONTRACT-LONG-001",
+      "driver_id": "MOCK-DRIVER-A",
+      "deposit_event": "offset",
+      "event_date": "2026-01-10",
+      "amount": 40,
+      "offset_ledger_id": "MOCK-LEDGER-003",
+      "rent_income": false
+    },
+    {
+      "id": "MOCK-DEPOSIT-REFUND-001",
+      "contract_id": "MOCK-CONTRACT-TIME-001",
+      "driver_id": "MOCK-DRIVER-B",
+      "deposit_event": "refund",
+      "event_date": "2026-01-13",
+      "amount": 300,
+      "rent_income": false
+    }
+  ]
+}

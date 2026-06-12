@@ -1,0 +1,21 @@
+{
+  "mock_data_only": true,
+  "not_for_production": true,
+  "fixture_scope": "car_rental_mock_data_import_stage",
+  "records": [
+    {
+      "id": "MOCK-VEHICLE-001",
+      "plate_number": "MOCK-PLATE-001",
+      "vin_reference": "MOCK-VIN-001",
+      "status": "available",
+      "gps_device_id": "MOCK-GPS-DEVICE-001"
+    },
+    {
+      "id": "MOCK-VEHICLE-002",
+      "plate_number": "MOCK-PLATE-002",
+      "vin_reference": "MOCK-VIN-002",
+      "status": "leased",
+      "gps_device_id": "MOCK-GPS-DEVICE-002"
+    }
+  ]
+}

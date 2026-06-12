@@ -1,0 +1,34 @@
+{
+  "mock_data_only": true,
+  "not_for_production": true,
+  "fixture_scope": "car_rental_mock_data_import_stage",
+  "fixture_files": [
+    "drivers.mock.json",
+    "vehicles.mock.json",
+    "lease-contracts.mock.json",
+    "rent-daily-ledgers.mock.json",
+    "rent-payments.mock.json",
+    "rent-payment-allocations.mock.json",
+    "deposit-records.mock.json",
+    "operation-logs.mock.json",
+    "contract-documents.mock.json",
+    "gps-status.mock.json"
+  ],
+  "business_case_coverage": [
+    "long-term contract case",
+    "time-bound contract case",
+    "weekly rent ledger case",
+    "free-rent day case",
+    "payment allocation case",
+    "no overpay per day case",
+    "unpaid reason case",
+    "arrears case",
+    "deposit collect / offset / refund case",
+    "deposit not counted as rent income case",
+    "current arrears excludes future receivables case",
+    "contract document placeholder case",
+    "GPS mock status case",
+    "operation logs case"
+  ],
+  "production_guard": "mock data cannot enter production; production init must not call mock import"
+}

@@ -1,0 +1,193 @@
+{
+  "generated_at": "2026-06-12T10:26:03.898Z",
+  "workflow_mode": "codex_only",
+  "stage": "mock_data_import",
+  "execution_mode": "codex_dry_run",
+  "production_ready": false,
+  "local_execution_required_pre_release": true,
+  "fixture_files": [
+    {
+      "path": "test-data/mock/car-rental/drivers.mock.json",
+      "exists": true,
+      "records": 2
+    },
+    {
+      "path": "test-data/mock/car-rental/vehicles.mock.json",
+      "exists": true,
+      "records": 2
+    },
+    {
+      "path": "test-data/mock/car-rental/lease-contracts.mock.json",
+      "exists": true,
+      "records": 2
+    },
+    {
+      "path": "test-data/mock/car-rental/rent-daily-ledgers.mock.json",
+      "exists": true,
+      "records": 6
+    },
+    {
+      "path": "test-data/mock/car-rental/rent-payments.mock.json",
+      "exists": true,
+      "records": 2
+    },
+    {
+      "path": "test-data/mock/car-rental/rent-payment-allocations.mock.json",
+      "exists": true,
+      "records": 3
+    },
+    {
+      "path": "test-data/mock/car-rental/deposit-records.mock.json",
+      "exists": true,
+      "records": 3
+    },
+    {
+      "path": "test-data/mock/car-rental/operation-logs.mock.json",
+      "exists": true,
+      "records": 3
+    },
+    {
+      "path": "test-data/mock/car-rental/contract-documents.mock.json",
+      "exists": true,
+      "records": 2
+    },
+    {
+      "path": "test-data/mock/car-rental/gps-status.mock.json",
+      "exists": true,
+      "records": 2
+    },
+    {
+      "path": "test-data/mock/car-rental/mock-manifest.json",
+      "exists": true,
+      "records": 0
+    }
+  ],
+  "fixture_summary": {
+    "fixture_dir": "test-data/mock/car-rental",
+    "required_file_count": 11,
+    "existing_file_count": 11,
+    "total_records": 27
+  },
+  "business_case_coverage": [
+    {
+      "business_case": "long-term contract case",
+      "covered": true
+    },
+    {
+      "business_case": "time-bound contract case",
+      "covered": true
+    },
+    {
+      "business_case": "weekly rent ledger case",
+      "covered": true
+    },
+    {
+      "business_case": "free-rent day case",
+      "covered": true
+    },
+    {
+      "business_case": "payment allocation case",
+      "covered": true
+    },
+    {
+      "business_case": "no overpay per day case",
+      "covered": true
+    },
+    {
+      "business_case": "unpaid reason case",
+      "covered": true
+    },
+    {
+      "business_case": "arrears case",
+      "covered": true
+    },
+    {
+      "business_case": "deposit collect / offset / refund case",
+      "covered": true
+    },
+    {
+      "business_case": "deposit not counted as rent income case",
+      "covered": true
+    },
+    {
+      "business_case": "current arrears excludes future receivables case",
+      "covered": true
+    },
+    {
+      "business_case": "contract document placeholder case",
+      "covered": true
+    },
+    {
+      "business_case": "GPS mock status case",
+      "covered": true
+    },
+    {
+      "business_case": "operation logs case",
+      "covered": true
+    }
+  ],
+  "privacy_guard_results": [
+    {
+      "check": "mock_data_only marker",
+      "passed": true
+    },
+    {
+      "check": "not_for_production marker",
+      "passed": true
+    },
+    {
+      "check": "no suspicious real phone",
+      "passed": true
+    },
+    {
+      "check": "no suspicious email",
+      "passed": true
+    },
+    {
+      "check": "no suspicious identity or passport",
+      "passed": true
+    },
+    {
+      "check": "no real screenshot or scan path",
+      "passed": true
+    },
+    {
+      "check": "no credential markers",
+      "passed": true
+    }
+  ],
+  "production_guard_results": [
+    {
+      "check": "workflow_mode=codex_only",
+      "passed": true
+    },
+    {
+      "check": "execution_mode=codex_dry_run",
+      "passed": true
+    },
+    {
+      "check": "production_ready=false",
+      "passed": true
+    },
+    {
+      "check": "local_execution_required_pre_release=true",
+      "passed": true
+    },
+    {
+      "check": "mock data cannot enter production",
+      "passed": true
+    },
+    {
+      "check": "production init must not call mock import",
+      "passed": true
+    }
+  ],
+  "blockers": [],
+  "warnings": [
+    "当前不要求用户本地运行；正式版前才本地执行真实 pre-release mock import 验证。",
+    "Codex-only dry-run 不连接数据库、不导入真实数据、不导入 mock 数据到数据库、不写 schema、不执行 migration。",
+    "不启用真实 IOPGPS；GPS / IOPGPS 仅允许 mock status 和 mock sync id。",
+    "mock 数据不能进入生产；production init must not call mock import。"
+  ],
+  "modification_items": []
+}
