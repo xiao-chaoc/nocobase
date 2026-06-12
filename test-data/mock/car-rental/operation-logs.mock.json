@@ -1,0 +1,28 @@
+{
+  "mock_data_only": true,
+  "not_for_production": true,
+  "fixture_scope": "car_rental_mock_data_import_stage",
+  "records": [
+    {
+      "id": "MOCK-OPLOG-001",
+      "actor": "Mock Operator A",
+      "action": "create_mock_contract",
+      "target_id": "MOCK-CONTRACT-LONG-001",
+      "occurred_at": "2026-01-05T09:00:00Z"
+    },
+    {
+      "id": "MOCK-OPLOG-002",
+      "actor": "Mock Accountant A",
+      "action": "allocate_mock_payment_by_day",
+      "target_id": "MOCK-PAYMENT-001",
+      "occurred_at": "2026-01-06T10:00:00Z"
+    },
+    {
+      "id": "MOCK-OPLOG-003",
+      "actor": "Mock Manager A",
+      "action": "review_mock_arrears",
+      "target_id": "MOCK-LEDGER-003",
+      "occurred_at": "2026-01-08T11:00:00Z"
+    }
+  ]
+}

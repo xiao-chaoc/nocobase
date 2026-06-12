@@ -46,12 +46,14 @@
 
 ## 阶段 5：mock 数据导入测试
 
-- 输入：mock fixture、隔离测试库、mock 数据门禁。
+- 当前状态：codex_dry_run 已建立。
+- Mock data import 真实执行：仍为 local_pre_release，正式版前才本地执行。
+- 输入：safe mock fixture、mock 数据门禁、Codex-only dry-run 扫描结果。
 - 自动脚本：`scripts/car-rental/run-isolated-mock-data-import-test.sh`。
-- 输出报告：mock 导入报告。
-- 成功标准：仅在 `isolated_test_database` 且 `CAR_RENTAL_MOCK_DATA_ONLY=true` 时导入。
-- 失败处理：删除或回滚测试数据，生成 fixture 修改项。
-- 是否允许 mock 数据：允许。
+- 输出报告：`test-data/generated/car-rental-mock-data-import-dry-run.generated.json`、`docs/car-rental-mock-data-import-dry-run-report.md`。
+- 成功标准：当前仅 dry-run 校验 fixture，不连接数据库、不导入数据、不写 schema、不执行 migration、不启用真实 IOPGPS；真实 local_pre_release 执行时仅允许 `isolated_test_database` 且 `CAR_RENTAL_MOCK_DATA_ONLY=true`。
+- 失败处理：记录 blockers 和 fixture 修改项；真实 local_pre_release 失败时删除或回滚测试数据。
+- 是否允许 mock 数据：允许，仅限 Codex-only fixture 或隔离测试库；mock 数据不能进入生产。
 - 是否允许生产执行：不允许。
 
 ## 阶段 6：核心业务 smoke test
@@ -127,13 +129,13 @@
 | Runtime / 服务 / 动作注册测试 | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | Runtime dry-run 脚本、JSON report、报告文档、修改项清单已建立；仍需后续实现真实 runtime |
 | 权限与敏感字段测试 | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | Permission dry-run 脚本、JSON report、报告文档、修改项清单已建立；仍需后续实现真实权限注册和本地 pre-release 验证 |
 | 页面 / 菜单 / 区块初始化测试 | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | Page / menu / block dry-run 已建立；真实执行仍为 local_pre_release |
-| mock 数据导入测试 | next_codex_task | Codex | 生成 mock data import 脚本、生产防 mock 门禁和报告模板 |
-| 核心业务 smoke test | pending | Codex | 生成 business smoke test 脚本和模拟报告 |
-| 合同文件测试 | codex_static | Codex | 生成合同文件测试脚本；禁止真实合同扫描件 |
-| GPS mock 测试 | codex_mock_report | Codex | 生成 GPS mock 测试脚本；禁止真实 IOPGPS |
-| 备份 / 回滚演练 | codex_static | Codex | 维护 backup / restore 脚本和 rollback drill 模板，当前不生成本地 dump |
+| mock 数据导入测试 | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | Mock data import dry-run、safe mock fixtures、JSON / Markdown 报告和生产防 mock 门禁已建立；仍需后续真实 pre-release 导入验证 |
+| 核心业务 smoke test | next_codex_task | Codex | 生成 business smoke test 脚本和模拟报告 |
+| 合同文件测试 | pending | Codex | 生成合同文件测试脚本；禁止真实合同扫描件 |
+| GPS mock 测试 | pending | Codex | 生成 GPS mock 测试脚本；禁止真实 IOPGPS |
+| 备份 / 回滚演练 | pending | Codex | 维护 backup / restore 脚本和 rollback drill 模板，当前不生成本地 dump |
 | 正式版前本地/NAS 总执行 | local_pre_release | 用户在正式版前执行 | 重新 clone、新目录、新 env、新 DB volume、新 storage 后运行总测试 |
-| 生产初始化 | production_init | 用户 + Codex runbook | 生产初始化必须与测试初始化分离，mock data cannot enter production |
+| 生产初始化 | pending | 用户 + Codex runbook | 生产初始化必须与测试初始化分离，mock data cannot enter production |
 
 ### Codex-only 阶段规则
 
@@ -147,5 +149,7 @@
 
 - Page / menu / block 阶段标记为 codex_dry_run 已建立。
 - Page / menu / block 真实执行仍为 local_pre_release。
-- Mock data import 阶段标记为 next_codex_task。
-- Business smoke test 仍为 pending。
+- Mock data import 阶段标记为 codex_dry_run 已建立。
+- Mock data import 真实执行仍为 local_pre_release。
+- Business smoke test 阶段标记为 next_codex_task。
+- Contract document、GPS mock、backup/rollback、production init guard 仍为 pending。

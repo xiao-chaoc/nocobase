@@ -1,0 +1,31 @@
+{
+  "mock_data_only": true,
+  "not_for_production": true,
+  "fixture_scope": "car_rental_mock_data_import_stage",
+  "records": [
+    {
+      "id": "MOCK-ALLOCATION-001",
+      "payment_id": "MOCK-PAYMENT-001",
+      "ledger_id": "MOCK-LEDGER-002",
+      "allocation_date": "2026-01-06",
+      "allocated_amount": 120,
+      "no_overpay_per_day": true
+    },
+    {
+      "id": "MOCK-ALLOCATION-002",
+      "payment_id": "MOCK-PAYMENT-001",
+      "ledger_id": "MOCK-LEDGER-003",
+      "allocation_date": "2026-01-07",
+      "allocated_amount": 80,
+      "no_overpay_per_day": true
+    },
+    {
+      "id": "MOCK-ALLOCATION-003",
+      "payment_id": "MOCK-PAYMENT-002",
+      "ledger_id": "MOCK-LEDGER-005",
+      "allocation_date": "2026-01-07",
+      "allocated_amount": 150,
+      "no_overpay_per_day": true
+    }
+  ]
+}

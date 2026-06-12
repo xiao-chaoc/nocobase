@@ -5,21 +5,21 @@
 - Runtime / 服务 / 动作注册阶段：已建立 dry-run 阶段，仍需后续实现真实 runtime。
 - Permission / sensitive field test stage：已建立 dry-run 阶段，仍需后续实现真实权限注册和本地 pre-release 验证。
 - Page / menu / block 阶段：已建立 dry-run 阶段，仍需后续实现真实页面/菜单/区块初始化和本地 pre-release 验证。
-- Mock data import test stage.
+- Mock data import 阶段：已建立 dry-run 阶段，已添加安全 mock fixtures 和生产防 mock 门禁，仍需后续实现真实 pre-release 导入验证。
 - Business smoke test stage.
-- 合同文件测试脚本。
-- GPS mock 测试脚本。
-- 备份 / 回滚演练脚本。
+- Contract document test stage.
+- GPS mock test stage.
+- Backup/rollback rehearsal stage.
+- Production init guard stage.
 - 完整 pre-release 总报告。
-- 生产初始化脚本草案。
-- production init guard / 生产防 mock 门禁。
 
 ## 下一优先级
 
-1. Mock data import test stage.
-2. Business smoke test stage.
-3. Contract document test stage.
-4. GPS mock test stage.
+1. Business smoke test stage.
+2. Contract document test stage.
+3. GPS mock test stage.
+4. Backup/rollback rehearsal stage.
+5. Production init guard stage.
 
 ## 当前不由用户执行的项目
 
@@ -42,14 +42,27 @@
 
 - production_ready=false。
 - mock data cannot enter production。
+- mock 数据不能进入生产。
+- production init must not call mock import。
 - run-full retained for future pre-release execution。
 - 当前不启用真实 IOPGPS。
 
 ## Page / menu / block 阶段更新（2026-06-11）
 
 - Page / menu / block 阶段已建立 dry-run 阶段，仍需后续实现真实页面/菜单/区块初始化和本地 pre-release 验证。
+
+## Mock data import 阶段更新（2026-06-12）
+
+- Mock data import 阶段标记为 codex_dry_run 已建立。
+- 已添加 `test-data/mock/car-rental/` 安全 mock fixtures。
+- 已添加 `scripts/car-rental/run-isolated-mock-data-import-test.sh` dry-run 脚本。
+- 已添加 mock import JSON / Markdown 报告和修改项清单。
+- 已添加生产防 mock 门禁校验脚本。
+- Mock data import 真实执行仍为 local_pre_release。
+- 当前不要求用户本地运行。
 - 下一优先级：
-  - Mock data import test stage.
   - Business smoke test stage.
   - Contract document test stage.
   - GPS mock test stage.
+  - Backup/rollback rehearsal stage.
+  - Production init guard stage.

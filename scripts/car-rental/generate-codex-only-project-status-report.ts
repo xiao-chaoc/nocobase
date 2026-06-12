@@ -93,10 +93,12 @@ function buildReport(): ProjectStatusReport {
       'Runtime registration dry-run stage added.',
       'Permission and sensitive field dry-run stage added.',
       'Page/menu/block dry-run stage added.',
+      'Mock data import dry-run stage added.',
+      'Safe mock fixtures added.',
+      'Mock data production guard added.',
       'production_ready=false 门禁保持开启',
     ],
     current_pending_items: [
-      'Mock data import stage.',
       'Business smoke test stage.',
       'Contract document test stage.',
       'GPS mock test stage.',
@@ -110,8 +112,8 @@ function buildReport(): ProjectStatusReport {
       'mock data cannot enter production',
     ],
     next_codex_tasks: [
-      'Implement mock data import stage.',
-      '补齐 mock 数据导入和生产防 mock 门禁',
+      'Implement business smoke test stage.',
+      '补齐 contract document test stage 和 GPS mock test stage',
       '生成正式部署 runbook 与隐私数据导入前检查清单',
     ],
     next_user_actions: [

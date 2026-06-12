@@ -1,0 +1,68 @@
+{
+  "mock_data_only": true,
+  "not_for_production": true,
+  "fixture_scope": "car_rental_mock_data_import_stage",
+  "records": [
+    {
+      "id": "MOCK-LEDGER-001",
+      "contract_id": "MOCK-CONTRACT-LONG-001",
+      "ledger_date": "2026-01-05",
+      "natural_week": "2026-W02",
+      "rent_amount": 0,
+      "paid_amount": 0,
+      "status": "free_rent_day",
+      "business_case": "default free-rent day"
+    },
+    {
+      "id": "MOCK-LEDGER-002",
+      "contract_id": "MOCK-CONTRACT-LONG-001",
+      "ledger_date": "2026-01-06",
+      "natural_week": "2026-W02",
+      "rent_amount": 120,
+      "paid_amount": 120,
+      "status": "paid",
+      "business_case": "payment allocation case"
+    },
+    {
+      "id": "MOCK-LEDGER-003",
+      "contract_id": "MOCK-CONTRACT-LONG-001",
+      "ledger_date": "2026-01-07",
+      "natural_week": "2026-W02",
+      "rent_amount": 120,
+      "paid_amount": 80,
+      "status": "partial_arrears",
+      "unpaid_reason": "MOCK-UNPAID-REASON-001",
+      "arrears_amount": 40
+    },
+    {
+      "id": "MOCK-LEDGER-004",
+      "contract_id": "MOCK-CONTRACT-TIME-001",
+      "ledger_date": "2026-01-06",
+      "natural_week": "2026-W02",
+      "rent_amount": 0,
+      "paid_amount": 0,
+      "status": "free_rent_day"
+    },
+    {
+      "id": "MOCK-LEDGER-005",
+      "contract_id": "MOCK-CONTRACT-TIME-001",
+      "ledger_date": "2026-01-07",
+      "natural_week": "2026-W02",
+      "rent_amount": 150,
+      "paid_amount": 150,
+      "status": "paid",
+      "no_overpay_per_day": true
+    },
+    {
+      "id": "MOCK-LEDGER-006",
+      "contract_id": "MOCK-CONTRACT-TIME-001",
+      "ledger_date": "2026-01-08",
+      "natural_week": "2026-W02",
+      "rent_amount": 150,
+      "paid_amount": 0,
+      "status": "unpaid",
+      "unpaid_reason": "MOCK-UNPAID-REASON-002",
+      "arrears_amount": 150
+    }
+  ]
+}

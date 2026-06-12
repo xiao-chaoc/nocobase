@@ -1,0 +1,25 @@
+{
+  "mock_data_only": true,
+  "not_for_production": true,
+  "fixture_scope": "car_rental_mock_data_import_stage",
+  "records": [
+    {
+      "id": "MOCK-CONTRACT-DOC-001",
+      "contract_id": "MOCK-CONTRACT-LONG-001",
+      "document_type": "lease_contract_placeholder",
+      "template_id": "MOCK-TEMPLATE-001",
+      "scan_reference": "placeholder://mock-contract-scan-001",
+      "generated_file_reference": "placeholder://mock-contract-generated-001",
+      "real_file_attached": false
+    },
+    {
+      "id": "MOCK-CONTRACT-DOC-002",
+      "contract_id": "MOCK-CONTRACT-TIME-001",
+      "document_type": "lease_contract_placeholder",
+      "template_id": "MOCK-TEMPLATE-002",
+      "scan_reference": "placeholder://mock-contract-scan-002",
+      "generated_file_reference": "placeholder://mock-contract-generated-002",
+      "real_file_attached": false
+    }
+  ]
+}

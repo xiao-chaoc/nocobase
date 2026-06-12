@@ -1,0 +1,23 @@
+{
+  "mock_data_only": true,
+  "not_for_production": true,
+  "fixture_scope": "car_rental_mock_data_import_stage",
+  "records": [
+    {
+      "id": "MOCK-DRIVER-A",
+      "display_name": "Mock Driver A",
+      "mock_phone": "000-555-0101",
+      "document_number": "MOCK-DOC-DRIVER-A",
+      "license_number": "MOCK-LICENSE-A",
+      "privacy_note": "placeholder only, no real person data"
+    },
+    {
+      "id": "MOCK-DRIVER-B",
+      "display_name": "Mock Driver B",
+      "mock_phone": "000-555-0102",
+      "document_number": "MOCK-DOC-DRIVER-B",
+      "license_number": "MOCK-LICENSE-B",
+      "privacy_note": "placeholder only, no real person data"
+    }
+  ]
+}

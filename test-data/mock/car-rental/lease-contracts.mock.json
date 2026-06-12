@@ -1,0 +1,31 @@
+{
+  "mock_data_only": true,
+  "not_for_production": true,
+  "fixture_scope": "car_rental_mock_data_import_stage",
+  "records": [
+    {
+      "id": "MOCK-CONTRACT-LONG-001",
+      "case": "long-term contract case",
+      "contract_type": "open_ended_long_term",
+      "driver_id": "MOCK-DRIVER-A",
+      "vehicle_id": "MOCK-VEHICLE-001",
+      "start_date": "2026-01-05",
+      "end_date": null,
+      "daily_rent_amount": 120,
+      "default_free_rent_days": ["2026-01-05"],
+      "current_arrears_excludes_future_receivables": true
+    },
+    {
+      "id": "MOCK-CONTRACT-TIME-001",
+      "case": "time-bound contract case",
+      "contract_type": "fixed_term",
+      "driver_id": "MOCK-DRIVER-B",
+      "vehicle_id": "MOCK-VEHICLE-002",
+      "start_date": "2026-01-06",
+      "end_date": "2026-01-12",
+      "daily_rent_amount": 150,
+      "default_free_rent_days": ["2026-01-06"],
+      "current_arrears_excludes_future_receivables": true
+    }
+  ]
+}

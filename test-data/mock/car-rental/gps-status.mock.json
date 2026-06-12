@@ -1,0 +1,27 @@
+{
+  "mock_data_only": true,
+  "not_for_production": true,
+  "fixture_scope": "car_rental_mock_data_import_stage",
+  "records": [
+    {
+      "id": "MOCK-GPS-STATUS-001",
+      "vehicle_id": "MOCK-VEHICLE-001",
+      "gps_device_id": "MOCK-GPS-DEVICE-001",
+      "status": "mock_online",
+      "last_seen_at": "2026-01-06T08:00:00Z",
+      "iopgps_sync_record_id": "MOCK-IOPGPS-SYNC-001",
+      "credential_present": false,
+      "location_mode": "mock_status_only_no_raw_track"
+    },
+    {
+      "id": "MOCK-GPS-STATUS-002",
+      "vehicle_id": "MOCK-VEHICLE-002",
+      "gps_device_id": "MOCK-GPS-DEVICE-002",
+      "status": "mock_offline",
+      "last_seen_at": "2026-01-07T08:00:00Z",
+      "iopgps_sync_record_id": "MOCK-IOPGPS-SYNC-002",
+      "credential_present": false,
+      "location_mode": "mock_status_only_no_raw_track"
+    }
+  ]
+}
