@@ -91,12 +91,13 @@
 
 ## 阶段 7：合同文件测试
 
-- 输入：合同文件模块、测试合同文件 fixture、隔离 storage。
+- 输入：合同文件模块、安全合同文档 fixture、placeholder metadata。
 - 自动脚本：`scripts/car-rental/run-isolated-contract-document-test.sh`。
-- 输出报告：合同文件测试报告。
-- 成功标准：合同生成、上传、关联、权限、删除 / 回滚策略均通过；不得使用真实合同扫描件。
-- 失败处理：清理测试文件并生成修改项。
-- 是否允许 mock 数据：允许，仅允许 mock 文件。
+- 输出报告：`test-data/generated/car-rental-contract-document-dry-run.generated.json` 和 `docs/car-rental-contract-document-dry-run-report.md`。
+- 当前状态：codex_dry_run 已建立；真实执行仍为 local_pre_release。
+- 成功标准：三语 metadata、合同/司机/车辆/押金/租金/免租日/线下签署字段、placeholder guard、privacy guard、production guard 均通过；不得使用真实合同扫描件，不生成真实合同文件。
+- 失败处理：生成 blockers 和 modification_items，不清理真实文件，因为本阶段不上传文件。
+- 是否允许 mock 数据：允许，仅允许 safe mock fixture 和 placeholder。
 - 是否允许生产执行：不允许。
 
 ## 阶段 8：GPS mock 测试
@@ -143,8 +144,8 @@
 | 页面 / 菜单 / 区块初始化测试 | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | Page / menu / block dry-run 已建立；真实执行仍为 local_pre_release |
 | mock 数据导入测试 | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | Mock data import dry-run、safe mock fixtures、JSON / Markdown 报告和生产防 mock 门禁已建立；仍需后续真实 pre-release 导入验证 |
 | 核心业务 smoke test | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | Business smoke dry-run、JSON / Markdown 报告、修改项清单、校验脚本和测试已建立 |
-| 合同文件测试 | next_codex_task | Codex | 生成合同文件测试脚本；禁止真实合同扫描件 |
-| GPS mock 测试 | pending | Codex | 生成 GPS mock 测试脚本；禁止真实 IOPGPS |
+| 合同文件测试 | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | Contract document dry-run、JSON / Markdown 报告、修改项清单、校验脚本和测试已建立；禁止真实合同扫描件，正式版前才本地执行真实合同文件验证 |
+| GPS mock 测试 | next_codex_task | Codex | 生成 GPS mock 测试脚本；禁止真实 IOPGPS |
 | 备份 / 回滚演练 | pending | Codex | 维护 backup / restore 脚本和 rollback drill 模板，当前不生成本地 dump |
 | 正式版前本地/NAS 总执行 | local_pre_release | 用户在正式版前执行 | 重新 clone、新目录、新 env、新 DB volume、新 storage 后运行总测试 |
 | 生产初始化 | pending | 用户 + Codex runbook | 生产初始化必须与测试初始化分离，mock data cannot enter production |
@@ -165,5 +166,17 @@
 - Mock data import 真实执行仍为 local_pre_release。
 - Business smoke test 阶段标记为 codex_dry_run 已建立。
 - Business smoke test 真实执行仍为 local_pre_release。
-- Contract document test 阶段标记为 next_codex_task。
-- GPS mock、backup/rollback、production init guard 仍为 pending。
+- Contract document test 阶段标记为 codex_dry_run 已建立。
+- Contract document test 真实执行仍为 local_pre_release。
+- GPS mock test 阶段标记为 next_codex_task。
+- Backup/rollback 和 production init guard 仍为 pending。
+
+
+## Contract document test 阶段更新（2026-06-12）
+
+- Contract document test 阶段标记为 codex_dry_run 已建立。
+- Contract document test 真实执行仍为 local_pre_release。
+- 当前不要求用户本地运行，不生成真实合同文件，不提交真实合同扫描件。
+- production_ready=false。
+- GPS mock test 阶段标记为 next_codex_task。
+- Backup/rollback 和 production init guard 仍为 pending。

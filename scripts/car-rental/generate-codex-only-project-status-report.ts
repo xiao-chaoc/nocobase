@@ -97,14 +97,10 @@ function buildReport(): ProjectStatusReport {
       'Safe mock fixtures added.',
       'Mock data production guard added.',
       'Business smoke test dry-run stage added.',
+      'Contract document test dry-run stage added.',
       'production_ready=false 门禁保持开启',
     ],
-    current_pending_items: [
-      'Contract document test stage.',
-      'GPS mock test stage.',
-      'Backup/rollback rehearsal stage.',
-      'Production init guard stage.',
-    ],
+    current_pending_items: ['GPS mock test stage.', 'Backup/rollback rehearsal stage.', 'Production init guard stage.'],
     current_blockers: [
       '用户已删除本地 NAS 测试目录，当前无法执行本地 Docker / PostgreSQL 验证',
       '当前不能使用真实 IOPGPS',
@@ -112,8 +108,8 @@ function buildReport(): ProjectStatusReport {
       'mock data cannot enter production',
     ],
     next_codex_tasks: [
-      'Implement contract document test stage.',
-      '补齐 GPS mock test stage',
+      'Implement GPS mock test stage.',
+      '补齐 Backup/rollback rehearsal stage',
       '生成正式部署 runbook 与隐私数据导入前检查清单',
     ],
     next_user_actions: [

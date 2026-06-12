@@ -1,0 +1,329 @@
+{
+  "generated_at": "2026-06-12T14:13:47.586Z",
+  "workflow_mode": "codex_only",
+  "stage": "contract_document_test",
+  "execution_mode": "codex_dry_run",
+  "production_ready": false,
+  "local_execution_required_pre_release": true,
+  "fixture_files": [
+    "test-data/mock/car-rental/mock-manifest.json",
+    "test-data/mock/car-rental/lease-contracts.mock.json",
+    "test-data/mock/car-rental/contract-documents.mock.json",
+    "test-data/mock/car-rental/deposit-records.mock.json",
+    "test-data/mock/car-rental/rent-daily-ledgers.mock.json",
+    "test-data/mock/car-rental/rent-payment-allocations.mock.json",
+    "test-data/mock/car-rental/drivers.mock.json",
+    "test-data/mock/car-rental/vehicles.mock.json"
+  ],
+  "detected_document_entries": [
+    {
+      "label": "contract document collection draft",
+      "status": "existing",
+      "evidence": "contract_documents collection draft defines document metadata and sensitive file fields.",
+      "files": [
+        "packages/plugins/plugin-contract-documents/src/server/collections/contractDocuments.ts"
+      ]
+    },
+    {
+      "label": "contract template collection draft",
+      "status": "existing",
+      "evidence": "contract_templates collection draft defines template metadata and language field.",
+      "files": [
+        "packages/plugins/plugin-contract-documents/src/server/collections/contractTemplates.ts"
+      ]
+    },
+    {
+      "label": "three-language template selection",
+      "status": "existing",
+      "evidence": "contractLanguages includes zh-CN, en-US, fr-FR.",
+      "files": [
+        "packages/plugins/plugin-contract-documents/src/server/services/contractTemplateService.ts"
+      ]
+    },
+    {
+      "label": "print status service",
+      "status": "existing",
+      "evidence": "markContractPrinted records printed metadata without physical printing in this dry-run.",
+      "files": [
+        "packages/plugins/plugin-contract-documents/src/server/services/contractPrintService.ts"
+      ]
+    },
+    {
+      "label": "signed scan placeholder service",
+      "status": "existing",
+      "evidence": "signed_scan_file is modeled as sensitive file reference; this dry-run rejects real files.",
+      "files": [
+        "packages/plugins/plugin-contract-documents/src/server/services/contractScanService.ts"
+      ]
+    },
+    {
+      "label": "lease contract driver and vehicle binding",
+      "status": "existing",
+      "evidence": "lease_contracts fixture and collection draft include driver_id and vehicle_id.",
+      "files": [
+        "packages/plugins/plugin-rental-core/src/server/collections/leaseContracts.ts",
+        "test-data/mock/car-rental/lease-contracts.mock.json"
+      ]
+    },
+    {
+      "label": "safe contract document placeholders",
+      "status": "existing",
+      "evidence": "contract document fixture uses placeholder:// references and real_file_attached=false.",
+      "files": [
+        "test-data/mock/car-rental/contract-documents.mock.json"
+      ]
+    }
+  ],
+  "planned_document_entries": [
+    {
+      "label": "real DOCX/PDF renderer",
+      "status": "planned",
+      "reason": "Current Codex-only stage may only validate metadata and placeholders; real document generation is pre-release local work."
+    },
+    {
+      "label": "printable trilingual template content parity review",
+      "status": "planned",
+      "reason": "Template metadata exists, but full printable Chinese/English/French legal content is not generated in this stage."
+    },
+    {
+      "label": "real signed scan upload workflow",
+      "status": "planned",
+      "reason": "Offline scan upload is modeled, but this stage forbids real scan files and upload."
+    }
+  ],
+  "missing_document_entries": [
+    {
+      "label": "real generated DOCX/PDF artifacts",
+      "status": "missing",
+      "reason": "Intentionally absent in Codex-only dry-run; this stage must not generate real contract files."
+    },
+    {
+      "label": "real signed scan files",
+      "status": "missing",
+      "reason": "Intentionally absent; real contract scans must never be committed and require pre-release local verification."
+    },
+    {
+      "label": "real contract file download verification",
+      "status": "missing",
+      "reason": "Requires generated files, storage and permissions; deferred to local_pre_release."
+    }
+  ],
+  "language_coverage": {
+    "zh-CN": {
+      "present": true,
+      "evidence": [
+        "packages/plugins/plugin-contract-documents/src/locale/en-US.json",
+        "packages/plugins/plugin-contract-documents/src/locale/fr-FR.json",
+        "packages/plugins/plugin-contract-documents/src/locale/zh-CN.json",
+        "packages/plugins/plugin-contract-documents/src/server/collections/contractTemplates.ts",
+        "packages/plugins/plugin-contract-documents/src/server/index.ts",
+        "packages/plugins/plugin-contract-documents/src/server/pluginRegistration.ts",
+        "packages/plugins/plugin-contract-documents/src/server/services/contractTemplateService.ts",
+        "packages/plugins/plugin-contract-documents/src/server/types/contractDocumentTypes.ts",
+        "packages/plugins/plugin-rental-core/src/server/index.ts",
+        "packages/plugins/plugin-rental-core/src/server/pluginRegistration.ts",
+        "packages/shared/nocobase-automation/src/i18nPlanNormalizer.ts",
+        "packages/shared/nocobase-automation/src/mockRuntimeAdapter.ts",
+        "packages/shared/nocobase-automation/src/pageInitializationPlan.ts",
+        "packages/shared/nocobase-automation/src/realRuntimeRegistrationAdapter.ts",
+        "packages/shared/nocobase-automation/src/realRuntimeSafetyChecker.ts",
+        "packages/shared/nocobase-automation/src/realRuntimeSchemaMapper.ts",
+        "packages/shared/nocobase-automation/src/registrationPlan.ts"
+      ]
+    },
+    "en-US": {
+      "present": true,
+      "evidence": [
+        "packages/plugins/plugin-contract-documents/src/locale/en-US.json",
+        "packages/plugins/plugin-contract-documents/src/locale/fr-FR.json",
+        "packages/plugins/plugin-contract-documents/src/locale/zh-CN.json",
+        "packages/plugins/plugin-contract-documents/src/server/collections/contractTemplates.ts",
+        "packages/plugins/plugin-contract-documents/src/server/index.ts",
+        "packages/plugins/plugin-contract-documents/src/server/pluginRegistration.ts",
+        "packages/plugins/plugin-contract-documents/src/server/services/contractTemplateService.ts",
+        "packages/plugins/plugin-contract-documents/src/server/types/contractDocumentTypes.ts",
+        "packages/plugins/plugin-rental-core/src/server/index.ts",
+        "packages/plugins/plugin-rental-core/src/server/pluginRegistration.ts",
+        "packages/shared/nocobase-automation/src/i18nPlanNormalizer.ts",
+        "packages/shared/nocobase-automation/src/mockRuntimeAdapter.ts",
+        "packages/shared/nocobase-automation/src/pageInitializationPlan.ts",
+        "packages/shared/nocobase-automation/src/realRuntimeRegistrationAdapter.ts",
+        "packages/shared/nocobase-automation/src/realRuntimeSafetyChecker.ts",
+        "packages/shared/nocobase-automation/src/realRuntimeSchemaMapper.ts",
+        "packages/shared/nocobase-automation/src/registrationPlan.ts"
+      ]
+    },
+    "fr-FR": {
+      "present": true,
+      "evidence": [
+        "packages/plugins/plugin-contract-documents/src/locale/en-US.json",
+        "packages/plugins/plugin-contract-documents/src/locale/fr-FR.json",
+        "packages/plugins/plugin-contract-documents/src/locale/zh-CN.json",
+        "packages/plugins/plugin-contract-documents/src/server/collections/contractTemplates.ts",
+        "packages/plugins/plugin-contract-documents/src/server/index.ts",
+        "packages/plugins/plugin-contract-documents/src/server/pluginRegistration.ts",
+        "packages/plugins/plugin-contract-documents/src/server/services/contractTemplateService.ts",
+        "packages/plugins/plugin-contract-documents/src/server/types/contractDocumentTypes.ts",
+        "packages/plugins/plugin-rental-core/src/server/index.ts",
+        "packages/plugins/plugin-rental-core/src/server/pluginRegistration.ts",
+        "packages/shared/nocobase-automation/src/i18nPlanNormalizer.ts",
+        "packages/shared/nocobase-automation/src/mockRuntimeAdapter.ts",
+        "packages/shared/nocobase-automation/src/pageInitializationPlan.ts",
+        "packages/shared/nocobase-automation/src/realRuntimeRegistrationAdapter.ts",
+        "packages/shared/nocobase-automation/src/realRuntimeSafetyChecker.ts",
+        "packages/shared/nocobase-automation/src/realRuntimeSchemaMapper.ts",
+        "packages/shared/nocobase-automation/src/registrationPlan.ts"
+      ]
+    }
+  },
+  "contract_field_coverage": {
+    "contract": {
+      "present": true,
+      "evidence": [
+        "packages/plugins/plugin-contract-documents/README.md",
+        "packages/plugins/plugin-contract-documents/package.json",
+        "packages/plugins/plugin-contract-documents/src/locale/en-US.json",
+        "packages/plugins/plugin-contract-documents/src/locale/fr-FR.json",
+        "packages/plugins/plugin-contract-documents/src/locale/zh-CN.json",
+        "packages/plugins/plugin-contract-documents/src/server/actions/actionRegistry.ts",
+        "packages/plugins/plugin-contract-documents/src/server/collections/contractDocuments.ts",
+        "packages/plugins/plugin-contract-documents/src/server/collections/contractTemplates.ts",
+        "packages/plugins/plugin-contract-documents/src/server/collections/index.ts",
+        "packages/plugins/plugin-contract-documents/src/server/index.ts",
+        "packages/plugins/plugin-contract-documents/src/server/pluginRegistration.ts",
+        "packages/plugins/plugin-contract-documents/src/server/services/contractDocumentService.ts"
+      ]
+    },
+    "driver": {
+      "present": true,
+      "evidence": [
+        "packages/plugins/plugin-contract-documents/src/locale/en-US.json",
+        "packages/plugins/plugin-contract-documents/src/locale/fr-FR.json",
+        "packages/plugins/plugin-contract-documents/src/locale/zh-CN.json",
+        "packages/plugins/plugin-contract-documents/src/server/index.ts",
+        "packages/plugins/plugin-contract-documents/src/server/services/contractDocumentService.ts",
+        "packages/plugins/plugin-contract-documents/src/server/types/contractDocumentTypes.ts",
+        "packages/plugins/plugin-rental-core/src/locale/en-US.json",
+        "packages/plugins/plugin-rental-core/src/locale/fr-FR.json",
+        "packages/plugins/plugin-rental-core/src/locale/zh-CN.json",
+        "packages/plugins/plugin-rental-core/src/server/collections/contractBillingWeeks.ts",
+        "packages/plugins/plugin-rental-core/src/server/collections/depositRecords.ts",
+        "packages/plugins/plugin-rental-core/src/server/collections/drivers.ts"
+      ]
+    },
+    "vehicle": {
+      "present": true,
+      "evidence": [
+        "packages/plugins/plugin-contract-documents/src/locale/en-US.json",
+        "packages/plugins/plugin-contract-documents/src/locale/fr-FR.json",
+        "packages/plugins/plugin-contract-documents/src/locale/zh-CN.json",
+        "packages/plugins/plugin-contract-documents/src/server/index.ts",
+        "packages/plugins/plugin-contract-documents/src/server/services/contractDocumentService.ts",
+        "packages/plugins/plugin-contract-documents/src/server/types/contractDocumentTypes.ts",
+        "packages/plugins/plugin-rental-core/src/locale/en-US.json",
+        "packages/plugins/plugin-rental-core/src/locale/fr-FR.json",
+        "packages/plugins/plugin-rental-core/src/locale/zh-CN.json",
+        "packages/plugins/plugin-rental-core/src/server/collections/contractBillingWeeks.ts",
+        "packages/plugins/plugin-rental-core/src/server/collections/depositRecords.ts",
+        "packages/plugins/plugin-rental-core/src/server/collections/index.ts"
+      ]
+    },
+    "deposit": {
+      "present": true,
+      "evidence": [
+        "packages/plugins/plugin-contract-documents/src/locale/en-US.json",
+        "packages/plugins/plugin-contract-documents/src/locale/fr-FR.json",
+        "packages/plugins/plugin-contract-documents/src/locale/zh-CN.json",
+        "packages/plugins/plugin-contract-documents/src/server/services/contractDocumentService.ts",
+        "packages/plugins/plugin-contract-documents/src/server/types/contractDocumentTypes.ts",
+        "packages/plugins/plugin-rental-core/src/locale/en-US.json",
+        "packages/plugins/plugin-rental-core/src/locale/fr-FR.json",
+        "packages/plugins/plugin-rental-core/src/locale/zh-CN.json",
+        "packages/plugins/plugin-rental-core/src/server/actions/actionRegistry.ts",
+        "packages/plugins/plugin-rental-core/src/server/collections/depositRecords.ts",
+        "packages/plugins/plugin-rental-core/src/server/collections/index.ts",
+        "packages/plugins/plugin-rental-core/src/server/collections/leaseContracts.ts"
+      ]
+    },
+    "rent": {
+      "present": true,
+      "evidence": [
+        "packages/plugins/plugin-contract-documents/README.md",
+        "packages/plugins/plugin-contract-documents/package.json",
+        "packages/plugins/plugin-contract-documents/src/locale/en-US.json",
+        "packages/plugins/plugin-contract-documents/src/locale/fr-FR.json",
+        "packages/plugins/plugin-contract-documents/src/locale/zh-CN.json",
+        "packages/plugins/plugin-contract-documents/src/server/index.ts",
+        "packages/plugins/plugin-contract-documents/src/server/pluginRegistration.ts",
+        "packages/plugins/plugin-rental-core/README.md",
+        "packages/plugins/plugin-rental-core/package.json",
+        "packages/plugins/plugin-rental-core/src/locale/en-US.json",
+        "packages/plugins/plugin-rental-core/src/locale/fr-FR.json",
+        "packages/plugins/plugin-rental-core/src/locale/zh-CN.json"
+      ]
+    },
+    "free_rent_day": {
+      "present": true,
+      "evidence": [
+        "packages/plugins/plugin-rental-core/src/locale/en-US.json",
+        "packages/plugins/plugin-rental-core/src/locale/fr-FR.json",
+        "packages/plugins/plugin-rental-core/src/locale/zh-CN.json",
+        "packages/plugins/plugin-rental-core/src/server/collections/leaseContracts.ts",
+        "packages/plugins/plugin-rental-core/src/server/services/billingRuleService.ts",
+        "packages/plugins/plugin-rental-core/src/server/services/errors.ts",
+        "packages/plugins/plugin-rental-core/src/server/services/ledgerGenerationService.ts",
+        "packages/plugins/plugin-rental-core/src/server/types/contractTypes.ts",
+        "test-data/mock/car-rental/lease-contracts.mock.json",
+        "test-data/mock/car-rental/mock-manifest.json",
+        "test-data/mock/car-rental/rent-daily-ledgers.mock.json"
+      ]
+    },
+    "offline_signing": {
+      "present": true,
+      "evidence": [
+        "packages/plugins/plugin-contract-documents/README.md",
+        "packages/plugins/plugin-contract-documents/src/server/actions/actionRegistry.ts",
+        "packages/plugins/plugin-contract-documents/src/server/collections/contractDocuments.ts",
+        "packages/plugins/plugin-contract-documents/src/server/index.ts",
+        "packages/plugins/plugin-contract-documents/src/server/pluginRegistration.ts",
+        "packages/plugins/plugin-contract-documents/src/server/services/contractDocumentService.ts",
+        "packages/plugins/plugin-contract-documents/src/server/services/contractScanService.ts",
+        "packages/plugins/plugin-contract-documents/src/server/types/contractDocumentTypes.ts",
+        "packages/plugins/plugin-rental-core/src/server/services/operationLogService.ts",
+        "packages/shared/nocobase-automation/src/collectionRegistrationValidator.ts",
+        "packages/shared/nocobase-automation/src/pageInitializationPlan.ts",
+        "packages/shared/nocobase-automation/src/pageInitializationValidator.ts"
+      ]
+    }
+  },
+  "placeholder_guard_results": {
+    "checked": true,
+    "passed": true,
+    "checked_records": 2,
+    "findings": []
+  },
+  "privacy_guard_results": {
+    "checked": true,
+    "passed": true,
+    "real_driver_private_data_detected": false,
+    "credential_findings": [],
+    "notes": [
+      "Only MOCK-* identifiers and placeholder:// file references are allowed in this dry-run report."
+    ]
+  },
+  "production_guard_results": {
+    "checked": true,
+    "production_ready": false,
+    "mock_data_allowed_in_production": false,
+    "no_database_connection": true,
+    "no_database_import": true,
+    "no_real_contract_file_generation": true,
+    "no_file_upload": true,
+    "iopgps_real_sync_enabled": false
+  },
+  "blockers": [],
+  "warnings": [
+    "No required metadata gaps detected in the Codex-only dry-run; real template content still requires pre-release local verification."
+  ],
+  "modification_items": []
+}
