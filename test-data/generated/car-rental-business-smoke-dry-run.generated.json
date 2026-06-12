@@ -1,0 +1,332 @@
+{
+  "generated_at": "2026-06-12T13:30:01.214Z",
+  "workflow_mode": "codex_only",
+  "stage": "business_smoke_test",
+  "execution_mode": "codex_dry_run",
+  "production_ready": false,
+  "local_execution_required_pre_release": true,
+  "fixture_files": [
+    "test-data/mock/car-rental/mock-manifest.json",
+    "test-data/mock/car-rental/drivers.mock.json",
+    "test-data/mock/car-rental/vehicles.mock.json",
+    "test-data/mock/car-rental/lease-contracts.mock.json",
+    "test-data/mock/car-rental/rent-daily-ledgers.mock.json",
+    "test-data/mock/car-rental/rent-payments.mock.json",
+    "test-data/mock/car-rental/rent-payment-allocations.mock.json",
+    "test-data/mock/car-rental/deposit-records.mock.json",
+    "test-data/mock/car-rental/operation-logs.mock.json",
+    "test-data/mock/car-rental/contract-documents.mock.json",
+    "test-data/mock/car-rental/gps-status.mock.json"
+  ],
+  "business_rule_results": [
+    {
+      "id": "BS-001",
+      "name": "driver no login",
+      "status": "pass",
+      "rule": "司机存在且不登录系统。",
+      "fixtures": ["drivers.mock.json"],
+      "details": "2 mock drivers exist without login fields."
+    },
+    {
+      "id": "BS-002",
+      "name": "vehicle plate required",
+      "status": "pass",
+      "rule": "车辆存在且必须有车牌。",
+      "fixtures": ["vehicles.mock.json"],
+      "details": "2 vehicles have plate_number."
+    },
+    {
+      "id": "BS-003",
+      "name": "contract driver binding",
+      "status": "pass",
+      "rule": "合同必须绑定司机。",
+      "fixtures": ["lease-contracts.mock.json", "drivers.mock.json"],
+      "details": "Every contract driver_id resolves to a mock driver."
+    },
+    {
+      "id": "BS-004",
+      "name": "contract vehicle binding",
+      "status": "pass",
+      "rule": "合同必须绑定车辆。",
+      "fixtures": ["lease-contracts.mock.json", "vehicles.mock.json"],
+      "details": "Every contract vehicle_id resolves to a mock vehicle."
+    },
+    {
+      "id": "BS-005",
+      "name": "deposit required",
+      "status": "pass",
+      "rule": "合同必须有押金。",
+      "fixtures": ["lease-contracts.mock.json", "deposit-records.mock.json"],
+      "details": "Every contract has at least one deposit record."
+    },
+    {
+      "id": "BS-006",
+      "name": "long-term contract",
+      "status": "pass",
+      "rule": "支持长租合同。",
+      "fixtures": ["lease-contracts.mock.json"],
+      "details": "Open-ended long-term mock contract exists."
+    },
+    {
+      "id": "BS-007",
+      "name": "time-bound contract",
+      "status": "pass",
+      "rule": "支持时限合同。",
+      "fixtures": ["lease-contracts.mock.json"],
+      "details": "Fixed-term mock contract exists."
+    },
+    {
+      "id": "BS-008",
+      "name": "natural month for time-bound contract",
+      "status": "pass",
+      "rule": "时限合同以自然月为周期。",
+      "fixtures": ["lease-contracts.mock.json"],
+      "details": "Fixed-term contracts use calendar dates suitable for natural-month period checks; real month-cycle execution remains pre-release local verification."
+    },
+    {
+      "id": "BS-009",
+      "name": "natural week rent calculation",
+      "status": "pass",
+      "rule": "所有合同按自然周计算租金。",
+      "fixtures": ["rent-daily-ledgers.mock.json"],
+      "details": "Every ledger row includes natural_week in ISO week-like format."
+    },
+    {
+      "id": "BS-010",
+      "name": "selected free-rent days",
+      "status": "pass",
+      "rule": "默认免租日必须来自合同生成时选择。",
+      "fixtures": ["lease-contracts.mock.json"],
+      "details": "Every contract carries selected default_free_rent_days."
+    },
+    {
+      "id": "BS-011",
+      "name": "free-rent days reflected in daily ledger",
+      "status": "pass",
+      "rule": "免租日应体现在日租金台账。",
+      "fixtures": ["lease-contracts.mock.json", "rent-daily-ledgers.mock.json"],
+      "details": "Selected free-rent dates are present in the daily ledger."
+    },
+    {
+      "id": "BS-012",
+      "name": "daily ledger by date",
+      "status": "pass",
+      "rule": "日租金台账必须按日期生成。",
+      "fixtures": ["rent-daily-ledgers.mock.json"],
+      "details": "Ledger rows are date-based and fixture contract/date pairs are unique in this smoke dataset."
+    },
+    {
+      "id": "BS-013",
+      "name": "payment allocation by date",
+      "status": "pass",
+      "rule": "付款必须按日分配。",
+      "fixtures": ["rent-payments.mock.json", "rent-payment-allocations.mock.json", "rent-daily-ledgers.mock.json"],
+      "details": "Every allocation resolves to one daily ledger date."
+    },
+    {
+      "id": "BS-014",
+      "name": "no overpay per day",
+      "status": "pass",
+      "rule": "单日不可超付。",
+      "fixtures": ["rent-daily-ledgers.mock.json", "rent-payment-allocations.mock.json"],
+      "details": "No daily paid_amount exceeds rent_amount and allocations assert no_overpay_per_day."
+    },
+    {
+      "id": "BS-015",
+      "name": "unpaid reason",
+      "status": "pass",
+      "rule": "未付日期必须有未付原因或状态。",
+      "fixtures": ["rent-daily-ledgers.mock.json"],
+      "details": "Unpaid or partial arrears ledger rows carry status and mock unpaid_reason when needed."
+    },
+    {
+      "id": "BS-016",
+      "name": "current arrears excludes future receivables",
+      "status": "pass",
+      "rule": "欠款计算只统计当前日期及以前，当前欠款不包含未来应收。",
+      "fixtures": ["lease-contracts.mock.json"],
+      "details": "Contracts explicitly mark current_arrears_excludes_future_receivables=true."
+    },
+    {
+      "id": "BS-017",
+      "name": "contract document placeholder",
+      "status": "pass",
+      "rule": "合同文档使用 placeholder，不使用真实扫描件。",
+      "fixtures": ["contract-documents.mock.json"],
+      "details": "All document references are placeholder:// and real_file_attached=false."
+    },
+    {
+      "id": "BS-018",
+      "name": "GPS mock status exists",
+      "status": "pass",
+      "rule": "GPS mock status 存在。",
+      "fixtures": ["gps-status.mock.json"],
+      "details": "2 GPS mock status records exist."
+    },
+    {
+      "id": "BS-019",
+      "name": "GPS not used for rent calculation",
+      "status": "pass",
+      "rule": "GPS 不参与租金计算。",
+      "fixtures": ["rent-daily-ledgers.mock.json", "gps-status.mock.json"],
+      "details": "Rent ledger rows contain no GPS or IOPGPS calculation references."
+    },
+    {
+      "id": "BS-020",
+      "name": "IOPGPS real sync disabled",
+      "status": "pass",
+      "rule": "IOPGPS 真实同步默认禁用。",
+      "fixtures": ["gps-status.mock.json"],
+      "details": "IOPGPS_REAL_SYNC_ENABLED=false for this dry-run."
+    },
+    {
+      "id": "BS-021",
+      "name": "operation logs",
+      "status": "pass",
+      "rule": "operation logs 存在。",
+      "fixtures": ["operation-logs.mock.json"],
+      "details": "3 operation log records exist."
+    }
+  ],
+  "financial_rule_results": [
+    {
+      "id": "FR-001",
+      "name": "deposit collect exists",
+      "status": "pass",
+      "rule": "押金收取存在。",
+      "fixtures": ["deposit-records.mock.json"],
+      "details": "At least one deposit collect event exists; per-contract deposit presence is covered by BS-005."
+    },
+    {
+      "id": "FR-002",
+      "name": "deposit offset exists",
+      "status": "pass",
+      "rule": "押金抵扣存在。",
+      "fixtures": ["deposit-records.mock.json"],
+      "details": "Deposit offset event exists."
+    },
+    {
+      "id": "FR-003",
+      "name": "deposit refund exists",
+      "status": "pass",
+      "rule": "押金退还存在。",
+      "fixtures": ["deposit-records.mock.json"],
+      "details": "Deposit refund event exists."
+    },
+    {
+      "id": "FR-004",
+      "name": "deposit not counted as rent income",
+      "status": "pass",
+      "rule": "押金不计入租金收入。",
+      "fixtures": ["deposit-records.mock.json"],
+      "details": "All deposit records have rent_income=false."
+    },
+    {
+      "id": "FR-005",
+      "name": "ledger contract binding",
+      "status": "pass",
+      "rule": "日租金台账必须绑定合同。",
+      "fixtures": ["rent-daily-ledgers.mock.json", "lease-contracts.mock.json"],
+      "details": "Every ledger row resolves to a mock contract."
+    },
+    {
+      "id": "FR-006",
+      "name": "payment contract and driver binding",
+      "status": "pass",
+      "rule": "付款必须绑定合同与司机。",
+      "fixtures": ["rent-payments.mock.json"],
+      "details": "Every payment resolves to a mock contract and driver."
+    }
+  ],
+  "privacy_guard_results": [
+    {
+      "id": "PG-001",
+      "name": "safe fixture flags",
+      "status": "pass",
+      "rule": "mock 数据必须标记为 mock_data_only 且 not_for_production。",
+      "fixtures": [
+        "mock-manifest.json",
+        "drivers.mock.json",
+        "vehicles.mock.json",
+        "lease-contracts.mock.json",
+        "rent-daily-ledgers.mock.json",
+        "rent-payments.mock.json",
+        "rent-payment-allocations.mock.json",
+        "deposit-records.mock.json",
+        "operation-logs.mock.json",
+        "contract-documents.mock.json",
+        "gps-status.mock.json"
+      ],
+      "details": "All fixture files are marked mock_data_only=true and not_for_production=true."
+    },
+    {
+      "id": "PG-002",
+      "name": "privacy guard",
+      "status": "pass",
+      "rule": "mock 数据不得包含真实隐私数据。",
+      "fixtures": [
+        "mock-manifest.json",
+        "drivers.mock.json",
+        "vehicles.mock.json",
+        "lease-contracts.mock.json",
+        "rent-daily-ledgers.mock.json",
+        "rent-payments.mock.json",
+        "rent-payment-allocations.mock.json",
+        "deposit-records.mock.json",
+        "operation-logs.mock.json",
+        "contract-documents.mock.json",
+        "gps-status.mock.json"
+      ],
+      "details": "No real-looking phone number or national ID pattern detected."
+    },
+    {
+      "id": "PG-003",
+      "name": "secret guard",
+      "status": "pass",
+      "rule": "mock 数据不得包含真实凭据。",
+      "fixtures": [
+        "mock-manifest.json",
+        "drivers.mock.json",
+        "vehicles.mock.json",
+        "lease-contracts.mock.json",
+        "rent-daily-ledgers.mock.json",
+        "rent-payments.mock.json",
+        "rent-payment-allocations.mock.json",
+        "deposit-records.mock.json",
+        "operation-logs.mock.json",
+        "contract-documents.mock.json",
+        "gps-status.mock.json"
+      ],
+      "details": "No enabled credential, token, password, or login-key pattern detected."
+    }
+  ],
+  "production_guard_results": [
+    {
+      "id": "PR-001",
+      "name": "production_ready false",
+      "status": "pass",
+      "rule": "当前不能标记 production_ready。",
+      "fixtures": ["run-isolated-business-smoke-test.sh"],
+      "details": "production_ready=false is fixed in the dry-run report."
+    },
+    {
+      "id": "PR-002",
+      "name": "no database execution",
+      "status": "pass",
+      "rule": "不真实连接数据库，不真实导入数据。",
+      "fixtures": ["run-isolated-business-smoke-test.sh"],
+      "details": "The dry-run reads JSON fixtures only and performs no database execution."
+    },
+    {
+      "id": "PR-003",
+      "name": "production guard",
+      "status": "pass",
+      "rule": "mock 数据不得进入生产。",
+      "fixtures": ["mock-manifest.json"],
+      "details": "mock data cannot enter production; production init must not call mock import"
+    }
+  ],
+  "blockers": [],
+  "warnings": [],
+  "modification_items": []
+}

@@ -6,7 +6,7 @@
 - Permission / sensitive field test stage：已建立 dry-run 阶段，仍需后续实现真实权限注册和本地 pre-release 验证。
 - Page / menu / block 阶段：已建立 dry-run 阶段，仍需后续实现真实页面/菜单/区块初始化和本地 pre-release 验证。
 - Mock data import 阶段：已建立 dry-run 阶段，已添加安全 mock fixtures 和生产防 mock 门禁，仍需后续实现真实 pre-release 导入验证。
-- Business smoke test stage.
+- Business smoke test 阶段：已建立 dry-run 阶段，仍需后续真实 pre-release 本地验证。
 - Contract document test stage.
 - GPS mock test stage.
 - Backup/rollback rehearsal stage.
@@ -15,11 +15,10 @@
 
 ## 下一优先级
 
-1. Business smoke test stage.
-2. Contract document test stage.
-3. GPS mock test stage.
-4. Backup/rollback rehearsal stage.
-5. Production init guard stage.
+1. Contract document test stage.
+2. GPS mock test stage.
+3. Backup/rollback rehearsal stage.
+4. Production init guard stage.
 
 ## 当前不由用户执行的项目
 
@@ -61,7 +60,20 @@
 - Mock data import 真实执行仍为 local_pre_release。
 - 当前不要求用户本地运行。
 - 下一优先级：
-  - Business smoke test stage.
+  - Contract document test stage.
+  - GPS mock test stage.
+  - Backup/rollback rehearsal stage.
+  - Production init guard stage.
+
+## Business smoke test 阶段更新（2026-06-12）
+
+- Business smoke test 阶段标记为 codex_dry_run 已建立。
+- 已添加业务 smoke test plan、dry-run 脚本、JSON/Markdown 报告、修改项清单、校验脚本和测试。
+- Business smoke test 真实执行仍为 local_pre_release，仍需后续真实 pre-release 本地验证。
+- 当前不要求用户本地运行。
+- production_ready=false。
+- 不启用真实 IOPGPS，mock 数据不得进入生产。
+- 下一优先级：
   - Contract document test stage.
   - GPS mock test stage.
   - Backup/rollback rehearsal stage.
