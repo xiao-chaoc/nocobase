@@ -1,0 +1,1213 @@
+{
+  "generated_at": "2026-06-12T17:38:38.687Z",
+  "workflow_mode": "codex_only",
+  "stage": "gps_mock_test",
+  "execution_mode": "codex_dry_run",
+  "production_ready": false,
+  "local_execution_required_pre_release": true,
+  "fixture_files": [
+    "test-data/mock/car-rental/gps-status.mock.json"
+  ],
+  "detected_gps_entries": [
+    {
+      "file": "packages/plugins/plugin-iopgps/README.md",
+      "status": "existing",
+      "labels": [
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/package.json",
+      "status": "existing",
+      "labels": [
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/locale/en-US.json",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "gps status",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/locale/fr-FR.json",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "gps status",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/locale/zh-CN.json",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "gps status",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/actions/actionRegistry.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "gps status",
+        "iopgps",
+        "sync disabled guard"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/collections/gpsDailyMileages.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/collections/gpsDeviceBindings.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/collections/gpsDeviceStatusLogs.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps status",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/collections/gpsDevices.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/collections/gpsLocationSnapshots.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/collections/index.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/collections/iopgpsSettings.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "gps mileage",
+        "gps status",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/index.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "gps status",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/pluginRegistration.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/schedules/scheduleRegistry.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "gps status",
+        "iopgps",
+        "sync disabled guard"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/services/errors.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "gps mileage",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/services/index.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/services/iopgpsDeviceStatusService.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps status",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/services/iopgpsErrorLogService.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "gps mileage",
+        "gps status",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/services/iopgpsLocationService.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/services/iopgpsMileageService.ts",
+      "status": "existing",
+      "labels": [
+        "gps mileage",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/services/iopgpsNormalizeService.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps status",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/services/iopgpsTokenService.ts",
+      "status": "existing",
+      "labels": [
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/types/index.ts",
+      "status": "existing",
+      "labels": [
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-iopgps/src/server/types/iopgpsTypes.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "gps status",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/README.md",
+      "status": "existing",
+      "labels": [
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/locale/en-US.json",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps status",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/locale/fr-FR.json",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps status",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/locale/zh-CN.json",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps status",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/actions/actionRegistry.ts",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/contractBillingWeeks.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/depositRecords.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/drivers.ts",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/index.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/leaseContracts.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "gps status",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/operationLogs.ts",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/rentAdjustments.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/rentDailyLedgers.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/rentPaymentAllocations.ts",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/rentPayments.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/collections/vehicles.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps status",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/index.ts",
+      "status": "existing",
+      "labels": [
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/permissions/permissionRegistry.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/pluginRegistration.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/schedules/scheduleRegistry.ts",
+      "status": "existing",
+      "labels": [
+        "gps status",
+        "sync disabled guard"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/billingRuleService.ts",
+      "status": "existing",
+      "labels": [
+        "gps status"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/billingWeekService.ts",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/businessNoService.ts",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/calendarDataService.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/contractAvailabilityService.ts",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/contractLifecycleService.ts",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/depositService.ts",
+      "status": "existing",
+      "labels": [
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/errors.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "gps status"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/index.ts",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/ledgerGenerationService.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "gps status",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/ledgerStatusService.ts",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/manualAdjustmentService.ts",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/operationLogService.ts",
+      "status": "existing",
+      "labels": [
+        "gps status"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/paymentAllocationService.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/paymentReversalService.ts",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/permissionFilterService.ts",
+      "status": "existing",
+      "labels": [
+        "gps status"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/shortfallService.ts",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/summaryService.ts",
+      "status": "existing",
+      "labels": [
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/services/waiverService.ts",
+      "status": "existing",
+      "labels": [
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/types/commonTypes.ts",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/types/contractTypes.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "gps status",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/types/depositTypes.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/types/ledgerTypes.ts",
+      "status": "existing",
+      "labels": [
+        "gps status",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/types/operationLogTypes.ts",
+      "status": "existing",
+      "labels": [
+        "gps status"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/types/paymentTypes.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/types/permissionTypes.ts",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "packages/plugins/plugin-rental-core/src/server/types/summaryTypes.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/README.md",
+      "status": "existing",
+      "labels": [
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/actionPlanNormalizer.ts",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/adapterErrors.ts",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/collectionPlanNormalizer.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "gps status"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/collectionRegistrationExecutor.ts",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/collectionRegistrationValidator.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/dryRunExecutor.ts",
+      "status": "existing",
+      "labels": [
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/goLiveReadinessEvaluator.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "gps status",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/index.ts",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/mockCollectionAdapter.ts",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/mockPageAdapter.ts",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/mockRuntimeAdapter.ts",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/mockSeedDataAdapter.ts",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/nocobaseAdapterFactory.ts",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/nocobaseEnvironmentInspector.ts",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/nocobaseRealAdapter.ts",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/pageInitializationExecutor.ts",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/pageInitializationPlan.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "gps status",
+        "iopgps",
+        "sync disabled guard",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/pageInitializationValidator.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "gps mileage",
+        "gps status",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realBackupRollbackAdapter.ts",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realBackupRollbackPlanBuilder.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realBackupRollbackSafetyChecker.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realCollectionRegistrationAdapter.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "gps status"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realCollectionSafetyChecker.ts",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realCollectionSchemaMapper.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "gps status"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realPageRegistrationAdapter.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "gps status"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realPageSafetyChecker.ts",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realPageSchemaMapper.ts",
+      "status": "existing",
+      "labels": [
+        "gps status"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realRuntimeRegistrationAdapter.ts",
+      "status": "existing",
+      "labels": [
+        "gps status",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realRuntimeSafetyChecker.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "gps status",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realRuntimeSchemaMapper.ts",
+      "status": "existing",
+      "labels": [
+        "gps status",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realSeedDataImportAdapter.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realSeedDataSafetyChecker.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realSeedDataSchemaMapper.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realSmokeTestAdapter.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realSmokeTestPlanMapper.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "gps status",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/realSmokeTestSafetyChecker.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/registrationPlan.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "gps status",
+        "iopgps",
+        "sync disabled guard",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/registrationValidator.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/runtimeRegistrationExecutor.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/runtimeRegistrationValidator.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "gps status",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/schedulePlanNormalizer.ts",
+      "status": "existing",
+      "labels": [
+        "gps status",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/seedDataImportExecutor.ts",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/seedDataImportPlan.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "gps status",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/seedDataImportValidator.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "gps status",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/smokeTestOrchestrator.ts",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "iopgps"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/types.ts",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "gps status",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "packages/shared/nocobase-automation/src/unconfiguredRealAdapter.ts",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "test-data/mock/car-rental/contract-documents.mock.json",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "test-data/mock/car-rental/deposit-records.mock.json",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "test-data/mock/car-rental/drivers.mock.json",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "test-data/mock/car-rental/gps-status.mock.json",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location",
+        "gps mileage",
+        "gps status",
+        "iopgps",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "test-data/mock/car-rental/lease-contracts.mock.json",
+      "status": "existing",
+      "labels": [
+        "gps status",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "test-data/mock/car-rental/mock-manifest.json",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "vehicle binding"
+      ]
+    },
+    {
+      "file": "test-data/mock/car-rental/operation-logs.mock.json",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "test-data/mock/car-rental/rent-daily-ledgers.mock.json",
+      "status": "existing",
+      "labels": [
+        "gps location",
+        "gps status"
+      ]
+    },
+    {
+      "file": "test-data/mock/car-rental/rent-payment-allocations.mock.json",
+      "status": "existing",
+      "labels": [
+        "gps location"
+      ]
+    },
+    {
+      "file": "test-data/mock/car-rental/rent-payments.mock.json",
+      "status": "existing",
+      "labels": []
+    },
+    {
+      "file": "test-data/mock/car-rental/vehicles.mock.json",
+      "status": "existing",
+      "labels": [
+        "gps device",
+        "gps location"
+      ]
+    }
+  ],
+  "planned_gps_entries": [
+    {
+      "label": "real IOPGPS API credential configuration",
+      "status": "planned",
+      "reason": "Only allowed in separate pre-release local verification with secrets outside Git."
+    },
+    {
+      "label": "real IOPGPS status/location/mileage synchronization",
+      "status": "planned",
+      "reason": "Codex-only stage must not call real provider APIs."
+    },
+    {
+      "label": "scheduler/workflow registration for real sync",
+      "status": "planned",
+      "reason": "Current schedule registry is a disabled draft; real registration is deferred."
+    },
+    {
+      "label": "real GPS raw track retention policy review",
+      "status": "planned",
+      "reason": "Raw provider tracks are sensitive and absent from fixtures."
+    }
+  ],
+  "missing_gps_entries": [],
+  "pending_verification_gps_entries": [
+    {
+      "label": "real provider endpoint contract",
+      "status": "pending_verification",
+      "reason": "Must be verified only in pre-release local environment without committing credentials."
+    },
+    {
+      "label": "real database write path",
+      "status": "pending_verification",
+      "reason": "This task intentionally avoids database connection, schema write, and migration."
+    }
+  ],
+  "gps_status_coverage": {
+    "online": {
+      "present": true,
+      "record_ids": [
+        "MOCK-GPS-STATUS-001"
+      ]
+    },
+    "offline": {
+      "present": true,
+      "record_ids": [
+        "MOCK-GPS-STATUS-002"
+      ]
+    },
+    "fault": {
+      "present": true,
+      "record_ids": [
+        "MOCK-GPS-STATUS-003"
+      ]
+    },
+    "sync_failed": {
+      "present": true,
+      "record_ids": [
+        "MOCK-GPS-STATUS-004"
+      ]
+    }
+  },
+  "gps_mileage_coverage": {
+    "present": true,
+    "placeholder": true,
+    "missing_mileage_case_present": true
+  },
+  "gps_location_coverage": {
+    "present": true,
+    "placeholder": true,
+    "no_real_coordinates": true,
+    "sync_failure_no_location_case_present": true
+  },
+  "vehicle_binding_coverage": {
+    "present": true,
+    "vehicle_ids": [
+      "MOCK-VEHICLE-001",
+      "MOCK-VEHICLE-002",
+      "MOCK-VEHICLE-003",
+      "MOCK-VEHICLE-004"
+    ],
+    "device_ids": [
+      "MOCK-GPS-DEVICE-001",
+      "MOCK-GPS-DEVICE-002"
+    ]
+  },
+  "failure_isolation_results": {
+    "gps_not_used_for_rent_calculation": true,
+    "gps_failure_does_not_affect_rent_ledger": true,
+    "gps_failure_does_not_affect_payment_allocation": true,
+    "gps_failure_does_not_affect_deposit": true,
+    "gps_failure_does_not_affect_contract_document": true
+  },
+  "secret_guard_results": {
+    "no_iopgps_login_key_value": true,
+    "no_login_key_value": true,
+    "no_access_token_value": true,
+    "no_secret_like_fixture_values": true,
+    "no_real_raw_response": true
+  },
+  "production_guard_results": {
+    "mock_data_only": true,
+    "not_for_production": true,
+    "production_ready": false,
+    "iopgps_sync_enabled": false,
+    "mock_data_cannot_enter_production": true
+  },
+  "blockers": [],
+  "warnings": [
+    "Codex-only GPS mock dry-run does not replace formal pre-release local verification.",
+    "Real IOPGPS credentials and real GPS tracks must remain outside Git and outside reports."
+  ],
+  "modification_items": [
+    "Keep GPS mock test as codex_dry_run until separate pre-release local verification is approved.",
+    "Add backup/rollback rehearsal stage next."
+  ]
+}

@@ -24,7 +24,7 @@ usage() {
   cat <<'USAGE'
 用法：bash scripts/car-rental/run-full-isolated-system-test.sh
 
-默认不生产，只允许隔离 PostgreSQL 测试库。脚本会执行已存在的一键隔离阶段；Runtime、Permission、Page/menu/block、Mock data import、Business smoke test 和 Contract document test 当前以 codex_dry_run / codex_mock_report 记录，真实本地执行仍属于 pre-release local execution；尚未实现的阶段会记录 skipped，并进入 modification_items。
+默认不生产，只允许隔离 PostgreSQL 测试库。脚本会执行已存在的一键隔离阶段；Runtime、Permission、Page/menu/block、Mock data import、Business smoke test、Contract document test 和 GPS mock test 当前以 codex_dry_run / codex_mock_report 记录，真实本地执行仍属于 pre-release local execution；尚未实现的阶段会记录 skipped，并进入 modification_items。
 USAGE
 }
 
@@ -220,7 +220,7 @@ JSON
 
 ## 说明
 
-本报告由隔离总测试脚本生成。它不代表生产就绪；当前 production_ready=false。Runtime、Permission、Page/menu/block、Mock data import、Business smoke test 和 Contract document test 阶段当前记录为 codex_dry_run / codex_mock_report，真实本地执行仍标记为 pre-release local execution。阶段脚本不存在时会被标记 skipped，并进入修改项清单。
+本报告由隔离总测试脚本生成。它不代表生产就绪；当前 production_ready=false。Runtime、Permission、Page/menu/block、Mock data import、Business smoke test、Contract document test 和 GPS mock test 阶段当前记录为 codex_dry_run / codex_mock_report，真实本地执行仍标记为 pre-release local execution。阶段脚本不存在时会被标记 skipped，并进入修改项清单。
 
 ## JSON 报告
 
@@ -250,7 +250,7 @@ main() {
   run_codex_dry_run_stage "mock-data" "Mock data import Codex dry-run" "scripts/car-rental/run-isolated-mock-data-import-test.sh" "test-data/generated/car-rental-mock-data-import-dry-run.generated.json" "当前执行模式为 codex_dry_run / codex_mock_report；mock import 真实本地执行仍为 pre-release local execution；当前不要求用户本地运行。"
   run_codex_dry_run_stage "business-smoke" "Business smoke test Codex dry-run" "scripts/car-rental/run-isolated-business-smoke-test.sh" "test-data/generated/car-rental-business-smoke-dry-run.generated.json" "当前执行模式为 codex_dry_run / codex_mock_report；business smoke 真实本地执行仍为 pre-release local execution；当前不要求用户本地运行。"
   run_codex_dry_run_stage "contract-document" "Contract document test Codex dry-run" "scripts/car-rental/run-isolated-contract-document-test.sh" "test-data/generated/car-rental-contract-document-dry-run.generated.json" "当前执行模式为 codex_dry_run / codex_mock_report；contract document 真实本地执行仍为 pre-release local execution；当前不要求用户本地运行。"
-  run_stage "gps-mock" "GPS mock 测试" "scripts/car-rental/run-isolated-gps-mock-test.sh" "test-data/generated/isolated-gps-mock-test-report.generated.json" "下一阶段补 GPS mock 测试。"
+  run_codex_dry_run_stage "gps-mock" "GPS mock test Codex dry-run" "scripts/car-rental/run-isolated-gps-mock-test.sh" "test-data/generated/car-rental-gps-mock-dry-run.generated.json" "当前执行模式为 codex_dry_run / codex_mock_report；GPS mock 真实本地执行仍为 pre-release local execution；当前不要求用户本地运行。"
   run_stage "backup-rollback" "备份 / 回滚演练" "scripts/car-rental/run-isolated-backup-rollback-test.sh" "test-data/generated/isolated-backup-rollback-test-report.generated.json" "下一阶段补备份 / 回滚演练。"
 
   write_reports
