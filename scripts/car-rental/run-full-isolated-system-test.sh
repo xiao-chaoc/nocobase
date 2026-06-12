@@ -24,7 +24,7 @@ usage() {
   cat <<'USAGE'
 用法：bash scripts/car-rental/run-full-isolated-system-test.sh
 
-默认不生产，只允许隔离 PostgreSQL 测试库。脚本会执行已存在的一键隔离阶段；Runtime 和 Permission 当前以 codex_dry_run / codex_mock_report 记录，真实本地执行仍属于 pre-release local execution；尚未实现的阶段会记录 skipped，并进入 modification_items。
+默认不生产，只允许隔离 PostgreSQL 测试库。脚本会执行已存在的一键隔离阶段；Runtime、Permission 和 Page/menu/block 当前以 codex_dry_run / codex_mock_report 记录，真实本地执行仍属于 pre-release local execution；尚未实现的阶段会记录 skipped，并进入 modification_items。
 USAGE
 }
 
@@ -220,7 +220,7 @@ JSON
 
 ## 说明
 
-本报告由隔离总测试脚本生成。它不代表生产就绪；当前 production_ready=false。Runtime 和 Permission 阶段当前记录为 codex_dry_run / codex_mock_report，真实本地执行仍标记为 pre-release local execution。阶段脚本不存在时会被标记 skipped，并进入修改项清单。
+本报告由隔离总测试脚本生成。它不代表生产就绪；当前 production_ready=false。Runtime、Permission 和 Page/menu/block 阶段当前记录为 codex_dry_run / codex_mock_report，真实本地执行仍标记为 pre-release local execution。阶段脚本不存在时会被标记 skipped，并进入修改项清单。
 
 ## JSON 报告
 
@@ -246,7 +246,7 @@ main() {
   run_stage "collection" "Collection 注册隔离测试" "scripts/car-rental/run-isolated-collection-registration-test.sh" "test-data/generated/isolated-collection-registration-test-report.generated.json" "已建立的一键 collection runner。"
   run_codex_dry_run_stage "runtime" "Runtime / 服务 / 动作注册 Codex dry-run" "scripts/car-rental/run-isolated-runtime-registration-test.sh" "test-data/generated/car-rental-runtime-registration-dry-run.generated.json" "当前不要求用户本地运行；正式版前才本地执行真实 Runtime 注册验证。"
   run_codex_dry_run_stage "permission" "权限和敏感字段 Codex dry-run" "scripts/car-rental/run-isolated-permission-sensitive-field-test.sh" "test-data/generated/car-rental-permission-sensitive-field-dry-run.generated.json" "当前执行模式为 codex_dry_run / codex_mock_report；权限阶段真实本地执行仍为 pre-release local execution。"
-  run_stage "page" "页面 / 菜单 / 区块初始化测试" "scripts/car-rental/run-isolated-page-initialization-test.sh" "test-data/generated/isolated-page-initialization-test-report.generated.json" "下一阶段补页面 / 菜单 / 区块初始化。"
+  run_codex_dry_run_stage "page" "页面 / 菜单 / 区块初始化 Codex dry-run" "scripts/car-rental/run-isolated-page-menu-block-test.sh" "test-data/generated/car-rental-page-menu-block-dry-run.generated.json" "当前执行模式为 codex_dry_run / codex_mock_report；页面阶段真实本地执行仍为 pre-release local execution；当前不要求用户本地运行。"
   run_stage "mock-data" "mock 数据导入测试" "scripts/car-rental/run-isolated-mock-data-import-test.sh" "test-data/generated/isolated-mock-data-import-test-report.generated.json" "下一阶段补 mock 数据导入。"
   run_stage "business-smoke" "核心业务 smoke test" "scripts/car-rental/run-isolated-business-smoke-test.sh" "test-data/generated/isolated-business-smoke-test-report.generated.json" "下一阶段补核心业务 smoke test。"
   run_stage "contract-document" "合同文件测试" "scripts/car-rental/run-isolated-contract-document-test.sh" "test-data/generated/isolated-contract-document-test-report.generated.json" "下一阶段补合同文件测试。"

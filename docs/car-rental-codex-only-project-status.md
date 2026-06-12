@@ -1,6 +1,6 @@
 # Car Rental Codex-only Project Status
 
-- generated_at: 2026-06-11T22:42:16.423Z
+- generated_at: 2026-06-11T23:36:23.636Z
 - workflow_mode: codex_only
 - local_nas_test_status: paused
 - local_docker_status: deleted_by_user
@@ -19,11 +19,11 @@
 - Full isolated system test plan created.
 - Runtime registration dry-run stage added.
 - Permission and sensitive field dry-run stage added.
+- Page/menu/block dry-run stage added.
 - production_ready=false 门禁保持开启
 
 ## Current pending items
 
-- Page/menu/block initialization stage.
 - Mock data import stage.
 - Business smoke test stage.
 - Contract document test stage.
@@ -40,8 +40,7 @@
 
 ## Next Codex tasks
 
-- Implement page/menu/block initialization stage.
-- 补齐页面 / 菜单 / 区块初始化测试脚本
+- Implement mock data import stage.
 - 补齐 mock 数据导入和生产防 mock 门禁
 - 生成正式部署 runbook 与隐私数据导入前检查清单
 
