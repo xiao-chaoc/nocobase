@@ -58,23 +58,35 @@
 
 ## 阶段 6：核心业务 smoke test
 
-- 输入：已初始化的隔离测试库、mock 数据、业务 smoke test 用例。
+- 当前状态：codex_dry_run 已建立。
+- Business smoke test 真实执行：仍为 local_pre_release，正式版前才本地执行。
+- 当前不要求用户本地运行。
+- 输入：合同、司机、车辆、付款、台账、押金、合同文档 placeholder、GPS mock status、operation logs safe mock fixtures。
 - 自动脚本：`scripts/car-rental/run-isolated-business-smoke-test.sh`。
-- 输出报告：核心业务 smoke test 报告。
-- 成功标准：以下业务规则全部通过：
-  - 合同创建。
-  - 时限合同台账生成。
-  - 长租合同台账生成。
-  - 默认免租日。
-  - 付款必须分配到日期。
-  - 单日不可超付。
-  - 未付原因。
-  - 欠款 / 免除 / 争议。
-  - 押金收取 / 抵扣 / 退还。
-  - 押金不计入租金收入。
-  - 当前欠款不包含未来应收。
+- 输出报告：
+  - `test-data/generated/car-rental-business-smoke-dry-run.generated.json`
+  - `docs/car-rental-business-smoke-dry-run-report.md`
+  - `docs/car-rental-business-smoke-modification-items.md`
+- 成功标准：以下业务规则在 Codex-only dry-run 中生成结构化结果，blocker 必须进入报告：
+  - 司机存在且不登录系统。
+  - 车辆存在且必须有车牌。
+  - 合同必须绑定司机和车辆。
+  - 合同必须有押金。
+  - 支持长租合同和时限合同。
+  - 时限合同以自然月为周期。
+  - 所有合同按自然周计算租金。
+  - 默认免租日来自合同生成时选择并体现在日租金台账。
+  - 日租金台账按日期生成。
+  - 付款必须按日分配，单日不可超付。
+  - 未付日期必须有未付原因或状态。
+  - 欠款计算只统计当前日期及以前，当前欠款不包含未来应收。
+  - 押金收取 / 抵扣 / 退还存在，押金不计入租金收入。
+  - 合同文档使用 placeholder，不使用真实扫描件。
+  - GPS mock status 存在，GPS 不参与租金计算，IOPGPS 真实同步默认禁用。
+  - operation logs 存在。
+  - mock 数据不得包含真实隐私数据，mock 数据不得进入生产。
 - 失败处理：记录阻塞 UAT / 阻塞生产的问题并生成修改项。
-- 是否允许 mock 数据：允许。
+- 是否允许 mock 数据：允许，仅限 Codex-only mock report 或隔离测试库；mock 数据不能进入生产。
 - 是否允许生产执行：不允许。
 
 ## 阶段 7：合同文件测试
@@ -130,8 +142,8 @@
 | 权限与敏感字段测试 | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | Permission dry-run 脚本、JSON report、报告文档、修改项清单已建立；仍需后续实现真实权限注册和本地 pre-release 验证 |
 | 页面 / 菜单 / 区块初始化测试 | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | Page / menu / block dry-run 已建立；真实执行仍为 local_pre_release |
 | mock 数据导入测试 | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | Mock data import dry-run、safe mock fixtures、JSON / Markdown 报告和生产防 mock 门禁已建立；仍需后续真实 pre-release 导入验证 |
-| 核心业务 smoke test | next_codex_task | Codex | 生成 business smoke test 脚本和模拟报告 |
-| 合同文件测试 | pending | Codex | 生成合同文件测试脚本；禁止真实合同扫描件 |
+| 核心业务 smoke test | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | Business smoke dry-run、JSON / Markdown 报告、修改项清单、校验脚本和测试已建立 |
+| 合同文件测试 | next_codex_task | Codex | 生成合同文件测试脚本；禁止真实合同扫描件 |
 | GPS mock 测试 | pending | Codex | 生成 GPS mock 测试脚本；禁止真实 IOPGPS |
 | 备份 / 回滚演练 | pending | Codex | 维护 backup / restore 脚本和 rollback drill 模板，当前不生成本地 dump |
 | 正式版前本地/NAS 总执行 | local_pre_release | 用户在正式版前执行 | 重新 clone、新目录、新 env、新 DB volume、新 storage 后运行总测试 |
@@ -151,5 +163,7 @@
 - Page / menu / block 真实执行仍为 local_pre_release。
 - Mock data import 阶段标记为 codex_dry_run 已建立。
 - Mock data import 真实执行仍为 local_pre_release。
-- Business smoke test 阶段标记为 next_codex_task。
-- Contract document、GPS mock、backup/rollback、production init guard 仍为 pending。
+- Business smoke test 阶段标记为 codex_dry_run 已建立。
+- Business smoke test 真实执行仍为 local_pre_release。
+- Contract document test 阶段标记为 next_codex_task。
+- GPS mock、backup/rollback、production init guard 仍为 pending。

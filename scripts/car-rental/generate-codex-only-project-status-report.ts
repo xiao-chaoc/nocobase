@@ -96,10 +96,10 @@ function buildReport(): ProjectStatusReport {
       'Mock data import dry-run stage added.',
       'Safe mock fixtures added.',
       'Mock data production guard added.',
+      'Business smoke test dry-run stage added.',
       'production_ready=false 门禁保持开启',
     ],
     current_pending_items: [
-      'Business smoke test stage.',
       'Contract document test stage.',
       'GPS mock test stage.',
       'Backup/rollback rehearsal stage.',
@@ -112,8 +112,8 @@ function buildReport(): ProjectStatusReport {
       'mock data cannot enter production',
     ],
     next_codex_tasks: [
-      'Implement business smoke test stage.',
-      '补齐 contract document test stage 和 GPS mock test stage',
+      'Implement contract document test stage.',
+      '补齐 GPS mock test stage',
       '生成正式部署 runbook 与隐私数据导入前检查清单',
     ],
     next_user_actions: [
