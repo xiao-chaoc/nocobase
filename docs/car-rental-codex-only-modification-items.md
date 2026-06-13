@@ -138,3 +138,12 @@
   - UAT checklist.
   - Production deployment runbook.
   - Privacy data import guard.
+
+## Pre-release final report aggregation
+
+- Status: 已建立。
+- 下一优先级：
+  - Privacy data import guard stage.
+  - Production deployment runbook stage.
+  - UAT checklist finalization stage.
+- production_ready=false；UAT 和 Production 仍为 No-Go。

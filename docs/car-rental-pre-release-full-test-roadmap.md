@@ -226,3 +226,13 @@
   - UAT checklist。
   - Production deployment runbook。
   - Privacy data import guard。
+
+## Final aggregation update
+
+- Final aggregation: codex_report_aggregation 已建立。
+- 下一阶段：privacy data import guard。
+- UAT: No-Go。
+- Production: No-Go。
+- production_ready=false。
+- 当前不要求用户本地运行；正式版前才恢复本地/NAS。
+- production_ready 不由 Codex 自动置 true。
