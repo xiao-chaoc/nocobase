@@ -99,20 +99,17 @@ function buildReport(): ProjectStatusReport {
       'Business smoke test dry-run stage added.',
       'Contract document test dry-run stage added.',
       'GPS mock test dry-run stage added.',
+      'Backup/rollback rehearsal dry-run stage added.',
       'production_ready=false 门禁保持开启',
     ],
-    current_pending_items: ['Backup/rollback rehearsal stage.', 'Production init guard stage.'],
+    current_pending_items: ['Production init guard stage.'],
     current_blockers: [
       '用户已删除本地 NAS 测试目录，当前无法执行本地 Docker / PostgreSQL 验证',
       '当前不能使用真实 IOPGPS',
       '当前不能使用真实司机资料、真实付款截图或真实合同扫描件',
       'mock data cannot enter production',
     ],
-    next_codex_tasks: [
-      'Implement backup/rollback rehearsal stage.',
-      '补齐 Production init guard stage',
-      '生成正式部署 runbook 与隐私数据导入前检查清单',
-    ],
+    next_codex_tasks: ['Implement production init guard stage.', '生成正式部署 runbook 与隐私数据导入前检查清单'],
     next_user_actions: [
       '审查 Codex PR',
       '合并 PR',

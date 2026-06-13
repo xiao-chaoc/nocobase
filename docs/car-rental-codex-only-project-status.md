@@ -1,6 +1,6 @@
 # Car Rental Codex-only Project Status
 
-- generated_at: 2026-06-12T17:38:39.254Z
+- generated_at: 2026-06-12T22:38:14.519Z
 - workflow_mode: codex_only
 - local_nas_test_status: paused
 - local_docker_status: deleted_by_user
@@ -26,11 +26,11 @@
 - Business smoke test dry-run stage added.
 - Contract document test dry-run stage added.
 - GPS mock test dry-run stage added.
+- Backup/rollback rehearsal dry-run stage added.
 - production_ready=false 门禁保持开启
 
 ## Current pending items
 
-- Backup/rollback rehearsal stage.
 - Production init guard stage.
 
 ## Current blockers
@@ -42,8 +42,7 @@
 
 ## Next Codex tasks
 
-- Implement backup/rollback rehearsal stage.
-- 补齐 Production init guard stage
+- Implement production init guard stage.
 - 生成正式部署 runbook 与隐私数据导入前检查清单
 
 ## Next user actions

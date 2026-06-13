@@ -1,0 +1,2502 @@
+{
+  "generated_at": "2026-06-12T22:38:13.819Z",
+  "workflow_mode": "codex_only",
+  "stage": "backup_rollback_rehearsal",
+  "execution_mode": "codex_dry_run",
+  "production_ready": false,
+  "local_execution_required_pre_release": true,
+  "detected_backup_entries": [
+    {
+      "path": ".env.car-rental-collection-test.example",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-backup-rollback-rehearsal-dry-run-report.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-backup-rollback-rehearsal-modification-items.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-backup-rollback-rehearsal-plan.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-business-smoke-modification-items.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-codex-only-modification-items.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-codex-only-project-status.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-codex-only-workflow.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-collection-test-db-setup.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-full-test-report-template.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-gps-mock-dry-run-report.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-gps-mock-modification-items.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-isolated-collection-registration-test.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-local-nas-test-paused.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-mock-data-production-guard.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-modification-backlog-template.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-nas-test-pause-resume-runbook.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-permission-sensitive-field-dry-run-report.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-pre-release-full-test-roadmap.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-production-init-policy.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-project-progress-summary.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-adapter-plan.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-checklist.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-pr-package.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-pr-review-checklist.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-preflight.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-request-application.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-request-checklist.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-request-schema.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-review-checklist.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-rollback-drill.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-rollback.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-host-environment-report.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-runtime-registration-dry-run-report.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-test-and-production-init-separation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-test-vs-production-isolation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ar/guide/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/cluster-mode/preparations.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/guide/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/ops-management/_meta.json",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/ops-management/backup-manager/index.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/ops-management/migration-manager/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/ops-management/release-management/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/plugins/@nocobase/plugin-backup-restore/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/plugins/@nocobase/plugin-backups/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/security/guide.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/solution/ticket-system/design.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/cluster-mode/preparations.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/get-started/installation/docker.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/guide/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/interface-builder/blocks/block-settings/block-delete.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/multi-app/multi-app/local.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/ops-management/_meta.json",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/ops-management/backup-manager/index.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/ops-management/migration-manager/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/ops-management/release-management/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/plugins/@nocobase/plugin-backup-restore/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/plugins/@nocobase/plugin-backups/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/solution/ticket-system/design.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/cluster-mode/operations.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/cluster-mode/preparations.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/data-sources/data-modeling/main-vs-external-data-sources.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/get-started/installation/docker.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/get-started/upgrading/docker.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/guide/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/blocks/block-settings/block-delete.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/multi-app/multi-app/local.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/ops-management/_meta.json",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/ops-management/backup-manager/index.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/ops-management/migration-manager/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/ops-management/release-management/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/project-structure.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugins/@nocobase/plugin-backup-restore/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugins/@nocobase/plugin-backups/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/security/guide.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/solution/ticket-system/design.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/cluster-mode/preparations.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/guide/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/ops-management/_meta.json",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/ops-management/backup-manager/index.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/ops-management/migration-manager/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/ops-management/release-management/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/plugins/@nocobase/plugin-backup-restore/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/plugins/@nocobase/plugin-backups/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/security/guide.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/solution/ticket-system/design.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/cluster-mode/preparations.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/guide/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/ops-management/_meta.json",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/ops-management/backup-manager/index.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/ops-management/migration-manager/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/ops-management/release-management/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/plugins/@nocobase/plugin-backup-restore/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/plugins/@nocobase/plugin-backups/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/solution/ticket-system/design.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/cluster-mode/preparations.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/guide/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/ops-management/_meta.json",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/ops-management/backup-manager/index.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/ops-management/migration-manager/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/ops-management/release-management/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/plugins/@nocobase/plugin-backup-restore/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/plugins/@nocobase/plugin-backups/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/security/guide.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/solution/ticket-system/design.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/cluster-mode/kubernetes.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/cluster-mode/operations.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/cluster-mode/preparations.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/data-sources/data-modeling/main-vs-external-data-sources.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/get-started/installation/docker.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/get-started/upgrading/create-nocobase-app.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/get-started/upgrading/docker.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/get-started/upgrading/git.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/guide/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/interface-builder/blocks/block-settings/block-delete.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/multi-app/multi-app/local.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/ops-management/_meta.json",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/ops-management/backup-manager/index.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/ops-management/migration-manager/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/ops-management/release-management/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/plugin-development/project-structure.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/plugins/@nocobase/plugin-backup-restore/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/plugins/@nocobase/plugin-backups/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/security/ip-restriction/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/solution/ticket-system/design.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/cluster-mode/preparations.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/guide/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/ops-management/_meta.json",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/ops-management/backup-manager/index.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/ops-management/migration-manager/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/ops-management/release-management/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/plugins/@nocobase/plugin-backup-restore/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/plugins/@nocobase/plugin-backups/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/solution/ticket-system/design.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/index.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/nocobaseRealAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realBackupRollbackAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realBackupRollbackPlanBuilder.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realBackupRollbackSafetyChecker.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realCollectionRegistrationAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realCollectionSafetyChecker.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realPageRegistrationAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realRuntimeRegistrationAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realRuntimeSafetyChecker.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realSeedDataSafetyChecker.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realSmokeTestPlanMapper.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realSmokeTestSafetyChecker.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/smokeTestOrchestrator.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/types.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/unconfiguredRealAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/backupRollbackRehearsalStage.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/collectionTestDbSafety.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/isolatedCollectionTestRunner.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/nasIsolatedRunnerCompatibility.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/realCollectionExecuteFlow.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/realCollectionExecutePrPackage.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/realCollectionExecutePreflight.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/realCollectionExecuteRequest.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/apply-real-collection-execute-request.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/backup-collection-test-db.sh",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/execute-real-collection-registration.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/generate-codex-only-project-status-report.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/generate-real-collection-execute-request-from-test-db.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/generate-real-collection-execute-request-template.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/preflight-real-collection-execute.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/realCollectionExecutePreflight.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/realNocobaseCollectionAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/restore-collection-test-db.sh",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/run-full-isolated-system-test.sh",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/run-isolated-backup-rollback-rehearsal-test.sh",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/run-isolated-collection-registration-test.sh",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/run-isolated-gps-mock-test.sh",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/validate-backup-rollback-rehearsal-stage.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/validate-collection-test-db-safety.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/validate-isolated-collection-test-runner.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/validate-nas-isolated-runner.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/validate-real-collection-execute-pr-package.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/validate-real-collection-execute-request.ts",
+      "status": "existing"
+    }
+  ],
+  "detected_restore_entries": [
+    {
+      "path": "docs/car-rental-backup-rollback-rehearsal-dry-run-report.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-backup-rollback-rehearsal-modification-items.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-backup-rollback-rehearsal-plan.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-codex-only-modification-items.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-collection-test-db-setup.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-isolated-collection-registration-test.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-nas-test-pause-resume-runbook.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-pre-release-full-test-roadmap.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-project-progress-summary.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-checklist.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-pr-package.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-pr-review-checklist.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-preflight.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-request-application.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-request-checklist.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-request-schema.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-review-checklist.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-rollback-drill.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-rollback.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/ops-management/backup-manager/index.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/plugins/@nocobase/plugin-backup-restore/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/security/guide.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/ops-management/backup-manager/index.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/plugins/@nocobase/plugin-backup-restore/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/plugins/@nocobase/plugin-backups/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/ai-employees/features/collaborate.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/cluster-mode/operations.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/cluster-mode/preparations.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/data-sources/data-modeling/main-vs-external-data-sources.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/get-started/upgrading/docker.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/guide/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/blocks/block-settings/block-delete.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/ops-management/backup-manager/index.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/ops-management/migration-manager/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/ops-management/release-management/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugins/@nocobase/plugin-backup-restore/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugins/@nocobase/plugin-backups/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/security/guide.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/ops-management/backup-manager/index.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/plugins/@nocobase/plugin-backup-restore/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/plugins/@nocobase/plugin-backups/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/security/guide.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/ops-management/backup-manager/index.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/plugins/@nocobase/plugin-backup-restore/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/plugins/@nocobase/plugin-backups/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/ops-management/backup-manager/index.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/plugins/@nocobase/plugin-backup-restore/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/plugins/@nocobase/plugin-backups/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/security/guide.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/ops-management/backup-manager/index.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/plugins/@nocobase/plugin-backup-restore/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/plugins/@nocobase/plugin-backups/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/ops-management/backup-manager/index.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/plugins/@nocobase/plugin-backup-restore/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/plugins/@nocobase/plugin-backups/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realBackupRollbackAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realBackupRollbackPlanBuilder.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realBackupRollbackSafetyChecker.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realSmokeTestPlanMapper.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/types.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/backupRollbackRehearsalStage.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/collectionTestDbSafety.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/realCollectionExecuteFlow.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/realCollectionExecuteRequest.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/realHostEnvironmentDetector.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/execute-real-collection-registration.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/generate-real-collection-execute-request-from-test-db.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/generate-real-collection-execute-request-template.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/restore-collection-test-db.sh",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/run-isolated-backup-rollback-rehearsal-test.sh",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/run-isolated-collection-registration-test.sh",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/validate-backup-rollback-rehearsal-stage.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/validate-real-collection-execute-pr-package.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/validate-real-collection-execute-request.ts",
+      "status": "existing"
+    }
+  ],
+  "detected_rollback_entries": [
+    {
+      "path": ".env.car-rental-collection-test.example",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-backup-rollback-rehearsal-dry-run-report.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-backup-rollback-rehearsal-modification-items.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-backup-rollback-rehearsal-plan.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-business-smoke-modification-items.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-codex-only-modification-items.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-codex-only-project-status.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-collection-test-db-setup.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-full-test-report-template.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-gps-mock-dry-run-report.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-gps-mock-modification-items.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-isolated-collection-registration-test.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-local-nas-test-paused.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-nas-test-pause-resume-runbook.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-permission-sensitive-field-dry-run-report.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-pre-release-full-test-roadmap.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-project-progress-summary.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-adapter-plan.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-checklist.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-pr-package.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-pr-review-checklist.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-preflight.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-request-application.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-request-checklist.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-request-schema.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-review-checklist.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-rollback-drill.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-collection-execute-rollback.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-real-host-environment-report.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/car-rental-runtime-registration-dry-run-report.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/data-sources/collection-sql/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/cn/interface-builder/event-flow.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/cluster-mode/kubernetes.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/data-sources/collection-sql/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/get-started/upgrading/docker.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/ops-management/migration-manager/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/ops-management/release-management/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/plugins/@nocobase/plugin-workflow-javascript/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/plugins/@nocobase/plugin-workflow-sql/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/solution/crm/design.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/de/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/ai-employees/configuration/admin-configuration.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/ai-employees/configuration/prompt-engineering-guide.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/ai-employees/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/ai-employees/permission.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/ai-employees/scenarios/viz-crm.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/api/database/field.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/api/database/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/calculation-engine/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/cluster-mode/development.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/cluster-mode/kubernetes.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/data-sources/collection-sql/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/data-sources/data-source-kingbase/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/data-visualization/guide/chart-events.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/data-visualization/guide/data-query.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/data-visualization/guide/preview-and-save.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/data-visualization/guide/sql-data-query.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/flow-engine/definitions/action-definition.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/flow-engine/definitions/event-definition.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/flow-engine/definitions/flow-definition.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/flow-engine/definitions/step-definition.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/flow-engine/event-flow.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/flow-engine/flow-context.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/flow-engine/flow-model-renderer.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/flow-engine/flow-model-vs-react-component.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/flow-engine/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/flow-engine/what-is-flow-engine.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/get-started/install-upgrade-plugins.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/get-started/installation/create-nocobase-app.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/get-started/upgrading/create-nocobase-app.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/get-started/upgrading/docker.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/integration/api-keys/usage.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/integration/block-iframe/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/integration/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/integration/workflow-webhook/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/actions/action-settings/bind-workflow.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/actions/action-settings/double-check.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/actions/permission.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/actions/types/duplicate.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/actions/types/export-pro.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/actions/types/import-pro.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/actions/types/js-action.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/blocks/block-settings/field-linkage-rule.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/blocks/data-blocks/details.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/blocks/data-blocks/form.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/blocks/data-blocks/table.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/blocks/other-blocks/markdown.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/event-flow.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/fields/specific/js-field.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/fields/specific/js-item.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/linkage-rule.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/runjs.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/interface-builder/ui-templates.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/ops-management/migration-manager/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/ops-management/release-management/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/client/plugin.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/client/test.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/project-structure.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/server/acl.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/server/cache.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/server/collections.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/server/command.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/server/context.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/server/cron-job-manager.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/server/data-source-manager.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/server/event.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/server/middleware.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/server/migration.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/server/plugin.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/server/resource-manager.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-development/write-your-first-plugin.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-samples/schema-initializer/action-modal.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-samples/schema-initializer/action-simple.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-samples/schema-initializer/block-data-modal.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-samples/schema-initializer/block-data.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-samples/schema-initializer/block-simple.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugin-samples/schema-initializer/configure-actions.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugins/@nocobase/plugin-workflow-javascript/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/plugins/@nocobase/plugin-workflow-sql/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/runjs/context/exit.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/runjs/context/sql.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/security/guide.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/solution/crm/design.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/advanced/executions.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/advanced/options.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/advanced/revisions.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/advanced/variables.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/development/api.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/development/node.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/development/trigger.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/getting-started.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/approval.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/condition.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/delay.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/destroy.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/end.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/javascript.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/json-query.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/loop.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/manual.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/multi-conditions.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/output.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/parallel.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/query.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/request.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/response-message.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/response.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/nodes/sql.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/triggers/custom-action.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/triggers/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/triggers/post-action.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/triggers/pre-action.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/triggers/schedule.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/en/workflow/triggers/webhook.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/plugins/@nocobase/plugin-workflow-javascript/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/plugins/@nocobase/plugin-workflow-sql/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/solution/crm/design.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/es/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/get-started/upgrading/docker.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/plugins/@nocobase/plugin-workflow-javascript/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/plugins/@nocobase/plugin-workflow-sql/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/solution/crm/design.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/fr/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/data-sources/collection-sql/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/interface-builder/event-flow.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/plugins/@nocobase/plugin-workflow-javascript/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/plugins/@nocobase/plugin-workflow-sql/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/solution/crm/design.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ja/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/ai-employees/permission.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/cluster-mode/kubernetes.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/data-sources/data-source-kingbase/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/data-visualization/faq.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/data-visualization/guide/preview-and-save.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/data-visualization/guide/sql-data-query.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/data-visualization/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/get-started/install-upgrade-plugins.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/get-started/installation/create-nocobase-app.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/get-started/installation/docker.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/get-started/installation/git.mdx",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/get-started/upgrading/create-nocobase-app.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/get-started/upgrading/docker.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/get-started/upgrading/git.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/integration/block-iframe/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/integration/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/interface-builder/event-flow.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/interface-builder/runjs.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/notification-manager/development/extension.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/plugin-development/client/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/plugin-development/project-structure.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/plugin-development/server/context.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/plugin-development/server/cron-job-manager.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/plugin-development/server/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/plugin-development/server/migration.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/plugin-development/write-your-first-plugin.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/plugins/@nocobase/plugin-workflow-javascript/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/plugins/@nocobase/plugin-workflow-sql/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/solution/crm/design.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/workflow/nodes/javascript.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/pt/workflow/nodes/sql.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/data-sources/collection-sql/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/interface-builder/event-flow.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/plugins/@nocobase/plugin-workflow-javascript/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/plugins/@nocobase/plugin-workflow-sql/index.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/solution/crm/design.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/solution/crm/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/solution/crm/v1.md",
+      "status": "existing"
+    },
+    {
+      "path": "docs/docs/ru/solution/ticket-system/installation.md",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/index.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/mockSeedDataAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/nocobaseRealAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realBackupRollbackAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realBackupRollbackPlanBuilder.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realBackupRollbackSafetyChecker.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realCollectionRegistrationAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realCollectionSafetyChecker.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realPageRegistrationAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realPageSafetyChecker.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realRuntimeRegistrationAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realRuntimeSafetyChecker.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realSeedDataImportAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realSeedDataSafetyChecker.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realSmokeTestAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realSmokeTestPlanMapper.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/realSmokeTestSafetyChecker.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/types.ts",
+      "status": "existing"
+    },
+    {
+      "path": "packages/shared/nocobase-automation/src/unconfiguredRealAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/backupRollbackRehearsalStage.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/collectionTestDbSafety.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/isolatedCollectionTestRunner.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/nasIsolatedRunnerCompatibility.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/realCollectionExecuteFlow.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/realCollectionExecutePrPackage.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/realCollectionExecutePreflight.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/realCollectionExecuteRequest.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/__tests__/realNocobaseCollectionAdapter.test.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/apply-real-collection-execute-request.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/backup-collection-test-db.sh",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/execute-real-collection-registration.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/generate-codex-only-project-status-report.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/generate-real-collection-execute-request-from-test-db.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/generate-real-collection-execute-request-template.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/plan-real-collection-registration.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/post-validate-real-collection-registration.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/preflight-real-collection-execute.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/realCollectionExecutePreflight.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/realNocobaseCollectionAdapter.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/restore-collection-test-db.sh",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/run-full-isolated-system-test.sh",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/run-isolated-backup-rollback-rehearsal-test.sh",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/run-isolated-collection-registration-test.sh",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/run-isolated-contract-document-test.sh",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/run-isolated-gps-mock-test.sh",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/run-isolated-mock-data-import-test.sh",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/validate-backup-rollback-rehearsal-stage.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/validate-codex-only-workflow.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/validate-collection-test-db-safety.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/validate-isolated-collection-test-runner.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/validate-nas-isolated-runner.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/validate-real-collection-adapter-plan.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/validate-real-collection-execute-pr-package.ts",
+      "status": "existing"
+    },
+    {
+      "path": "scripts/car-rental/validate-real-collection-execute-request.ts",
+      "status": "existing"
+    }
+  ],
+  "backup_strategy_results": [
+    {
+      "item": "backup script exists",
+      "status": "existing",
+      "evidence": "scripts/car-rental/backup-collection-test-db.sh"
+    },
+    {
+      "item": "backup uses isolated_test_database",
+      "status": "existing",
+      "evidence": "scripts/car-rental/backup-collection-test-db.sh"
+    },
+    {
+      "item": "backup rejects production database",
+      "status": "existing",
+      "evidence": "scripts/car-rental/backup-collection-test-db.sh"
+    },
+    {
+      "item": "backup artifact is ignored by Git",
+      "status": "existing",
+      "evidence": ".gitignore"
+    },
+    {
+      "item": "future real dump generation",
+      "status": "planned",
+      "evidence": "pre-release local execution only"
+    }
+  ],
+  "restore_strategy_results": [
+    {
+      "item": "restore script exists",
+      "status": "existing",
+      "evidence": "scripts/car-rental/restore-collection-test-db.sh"
+    },
+    {
+      "item": "restore uses isolated_test_database",
+      "status": "existing",
+      "evidence": "scripts/car-rental/restore-collection-test-db.sh"
+    },
+    {
+      "item": "restore rejects production database",
+      "status": "existing",
+      "evidence": "scripts/car-rental/restore-collection-test-db.sh"
+    },
+    {
+      "item": "restore requires manual YES",
+      "status": "existing",
+      "evidence": "scripts/car-rental/restore-collection-test-db.sh"
+    },
+    {
+      "item": "rollback drill document exists",
+      "status": "existing",
+      "evidence": "docs/car-rental-real-collection-execute-rollback-drill.md"
+    }
+  ],
+  "rollback_scenario_coverage": [
+    {
+      "item": "collection registration pre-backup",
+      "status": "existing",
+      "evidence": "docs/car-rental-backup-rollback-rehearsal-plan.md"
+    },
+    {
+      "item": "collection registration failure rollback",
+      "status": "existing",
+      "evidence": "docs/car-rental-backup-rollback-rehearsal-plan.md"
+    },
+    {
+      "item": "post-validate failure rollback",
+      "status": "existing",
+      "evidence": "docs/car-rental-backup-rollback-rehearsal-plan.md"
+    },
+    {
+      "item": "runtime registration failure rollback",
+      "status": "existing",
+      "evidence": "docs/car-rental-backup-rollback-rehearsal-plan.md"
+    },
+    {
+      "item": "permission initialization failure rollback",
+      "status": "existing",
+      "evidence": "docs/car-rental-backup-rollback-rehearsal-plan.md"
+    },
+    {
+      "item": "page initialization failure rollback",
+      "status": "existing",
+      "evidence": "docs/car-rental-backup-rollback-rehearsal-plan.md"
+    },
+    {
+      "item": "mock data import failure rollback",
+      "status": "existing",
+      "evidence": "docs/car-rental-backup-rollback-rehearsal-plan.md"
+    },
+    {
+      "item": "business smoke failure rollback",
+      "status": "existing",
+      "evidence": "docs/car-rental-backup-rollback-rehearsal-plan.md"
+    },
+    {
+      "item": "contract document failure rollback",
+      "status": "existing",
+      "evidence": "docs/car-rental-backup-rollback-rehearsal-plan.md"
+    },
+    {
+      "item": "GPS mock failure rollback",
+      "status": "existing",
+      "evidence": "docs/car-rental-backup-rollback-rehearsal-plan.md"
+    },
+    {
+      "item": "IOPGPS unexpected enabled rollback",
+      "status": "existing",
+      "evidence": "docs/car-rental-backup-rollback-rehearsal-plan.md"
+    },
+    {
+      "item": "production database stop condition",
+      "status": "existing",
+      "evidence": "docs/car-rental-backup-rollback-rehearsal-plan.md"
+    },
+    {
+      "item": "privacy data exposure stop condition",
+      "status": "existing",
+      "evidence": "docs/car-rental-backup-rollback-rehearsal-plan.md"
+    },
+    {
+      "item": "mock data enters production stop condition",
+      "status": "existing",
+      "evidence": "docs/car-rental-backup-rollback-rehearsal-plan.md"
+    }
+  ],
+  "safety_guard_results": [
+    {
+      "item": "DB_DIALECT postgres/postgresql required",
+      "status": "existing"
+    },
+    {
+      "item": "isolated_test_database required",
+      "status": "existing"
+    },
+    {
+      "item": "production database rejected",
+      "status": "existing"
+    },
+    {
+      "item": "CAR_RENTAL_MOCK_DATA_ONLY=true required",
+      "status": "existing"
+    },
+    {
+      "item": "IOPGPS_SYNC_ENABLED=false required",
+      "status": "existing"
+    },
+    {
+      "item": "CAR_RENTAL_COLLECTION_EXECUTE_ENABLED defaults false",
+      "status": "existing"
+    },
+    {
+      "item": "production_ready remains false",
+      "status": "existing"
+    }
+  ],
+  "artifact_guard_results": [
+    {
+      "item": "backup dump is not committed",
+      "status": "existing"
+    },
+    {
+      "item": "SQL dump is ignored by Git",
+      "status": "existing"
+    },
+    {
+      "item": "filled request is ignored by Git",
+      "status": "existing"
+    },
+    {
+      "item": ".env is ignored by Git",
+      "status": "existing"
+    },
+    {
+      "item": "current local NAS dump is not a valid artifact",
+      "status": "existing"
+    }
+  ],
+  "blockers": [],
+  "warnings": [
+    "Codex-only dry-run does not replace formal pre-release local/NAS backup and restore execution.",
+    "当前不要求用户本地运行；未来正式版前才生成真实 backup dump。",
+    "当前没有有效本地 dump，且不得引用已删除的本地 NAS dump 作为当前有效备份。"
+  ],
+  "modification_items": [
+    "Implement production init guard stage next.",
+    "Keep Backup/rollback rehearsal as codex_dry_run until separate pre-release local execution is approved."
+  ]
+}
