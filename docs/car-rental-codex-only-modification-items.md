@@ -9,14 +9,13 @@
 - Business smoke test 阶段：已建立 dry-run 阶段，仍需后续真实 pre-release 本地验证。
 - Contract document test 阶段：已建立 dry-run 阶段，仍需后续真实 pre-release 本地验证。
 - GPS mock test 阶段：已建立 dry-run 阶段，仍需后续真实 pre-release 本地验证。
-- Backup/rollback rehearsal stage.
+- Backup/rollback rehearsal 阶段：已建立 dry-run 阶段，仍需后续真实 pre-release 本地验证。
 - Production init guard stage.
 - 完整 pre-release 总报告。
 
 ## 下一优先级
 
-1. Backup/rollback rehearsal stage.
-2. Production init guard stage.
+1. Production init guard stage.
 
 ## 当前不由用户执行的项目
 
@@ -58,7 +57,6 @@
 - Mock data import 真实执行仍为 local_pre_release。
 - 当前不要求用户本地运行。
 - 下一优先级：
-  - Backup/rollback rehearsal stage.
   - Production init guard stage.
 
 ## Business smoke test 阶段更新（2026-06-12）
@@ -70,7 +68,6 @@
 - production_ready=false。
 - 不启用真实 IOPGPS，mock 数据不得进入生产。
 - 下一优先级：
-  - Backup/rollback rehearsal stage.
   - Production init guard stage.
 
 
@@ -83,7 +80,6 @@
 - production_ready=false。
 - 不启用真实 IOPGPS，mock 数据不得进入生产，mock 数据不能进入生产。
 - 下一优先级：
-  - Backup/rollback rehearsal stage.
   - Production init guard stage.
 
 
@@ -97,5 +93,17 @@
 - 不启用真实 IOPGPS，mock 数据不得进入生产，mock 数据不能进入生产。
 - GPS 不参与租金计算，GPS 失败不影响租金台账、付款分配、押金或合同文档。
 - 下一优先级：
-  - Backup/rollback rehearsal stage.
+  - Production init guard stage.
+
+
+## Backup / rollback rehearsal 阶段更新（2026-06-12）
+
+- Backup/rollback rehearsal 阶段标记为 codex_dry_run 已建立。
+- 已添加备份/回滚演练 plan、dry-run 脚本、JSON/Markdown 报告、修改项清单、校验脚本和测试。
+- Backup/rollback rehearsal 真实执行仍为 local_pre_release，正式版前才本地执行真实 backup dump、restore 和 rollback drill。
+- 当前不要求用户本地运行。
+- 当前没有有效本地 dump，不得引用已删除的本地 NAS dump 作为当前有效备份。
+- dump / SQL / filled request 不得提交。
+- production_ready=false。
+- 下一优先级：
   - Production init guard stage.
