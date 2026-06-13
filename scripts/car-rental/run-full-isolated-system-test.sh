@@ -24,7 +24,7 @@ usage() {
   cat <<'USAGE'
 用法：bash scripts/car-rental/run-full-isolated-system-test.sh
 
-默认不生产，只允许隔离 PostgreSQL 测试库。脚本会执行已存在的一键隔离阶段；Runtime、Permission、Page/menu/block、Mock data import、Business smoke test、Contract document test、GPS mock test 和 Backup / rollback rehearsal 当前以 codex_dry_run / codex_mock_report 记录，真实本地执行仍属于 pre-release local execution；尚未实现的阶段会记录 skipped，并进入 modification_items。
+默认不生产，只允许隔离 PostgreSQL 测试库。脚本会执行已存在的一键隔离阶段；Runtime、Permission、Page/menu/block、Mock data import、Business smoke test、Contract document test、GPS mock test、Backup / rollback rehearsal 和 Production init guard 当前以 codex_dry_run / codex_mock_report 记录，真实本地执行仍属于 pre-release local execution；尚未实现的阶段会记录 skipped，并进入 modification_items。
 USAGE
 }
 
@@ -220,7 +220,7 @@ JSON
 
 ## 说明
 
-本报告由隔离总测试脚本生成。它不代表生产就绪；当前 production_ready=false。Runtime、Permission、Page/menu/block、Mock data import、Business smoke test、Contract document test、GPS mock test 和 Backup / rollback rehearsal 阶段当前记录为 codex_dry_run / codex_mock_report，真实本地执行仍标记为 pre-release local execution。阶段脚本不存在时会被标记 skipped，并进入修改项清单。
+本报告由隔离总测试脚本生成。它不代表生产就绪；当前 production_ready=false。Runtime、Permission、Page/menu/block、Mock data import、Business smoke test、Contract document test、GPS mock test、Backup / rollback rehearsal 和 Production init guard 阶段当前记录为 codex_dry_run / codex_mock_report，真实本地执行仍标记为 pre-release local execution。阶段脚本不存在时会被标记 skipped，并进入修改项清单。
 
 ## JSON 报告
 
@@ -252,6 +252,7 @@ main() {
   run_codex_dry_run_stage "contract-document" "Contract document test Codex dry-run" "scripts/car-rental/run-isolated-contract-document-test.sh" "test-data/generated/car-rental-contract-document-dry-run.generated.json" "当前执行模式为 codex_dry_run / codex_mock_report；contract document 真实本地执行仍为 pre-release local execution；当前不要求用户本地运行。"
   run_codex_dry_run_stage "gps-mock" "GPS mock test Codex dry-run" "scripts/car-rental/run-isolated-gps-mock-test.sh" "test-data/generated/car-rental-gps-mock-dry-run.generated.json" "当前执行模式为 codex_dry_run / codex_mock_report；GPS mock 真实本地执行仍为 pre-release local execution；当前不要求用户本地运行。"
   run_codex_dry_run_stage "backup-rollback" "Backup / rollback rehearsal Codex dry-run" "scripts/car-rental/run-isolated-backup-rollback-rehearsal-test.sh" "test-data/generated/car-rental-backup-rollback-rehearsal-dry-run.generated.json" "当前执行模式为 codex_dry_run / codex_mock_report；Backup / rollback rehearsal 真实本地执行仍为 pre-release local execution；当前不要求用户本地运行。"
+  run_codex_dry_run_stage "production-init-guard" "Production init guard Codex dry-run" "scripts/car-rental/run-production-init-guard-dry-run.sh" "test-data/generated/car-rental-production-init-guard-dry-run.generated.json" "当前执行模式为 codex_dry_run / codex_mock_report；Production init guard 真实本地执行仍为 pre-release local execution；当前不要求用户本地运行。"
 
   write_reports
   printf '\n一键隔离总测试完成：passed=%s failed=%s skipped=%s\n' "$PASSED" "$FAILED" "$SKIPPED"

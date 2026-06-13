@@ -55,3 +55,14 @@ test-data/generated/real-collection-execute-request.*secret*.json
 backups-test/
 *.dump
 *.sql
+
+# car-rental production local secrets and generated artifacts
+.env.car-rental-production
+!.env.car-rental-production.example
+.env.car-rental-production.*secret*
+.env.car-rental-production.*local*
+production-secrets*/
+**/*production*secret*
+**/*production*.filled.json
+**/*production*.dump
+**/*production*.sql

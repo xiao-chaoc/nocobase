@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-06-13T11:44:52Z",
+  "workflow_mode": "codex_only",
+  "stage": "production_init_guard",
+  "execution_mode": "codex_dry_run",
+  "production_ready": false,
+  "local_execution_required_pre_release": true,
+  "production_env_template_results": { "example_exists": true, "real_env_read": false, "secrets_redacted": true },
+  "mock_data_guard_results": { "mock_data_allowed_in_production": false, "mock_import_disabled_by_default": true, "production_does_not_import_mock_data": true },
+  "privacy_data_guard_results": { "privacy_data_import_disabled_by_default": true, "manual_confirmation_required": true },
+  "iopgps_guard_results": { "iopgps_sync_enabled_by_default": false, "real_iopgps_not_called": true },
+  "storage_volume_guard_results": { "requires_new_directory": true, "requires_new_storage": true, "requires_new_postgresql_volume": true, "does_not_read_backups_test": true, "does_not_read_storage_test": true },
+  "database_name_guard_results": { "forbidden_markers": ["test", "mock", "demo", "sample"], "production_database_label_required": true },
+  "deployment_boundary_results": { "does_not_initialize_production_database": true, "does_not_create_container": true, "does_not_execute_migration": true, "does_not_import_data": true },
+  "blockers": [],
+  "warnings": ["pre-release local execution is still required","current local execution is not required"],
+  "modification_items": ["Production init guard dry-run stage added.","Pre-release final report aggregation remains pending.","UAT checklist remains pending before production_ready.","Production deployment runbook remains pending.","Privacy data import guard remains pending."]
+}
