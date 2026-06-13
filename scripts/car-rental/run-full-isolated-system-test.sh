@@ -161,6 +161,18 @@ run_codex_dry_run_stage() {
   fi
 }
 
+run_final_aggregation_stage() {
+  local script="scripts/car-rental/generate-pre-release-final-report.ts"
+  local report="test-data/generated/car-rental-pre-release-final-report.generated.json"
+  printf '\n==> Pre-release final report aggregation Codex report aggregation\n'
+  if [ -f "${ROOT_DIR}/${script}" ]; then
+    node --experimental-strip-types "${ROOT_DIR}/${script}"
+    record_codex_dry_run "final-aggregation" "Pre-release final report aggregation" "$script" "$report" "当前执行模式为 codex_report_aggregation；总报告必须 production_ready=false；当前不要求用户本地运行。"
+  else
+    record_skipped "final-aggregation" "Pre-release final report aggregation" "$script" "$report" "final aggregation 脚本尚未实现。"
+  fi
+}
+
 join_json_array() {
   local first="true"
   printf '['
@@ -253,6 +265,7 @@ main() {
   run_codex_dry_run_stage "gps-mock" "GPS mock test Codex dry-run" "scripts/car-rental/run-isolated-gps-mock-test.sh" "test-data/generated/car-rental-gps-mock-dry-run.generated.json" "当前执行模式为 codex_dry_run / codex_mock_report；GPS mock 真实本地执行仍为 pre-release local execution；当前不要求用户本地运行。"
   run_codex_dry_run_stage "backup-rollback" "Backup / rollback rehearsal Codex dry-run" "scripts/car-rental/run-isolated-backup-rollback-rehearsal-test.sh" "test-data/generated/car-rental-backup-rollback-rehearsal-dry-run.generated.json" "当前执行模式为 codex_dry_run / codex_mock_report；Backup / rollback rehearsal 真实本地执行仍为 pre-release local execution；当前不要求用户本地运行。"
   run_codex_dry_run_stage "production-init-guard" "Production init guard Codex dry-run" "scripts/car-rental/run-production-init-guard-dry-run.sh" "test-data/generated/car-rental-production-init-guard-dry-run.generated.json" "当前执行模式为 codex_dry_run / codex_mock_report；Production init guard 真实本地执行仍为 pre-release local execution；当前不要求用户本地运行。"
+  run_final_aggregation_stage
 
   write_reports
   printf '\n一键隔离总测试完成：passed=%s failed=%s skipped=%s\n' "$PASSED" "$FAILED" "$SKIPPED"
