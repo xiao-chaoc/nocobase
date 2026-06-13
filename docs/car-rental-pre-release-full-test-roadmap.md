@@ -153,7 +153,7 @@
 | GPS mock 测试 | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | GPS mock dry-run、JSON / Markdown 报告、修改项清单、校验脚本和测试已建立；禁止真实 IOPGPS |
 | 备份 / 回滚演练 | codex_dry_run 已建立；真实执行仍为 local_pre_release | Codex | Backup / rollback rehearsal dry-run、JSON / Markdown 报告、修改项清单、校验脚本和测试已建立；当前不生成本地 dump |
 | 正式版前本地/NAS 总执行 | local_pre_release | 用户在正式版前执行 | 重新 clone、新目录、新 env、新 DB volume、新 storage 后运行总测试 |
-| 生产初始化 | next_codex_task | 用户 + Codex runbook | Production init guard stage 是下一轮 Codex 任务；生产初始化必须与测试初始化分离，mock data cannot enter production |
+| 生产初始化 | codex_dry_run 已建立；真实执行仍为 local_pre_release | 用户 + Codex runbook | Production init guard dry-run 已建立；生产初始化必须与测试初始化分离，mock data cannot enter production |
 
 ### Codex-only 阶段规则
 
@@ -177,7 +177,7 @@
 - GPS mock test 真实执行仍为 local_pre_release。
 - Backup/rollback rehearsal 阶段标记为 codex_dry_run 已建立。
 - Backup/rollback rehearsal 真实执行仍为 local_pre_release。
-- Production init guard 阶段标记为 next_codex_task。
+- Production init guard 阶段标记为 codex_dry_run 已建立；真实执行仍为 local_pre_release。
 
 
 ## Contract document test 阶段更新（2026-06-12）
@@ -190,7 +190,7 @@
 - GPS mock test 真实执行仍为 local_pre_release。
 - Backup/rollback rehearsal 阶段标记为 codex_dry_run 已建立。
 - Backup/rollback rehearsal 真实执行仍为 local_pre_release。
-- Production init guard 阶段标记为 next_codex_task。
+- Production init guard 阶段标记为 codex_dry_run 已建立；真实执行仍为 local_pre_release。
 
 
 ## GPS mock test 阶段更新（2026-06-12）
@@ -201,7 +201,7 @@
 - production_ready=false。
 - Backup/rollback rehearsal 阶段标记为 codex_dry_run 已建立。
 - Backup/rollback rehearsal 真实执行仍为 local_pre_release。
-- Production init guard 阶段标记为 next_codex_task。
+- Production init guard 阶段标记为 codex_dry_run 已建立；真实执行仍为 local_pre_release。
 
 
 ## Backup / rollback rehearsal 阶段更新（2026-06-12）
@@ -211,4 +211,18 @@
 - 当前不要求用户本地运行；用户已删除本地 NAS 测试环境，因此当前没有有效本地 dump。
 - dump / SQL / filled request 不得提交。
 - production_ready=false。
-- Production init guard 阶段标记为 next_codex_task。
+- Production init guard 阶段标记为 codex_dry_run 已建立；真实执行仍为 local_pre_release。
+
+## Production init guard 阶段更新（2026-06-13）
+
+- Production init guard 阶段标记为 codex_dry_run 已建立。
+- Production init guard 真实执行仍为 local_pre_release。
+- 已添加生产初始化门禁计划、生产 env example、生产部署边界文档、dry-run guard 脚本、生产防 mock 校验、JSON / Markdown 报告、修改项清单、阶段校验脚本和测试。
+- 当前不要求用户本地运行，不配置真实生产 env，不启动生产容器，不初始化生产库。
+- 生产不得导入 mock 数据，生产不得复用测试 volume / storage / dump / env。
+- production_ready=false。
+- 所有 Codex-only dry-run 阶段已完成后，下一阶段为：
+  - Pre-release final report aggregation。
+  - UAT checklist。
+  - Production deployment runbook。
+  - Privacy data import guard。

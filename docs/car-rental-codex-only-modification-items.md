@@ -10,12 +10,15 @@
 - Contract document test 阶段：已建立 dry-run 阶段，仍需后续真实 pre-release 本地验证。
 - GPS mock test 阶段：已建立 dry-run 阶段，仍需后续真实 pre-release 本地验证。
 - Backup/rollback rehearsal 阶段：已建立 dry-run 阶段，仍需后续真实 pre-release 本地验证。
-- Production init guard stage.
+- Production init guard 阶段：已建立 dry-run 阶段，仍需正式版前本地/NAS 验证和人工生产配置确认。
 - 完整 pre-release 总报告。
 
 ## 下一优先级
 
-1. Production init guard stage.
+1. Pre-release final report aggregation.
+2. UAT checklist.
+3. Production deployment runbook.
+4. Privacy data import guard.
 
 ## 当前不由用户执行的项目
 
@@ -57,7 +60,10 @@
 - Mock data import 真实执行仍为 local_pre_release。
 - 当前不要求用户本地运行。
 - 下一优先级：
-  - Production init guard stage.
+  - Pre-release final report aggregation.
+  - UAT checklist.
+  - Production deployment runbook.
+  - Privacy data import guard.
 
 ## Business smoke test 阶段更新（2026-06-12）
 
@@ -68,7 +74,10 @@
 - production_ready=false。
 - 不启用真实 IOPGPS，mock 数据不得进入生产。
 - 下一优先级：
-  - Production init guard stage.
+  - Pre-release final report aggregation.
+  - UAT checklist.
+  - Production deployment runbook.
+  - Privacy data import guard.
 
 
 ## Contract document test 阶段更新（2026-06-12）
@@ -80,7 +89,10 @@
 - production_ready=false。
 - 不启用真实 IOPGPS，mock 数据不得进入生产，mock 数据不能进入生产。
 - 下一优先级：
-  - Production init guard stage.
+  - Pre-release final report aggregation.
+  - UAT checklist.
+  - Production deployment runbook.
+  - Privacy data import guard.
 
 
 ## GPS mock test 阶段更新（2026-06-12）
@@ -93,7 +105,10 @@
 - 不启用真实 IOPGPS，mock 数据不得进入生产，mock 数据不能进入生产。
 - GPS 不参与租金计算，GPS 失败不影响租金台账、付款分配、押金或合同文档。
 - 下一优先级：
-  - Production init guard stage.
+  - Pre-release final report aggregation.
+  - UAT checklist.
+  - Production deployment runbook.
+  - Privacy data import guard.
 
 
 ## Backup / rollback rehearsal 阶段更新（2026-06-12）
@@ -106,4 +121,20 @@
 - dump / SQL / filled request 不得提交。
 - production_ready=false。
 - 下一优先级：
-  - Production init guard stage.
+  - Pre-release final report aggregation.
+  - UAT checklist.
+  - Production deployment runbook.
+  - Privacy data import guard.
+
+## Production init guard 阶段更新（2026-06-13）
+
+- Production init guard 阶段已建立 dry-run 阶段，仍需正式版前本地/NAS 验证和人工生产配置确认。
+- 已添加生产初始化门禁计划、生产 env example、生产部署边界文档、dry-run guard 脚本、生产防 mock 校验、JSON / Markdown 报告、修改项清单、阶段校验脚本和测试。
+- 生产初始化真实执行仍为 local_pre_release。
+- 当前不要求用户本地运行，不要求配置真实生产 env，不启动生产容器，不初始化生产库。
+- production_ready=false。
+- 下一优先级：
+  - Pre-release final report aggregation.
+  - UAT checklist.
+  - Production deployment runbook.
+  - Privacy data import guard.
